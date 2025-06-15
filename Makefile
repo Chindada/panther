@@ -56,6 +56,10 @@ compile-py: check
 	--proto_path=protos/v1 \
 	./protos/v1/*/*.proto
 
+build-py: check
+	@rm -rf dist
+	@$(PYTHON) -m build
+
 check: ## check environment
 ifneq ($(PYTHON),$(PWD)/venv/bin/python3)
 	$(error "Please run 'make venv' first")
@@ -63,7 +67,7 @@ endif
 	@echo "Venv python version: $(shell $(PYTHON) --version | awk '{print $$2}')"
 	@echo "Python path: $(PYTHON)"
 	@$(PIP) install --upgrade pip
-	@$(PIP) install -U --no-warn-script-location --no-cache-dir grpcio-tools
+	@$(PIP) install -U --no-warn-script-location --no-cache-dir grpcio-tools build
 
 clean:
 	@rm -rf venv
