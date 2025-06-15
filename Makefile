@@ -3,7 +3,7 @@ PIP=$(shell which pip3)
 PROTOC_PATH=$(shell which protoc)
 PROTOC_INCLUDE_PATH=$(shell dirname $(shell dirname "$(PROTOC_PATH)"))
 
-compile: compile-go compile-ts compile-dart compile-py update
+compile: compile-go compile-ts compile-dart compile-py build-py update
 
 compile-go:
 	@rm -rf golang && mkdir -p golang

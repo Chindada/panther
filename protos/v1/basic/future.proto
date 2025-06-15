@@ -1,0 +1,54 @@
+syntax            = "proto3";
+option go_package = "./pb";
+package basic;
+
+// {
+//     "category": "XEF",
+//     "code": "XEFI5",
+//     "currency": "TWD",
+//     "day_trade": "No",
+//     "delivery_date": "2025/09/17",
+//     "delivery_month": "202509",
+//     "exchange": "TAIFEX",
+//     "limit_down": 1.1251,
+//     "limit_up": 1.1945,
+//     "margin_trading_balance": 0,
+//     "multiplier": 0,
+//     "name": "\u6b50\u5143\u514c\u7f8e\u5143\u671f\u8ca809",
+//     "option_right": "",
+//     "reference": 1.1598,
+//     "security_type": "FUT",
+//     "short_selling_balance": 0,
+//     "strike_price": 0,
+//     "symbol": "XEF202509",
+//     "target_code": "",
+//     "underlying_code": "",
+//     "underlying_kind": "E",
+//     "unit": 1,
+//     "update_date": "2025/06/13"
+// }
+message FutureDetail {
+    string category              = 1;
+    string code                  = 2;
+    string currency              = 3;
+    string day_trade             = 4;
+    string delivery_date         = 5;
+    string delivery_month        = 6;
+    string exchange              = 7;
+    double limit_down            = 8;
+    double limit_up              = 9;
+    int64 margin_trading_balance = 10;
+    int64 multiplier             = 11;
+    string name                  = 12;
+    string option_right          = 13;
+    double reference             = 14;
+    string security_type         = 15;
+    int64 short_selling_balance  = 16;
+    int64 strike_price           = 17;
+    string symbol                = 18;
+    string target_code           = 19;
+    string underlying_code       = 20;
+    string underlying_kind       = 21;
+    int64 unit                   = 22;
+    string update_date           = 23;
+}

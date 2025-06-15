@@ -1,0 +1,54 @@
+syntax            = "proto3";
+option go_package = "./pb";
+package basic;
+
+// {
+//     "category": "TXO",
+//     "code": "TXO26600F5",
+//     "currency": "TWD",
+//     "day_trade": "No",
+//     "delivery_date": "2025/06/18",
+//     "delivery_month": "202506",
+//     "exchange": "TAIFEX",
+//     "limit_down": 0.1,
+//     "limit_up": 2220.0,
+//     "margin_trading_balance": 0,
+//     "multiplier": 0,
+//     "name": "\u81fa\u6307\u9078\u64c7\u6b0a06\u670826600C",
+//     "option_right": "C",
+//     "reference": 0.1,
+//     "security_type": "OPT",
+//     "short_selling_balance": 0,
+//     "strike_price": 26600.0,
+//     "symbol": "TXO20250626600C",
+//     "target_code": "",
+//     "underlying_code": "",
+//     "underlying_kind": "I",
+//     "unit": 1,
+//     "update_date": "2025/06/13"
+// }
+message OptionDetail {
+    string category              = 1;
+    string code                  = 2;
+    string currency              = 3;
+    string day_trade             = 4;
+    string delivery_date         = 5;
+    string delivery_month        = 6;
+    string exchange              = 7;
+    double limit_down            = 8;
+    double limit_up              = 9;
+    int64 margin_trading_balance = 10;
+    int64 multiplier             = 11;
+    string name                  = 12;
+    string option_right          = 13;
+    double reference             = 14;
+    string security_type         = 15;
+    int64 short_selling_balance  = 16;
+    double strike_price          = 17;
+    string symbol                = 18;
+    string target_code           = 19;
+    string underlying_code       = 20;
+    string underlying_kind       = 21;
+    int64 unit                   = 22;
+    string update_date           = 23;
+}
