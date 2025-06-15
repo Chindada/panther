@@ -1,0 +1,31 @@
+syntax            = "proto3";
+option go_package = "./pb";
+package auth;
+
+// class APISecret(BaseModel):
+//     api_key: str
+//     api_key_secret: str
+message APISecret {
+    string api_key        = 1;
+    string api_key_secret = 2;
+}
+
+// class CASecret(BaseModel):
+//     person_id: str
+//     ca_path: str
+//     ca_password: str
+message CASecret {
+    string person_id   = 1;
+    string ca_path     = 2;
+    string ca_password = 3;
+}
+
+// class ShioajiAuth(BaseModel):
+//     name: str
+//     api_secret: APISecret
+//     ca_secret: CASecret
+message ShioajiAuth {
+    string name          = 1;
+    APISecret api_secret = 2;
+    CASecret ca_secret   = 3;
+}

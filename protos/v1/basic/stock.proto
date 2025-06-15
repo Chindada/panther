@@ -1,0 +1,54 @@
+syntax            = "proto3";
+option go_package = "./pb";
+package basic;
+
+// {
+//     "category": "03",
+//     "code": "1321",
+//     "currency": "TWD",
+//     "day_trade": "Yes",
+//     "delivery_date": "",
+//     "delivery_month": "",
+//     "exchange": "TSE",
+//     "limit_down": 32.95,
+//     "limit_up": 40.25,
+//     "margin_trading_balance": 128,
+//     "multiplier": 0,
+//     "name": "\u5927\u6d0b",
+//     "option_right": "",
+//     "reference": 36.6,
+//     "security_type": "STK",
+//     "short_selling_balance": 45,
+//     "strike_price": 0,
+//     "symbol": "TSE1321",
+//     "target_code": "",
+//     "underlying_code": "",
+//     "underlying_kind": "",
+//     "unit": 1000,
+//     "update_date": "2025/06/13"
+// }
+message StockDetail {
+    string category              = 1;
+    string code                  = 2;
+    string currency              = 3;
+    string day_trade             = 4;
+    string delivery_date         = 5;
+    string delivery_month        = 6;
+    string exchange              = 7;
+    double limit_down            = 8;
+    double limit_up              = 9;
+    int64 margin_trading_balance = 10;
+    int64 multiplier             = 11;
+    string name                  = 12;
+    string option_right          = 13;
+    double reference             = 14;
+    string security_type         = 15;
+    int64 short_selling_balance  = 16;
+    int64 strike_price           = 17;
+    string symbol                = 18;
+    string target_code           = 19;
+    string underlying_code       = 20;
+    string underlying_kind       = 21;
+    int64 unit                   = 22;
+    string update_date           = 23;
+}

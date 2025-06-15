@@ -1,0 +1,15 @@
+{
+  "name": "@chindada/panther",
+  "version": "0.0.0",
+  "description": "pre-compiled protobuf for trading system",
+  "homepage": "https://github.com/Chindada/panther#readme",
+  "bugs": {
+    "url": "https://github.com/Chindada/panther/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chindada/panther.git"
+  },
+  "license": "ISC",
+  "author": "Tim Hsu"
+}
