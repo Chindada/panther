@@ -3,7 +3,7 @@ PIP=$(shell which pip3)
 PROTOC_PATH=$(shell which protoc)
 PROTOC_INCLUDE_PATH=$(shell dirname $(shell dirname "$(PROTOC_PATH)"))
 
-compile: compile-go compile-ts compile-dart compile-py build-py update
+compile: pre build-capitan compile-go compile-ts compile-dart compile-py build-py update
 
 compile-go:
 	@rm -rf golang && mkdir -p golang
@@ -87,3 +87,13 @@ dart-update:
 	@./scripts/dart_update.sh
 
 update: go-mod-update npm-update dart-update
+
+pre:
+	@go install github.com/go-bindata/go-bindata/...@latest
+
+build-capitan: pre
+	@rm -f migrations/capitan/bindata.go
+	@go-bindata -o migrations/capitan/bindata.go -prefix migrations/capitan -pkg migrations migrations/capitan
+
+migrate-create-capitan:
+	@migrate create -ext sql -dir migrations/capitan -tz "Asia/Taipei" -seq -digits 4 'capitan'
