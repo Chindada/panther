@@ -63,6 +63,7 @@ compile-py: check
 	@touch python/panther/__init__.py
 	@touch python/panther/auth/__init__.py
 	@touch python/panther/basic/__init__.py
+	@touch python/panther/basic/grpc/__init__.py
 
 build-py: check
 	@rm -rf dist
