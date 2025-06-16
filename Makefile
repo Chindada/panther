@@ -57,9 +57,6 @@ compile-py: check
 	./protos/v1/*/*.proto
 
 	@./scripts/modify_py_import.sh python/panther
-	@touch python/panther/__init__.py
-	@touch python/panther/auth/__init__.py
-	@touch python/panther/basic/__init__.py
 
 build-py: check
 	@rm -rf dist
