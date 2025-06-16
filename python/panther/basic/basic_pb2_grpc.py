@@ -3,9 +3,9 @@
 import grpc
 import warnings
 
-from basic import future_pb2 as basic_dot_future__pb2
-from basic import option_pb2 as basic_dot_option__pb2
-from basic import stock_pb2 as basic_dot_stock__pb2
+from panther.basic import future_pb2 as basic_dot_future__pb2
+from panther.basic import option_pb2 as basic_dot_option__pb2
+from panther.basic import stock_pb2 as basic_dot_stock__pb2
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 
 GRPC_GENERATED_VERSION = '1.73.0'

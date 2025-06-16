@@ -23,9 +23,9 @@ _sym_db = _symbol_database.Default()
 
 
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
-from basic import stock_pb2 as basic_dot_stock__pb2
-from basic import future_pb2 as basic_dot_future__pb2
-from basic import option_pb2 as basic_dot_option__pb2
+from panther.basic import stock_pb2 as basic_dot_stock__pb2
+from panther.basic import future_pb2 as basic_dot_future__pb2
+from panther.basic import option_pb2 as basic_dot_option__pb2
 
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11\x62\x61sic/basic.proto\x12\x05\x62\x61sic\x1a\x1bgoogle/protobuf/empty.proto\x1a\x11\x62\x61sic/stock.proto\x1a\x12\x62\x61sic/future.proto\x1a\x12\x62\x61sic/option.proto2\xe1\x01\n\x12\x42\x61sicDataInterface\x12\x41\n\x11GetAllStockDetail\x12\x16.google.protobuf.Empty\x1a\x12.basic.StockDetail\"\x00\x12\x43\n\x12GetAllFutureDetail\x12\x16.google.protobuf.Empty\x1a\x13.basic.FutureDetail\"\x00\x12\x43\n\x12GetAllOptionDetail\x12\x16.google.protobuf.Empty\x1a\x13.basic.OptionDetail\"\x00\x42\x06Z\x04./pbb\x06proto3')
