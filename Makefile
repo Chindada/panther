@@ -13,7 +13,8 @@ compile-go:
 	--proto_path=protos/v1 \
 	--go_out=golang \
 	--go-grpc_out=golang \
-	./protos/v1/*/*.proto
+	./protos/v1/*/*.proto \
+	./protos/v1/*/grpc/*.proto
 	@. ./scripts/gomod_update.sh
 
 compile-ts:
@@ -27,6 +28,7 @@ compile-ts:
     --ts_opt=server_none \
     --ts_out=typescript \
 	./protos/v1/*/*.proto \
+	./protos/v1/*/grpc/*.proto \
 	$(PROTOC_INCLUDE_PATH)/include/google/protobuf/any.proto \
 	$(PROTOC_INCLUDE_PATH)/include/google/protobuf/duration.proto \
 	$(PROTOC_INCLUDE_PATH)/include/google/protobuf/empty.proto \
@@ -41,6 +43,7 @@ compile-dart:
 	--proto_path=protos/v1 \
 	--dart_out=lib \
 	./protos/v1/*/*.proto \
+	./protos/v1/*/grpc/*.proto \
 	$(PROTOC_INCLUDE_PATH)/include/google/protobuf/any.proto \
 	$(PROTOC_INCLUDE_PATH)/include/google/protobuf/duration.proto \
 	$(PROTOC_INCLUDE_PATH)/include/google/protobuf/empty.proto \
@@ -54,7 +57,9 @@ compile-py: check
 	--grpc_python_out=python/panther \
 	--python_out=pyi_out:python/panther \
 	--proto_path=protos/v1 \
-	./protos/v1/*/*.proto
+	./protos/v1/*/*.proto \
+	./protos/v1/*/grpc/*.proto
+
 	@touch python/panther/__init__.py
 	@touch python/panther/auth/__init__.py
 	@touch python/panther/basic/__init__.py
