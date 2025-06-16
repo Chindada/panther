@@ -1,0 +1,30 @@
+syntax            = "proto3";
+option go_package = "./pb";
+package system;
+
+import "google/protobuf/timestamp.proto";
+
+message BasicUser {
+    string email    = 1;
+    string username = 2;
+    string password = 3;
+}
+
+message LocalUser {
+    int64 id                  = 1;
+    BasicUser basic           = 2;
+    bool need_change_password = 3;
+
+    google.protobuf.Timestamp created_at = 31;
+    google.protobuf.Timestamp updated_at = 32;
+}
+
+message LocalUserList {
+    repeated LocalUser list = 1;
+}
+
+message Totp {
+    int64 id       = 1;
+    string secret  = 2;
+    string qr_code = 3;
+}

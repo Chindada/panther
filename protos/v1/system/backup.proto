@@ -1,0 +1,15 @@
+syntax            = "proto3";
+option go_package = "./pb";
+package system;
+
+import "google/protobuf/timestamp.proto";
+
+message Backup {
+    string name                          = 1;
+    string path                          = 2;
+    google.protobuf.Timestamp created_at = 3;
+}
+
+message BackupList {
+    repeated Backup list = 1;
+}
