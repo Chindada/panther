@@ -55,6 +55,9 @@ compile-py: check
 	--python_out=pyi_out:python/panther \
 	--proto_path=protos/v1 \
 	./protos/v1/*/*.proto
+	@touch python/panther/__init__.py
+	@touch python/panther/auth/__init__.py
+	@touch python/panther/basic/__init__.py
 
 build-py: check
 	@rm -rf dist
