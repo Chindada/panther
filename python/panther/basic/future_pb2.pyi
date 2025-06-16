@@ -1,6 +1,8 @@
+from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Optional as _Optional
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -53,3 +55,9 @@ class FutureDetail(_message.Message):
     unit: int
     update_date: str
     def __init__(self, category: _Optional[str] = ..., code: _Optional[str] = ..., currency: _Optional[str] = ..., day_trade: _Optional[str] = ..., delivery_date: _Optional[str] = ..., delivery_month: _Optional[str] = ..., exchange: _Optional[str] = ..., limit_down: _Optional[float] = ..., limit_up: _Optional[float] = ..., margin_trading_balance: _Optional[int] = ..., multiplier: _Optional[int] = ..., name: _Optional[str] = ..., option_right: _Optional[str] = ..., reference: _Optional[float] = ..., security_type: _Optional[str] = ..., short_selling_balance: _Optional[int] = ..., strike_price: _Optional[int] = ..., symbol: _Optional[str] = ..., target_code: _Optional[str] = ..., underlying_code: _Optional[str] = ..., underlying_kind: _Optional[str] = ..., unit: _Optional[int] = ..., update_date: _Optional[str] = ...) -> None: ...
+
+class FutureDetailList(_message.Message):
+    __slots__ = ("list",)
+    LIST_FIELD_NUMBER: _ClassVar[int]
+    list: _containers.RepeatedCompositeFieldContainer[FutureDetail]
+    def __init__(self, list: _Optional[_Iterable[_Union[FutureDetail, _Mapping]]] = ...) -> None: ...

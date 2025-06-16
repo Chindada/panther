@@ -61,3 +61,16 @@ final $typed_data.Uint8List optionDetailDescriptor = $convert.base64Decode(
     'eWluZ0NvZGUSJwoPdW5kZXJseWluZ19raW5kGBUgASgJUg51bmRlcmx5aW5nS2luZBISCgR1bm'
     'l0GBYgASgDUgR1bml0Eh8KC3VwZGF0ZV9kYXRlGBcgASgJUgp1cGRhdGVEYXRl');
 
+@$core.Deprecated('Use optionDetailListDescriptor instead')
+const OptionDetailList$json = {
+  '1': 'OptionDetailList',
+  '2': [
+    {'1': 'list', '3': 1, '4': 3, '5': 11, '6': '.basic.OptionDetail', '10': 'list'},
+  ],
+};
+
+/// Descriptor for `OptionDetailList`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List optionDetailListDescriptor = $convert.base64Decode(
+    'ChBPcHRpb25EZXRhaWxMaXN0EicKBGxpc3QYASADKAsyEy5iYXNpYy5PcHRpb25EZXRhaWxSBG'
+    'xpc3Q=');
+

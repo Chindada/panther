@@ -352,6 +352,46 @@ class FutureDetail extends $pb.GeneratedMessage {
   void clearUpdateDate() => $_clearField(23);
 }
 
+class FutureDetailList extends $pb.GeneratedMessage {
+  factory FutureDetailList({
+    $core.Iterable<FutureDetail>? list,
+  }) {
+    final result = create();
+    if (list != null) result.list.addAll(list);
+    return result;
+  }
+
+  FutureDetailList._();
+
+  factory FutureDetailList.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
+  factory FutureDetailList.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'FutureDetailList', package: const $pb.PackageName(_omitMessageNames ? '' : 'basic'), createEmptyInstance: create)
+    ..pc<FutureDetail>(1, _omitFieldNames ? '' : 'list', $pb.PbFieldType.PM, subBuilder: FutureDetail.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  FutureDetailList clone() => FutureDetailList()..mergeFromMessage(this);
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  FutureDetailList copyWith(void Function(FutureDetailList) updates) => super.copyWith((message) => updates(message as FutureDetailList)) as FutureDetailList;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static FutureDetailList create() => FutureDetailList._();
+  @$core.override
+  FutureDetailList createEmptyInstance() => create();
+  static $pb.PbList<FutureDetailList> createRepeated() => $pb.PbList<FutureDetailList>();
+  @$core.pragma('dart2js:noInline')
+  static FutureDetailList getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FutureDetailList>(create);
+  static FutureDetailList? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $pb.PbList<FutureDetail> get list => $_getList(0);
+}
+
 
 const $core.bool _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
 const $core.bool _omitMessageNames = $core.bool.fromEnvironment('protobuf.omit_message_names');

@@ -61,3 +61,16 @@ final $typed_data.Uint8List stockDetailDescriptor = $convert.base64Decode(
     'aW5nQ29kZRInCg91bmRlcmx5aW5nX2tpbmQYFSABKAlSDnVuZGVybHlpbmdLaW5kEhIKBHVuaX'
     'QYFiABKANSBHVuaXQSHwoLdXBkYXRlX2RhdGUYFyABKAlSCnVwZGF0ZURhdGU=');
 
+@$core.Deprecated('Use stockDetailListDescriptor instead')
+const StockDetailList$json = {
+  '1': 'StockDetailList',
+  '2': [
+    {'1': 'list', '3': 1, '4': 3, '5': 11, '6': '.basic.StockDetail', '10': 'list'},
+  ],
+};
+
+/// Descriptor for `StockDetailList`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List stockDetailListDescriptor = $convert.base64Decode(
+    'Cg9TdG9ja0RldGFpbExpc3QSJgoEbGlzdBgBIAMoCzISLmJhc2ljLlN0b2NrRGV0YWlsUgRsaX'
+    'N0');
+

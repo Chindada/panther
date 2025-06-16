@@ -133,6 +133,15 @@ export interface StockDetail {
      */
     update_date: string;
 }
+/**
+ * @generated from protobuf message basic.StockDetailList
+ */
+export interface StockDetailList {
+    /**
+     * @generated from protobuf field: repeated basic.StockDetail list = 1
+     */
+    list: StockDetail[];
+}
 // @generated message type with reflection information, may provide speed optimized methods
 class StockDetail$Type extends MessageType<StockDetail> {
     constructor() {
@@ -356,3 +365,50 @@ class StockDetail$Type extends MessageType<StockDetail> {
  * @generated MessageType for protobuf message basic.StockDetail
  */
 export const StockDetail = new StockDetail$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class StockDetailList$Type extends MessageType<StockDetailList> {
+    constructor() {
+        super("basic.StockDetailList", [
+            { no: 1, name: "list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => StockDetail }
+        ]);
+    }
+    create(value?: PartialMessage<StockDetailList>): StockDetailList {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.list = [];
+        if (value !== undefined)
+            reflectionMergePartial<StockDetailList>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: StockDetailList): StockDetailList {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* repeated basic.StockDetail list */ 1:
+                    message.list.push(StockDetail.internalBinaryRead(reader, reader.uint32(), options));
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: StockDetailList, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* repeated basic.StockDetail list = 1; */
+        for (let i = 0; i < message.list.length; i++)
+            StockDetail.internalBinaryWrite(message.list[i], writer.tag(1, WireType.LengthDelimited).fork(), options).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message basic.StockDetailList
+ */
+export const StockDetailList = new StockDetailList$Type();

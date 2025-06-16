@@ -61,3 +61,16 @@ final $typed_data.Uint8List futureDetailDescriptor = $convert.base64Decode(
     'eWluZ0NvZGUSJwoPdW5kZXJseWluZ19raW5kGBUgASgJUg51bmRlcmx5aW5nS2luZBISCgR1bm'
     'l0GBYgASgDUgR1bml0Eh8KC3VwZGF0ZV9kYXRlGBcgASgJUgp1cGRhdGVEYXRl');
 
+@$core.Deprecated('Use futureDetailListDescriptor instead')
+const FutureDetailList$json = {
+  '1': 'FutureDetailList',
+  '2': [
+    {'1': 'list', '3': 1, '4': 3, '5': 11, '6': '.basic.FutureDetail', '10': 'list'},
+  ],
+};
+
+/// Descriptor for `FutureDetailList`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List futureDetailListDescriptor = $convert.base64Decode(
+    'ChBGdXR1cmVEZXRhaWxMaXN0EicKBGxpc3QYASADKAsyEy5iYXNpYy5GdXR1cmVEZXRhaWxSBG'
+    'xpc3Q=');
+

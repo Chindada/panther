@@ -52,3 +52,7 @@ message OptionDetail {
     int64 unit                   = 22;
     string update_date           = 23;
 }
+
+message OptionDetailList {
+    repeated OptionDetail list = 1;
+}
