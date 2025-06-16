@@ -10,52 +10,51 @@ compile-go:
 	@go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 	@go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 	@$(PROTOC_PATH) \
-	--proto_path=protos/v1 \
-	--go_out=golang \
-	--go-grpc_out=golang \
-	./protos/v1/*/*.proto
+		--proto_path=protos/v1 \
+		--go_out=golang \
+		--go-grpc_out=golang \
+		./protos/v1/*/*.proto
 	@. ./scripts/gomod_update.sh
 
 compile-ts:
 	@rm -rf typescript && mkdir -p typescript
 	@npm install -g @protobuf-ts/plugin
 	@$(PROTOC_PATH) \
-	--proto_path=protos/v1 \
-	--ts_opt=use_proto_field_name \
-	--ts_opt=long_type_number \
-    --ts_opt=force_client_none \
-    --ts_opt=server_none \
-    --ts_out=typescript \
-	./protos/v1/*/*.proto \
-	$(PROTOC_INCLUDE_PATH)/include/google/protobuf/any.proto \
-	$(PROTOC_INCLUDE_PATH)/include/google/protobuf/duration.proto \
-	$(PROTOC_INCLUDE_PATH)/include/google/protobuf/empty.proto \
-	$(PROTOC_INCLUDE_PATH)/include/google/protobuf/struct.proto \
-	$(PROTOC_INCLUDE_PATH)/include/google/protobuf/timestamp.proto \
-	$(PROTOC_INCLUDE_PATH)/include/google/protobuf/wrappers.proto
+		--proto_path=protos/v1 \
+		--ts_opt=use_proto_field_name \
+		--ts_opt=long_type_number \
+		--ts_opt=force_client_none \
+		--ts_opt=server_none \
+		--ts_out=typescript \
+		./protos/v1/*/*.proto \
+		$(PROTOC_INCLUDE_PATH)/include/google/protobuf/any.proto \
+		$(PROTOC_INCLUDE_PATH)/include/google/protobuf/duration.proto \
+		$(PROTOC_INCLUDE_PATH)/include/google/protobuf/empty.proto \
+		$(PROTOC_INCLUDE_PATH)/include/google/protobuf/struct.proto \
+		$(PROTOC_INCLUDE_PATH)/include/google/protobuf/timestamp.proto \
+		$(PROTOC_INCLUDE_PATH)/include/google/protobuf/wrappers.proto
 
 compile-dart:
 	@rm -rf lib && mkdir -p lib
 	@dart pub global activate --overwrite protoc_plugin
 	@$(PROTOC_PATH) \
-	--proto_path=protos/v1 \
-	--dart_out=lib \
-	./protos/v1/*/*.proto \
-	$(PROTOC_INCLUDE_PATH)/include/google/protobuf/any.proto \
-	$(PROTOC_INCLUDE_PATH)/include/google/protobuf/duration.proto \
-	$(PROTOC_INCLUDE_PATH)/include/google/protobuf/empty.proto \
-	$(PROTOC_INCLUDE_PATH)/include/google/protobuf/struct.proto \
-	$(PROTOC_INCLUDE_PATH)/include/google/protobuf/timestamp.proto \
-	$(PROTOC_INCLUDE_PATH)/include/google/protobuf/wrappers.proto
+		--proto_path=protos/v1 \
+		--dart_out=lib \
+		./protos/v1/*/*.proto \
+		$(PROTOC_INCLUDE_PATH)/include/google/protobuf/any.proto \
+		$(PROTOC_INCLUDE_PATH)/include/google/protobuf/duration.proto \
+		$(PROTOC_INCLUDE_PATH)/include/google/protobuf/empty.proto \
+		$(PROTOC_INCLUDE_PATH)/include/google/protobuf/struct.proto \
+		$(PROTOC_INCLUDE_PATH)/include/google/protobuf/timestamp.proto \
+		$(PROTOC_INCLUDE_PATH)/include/google/protobuf/wrappers.proto
 
 compile-py: check
 	@rm -rf python/panther && mkdir -p python/panther
 	@$(PYTHON) -m grpc_tools.protoc \
-	--grpc_python_out=python/panther \
-	--python_out=pyi_out:python/panther \
-	--proto_path=protos/v1 \
-	./protos/v1/*/*.proto
-
+		--grpc_python_out=python/panther \
+		--python_out=pyi_out:python/panther \
+		--proto_path=protos/v1 \
+		./protos/v1/*/*.proto
 	@./scripts/modify_py_import.sh python/panther
 
 build-py: check
