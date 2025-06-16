@@ -49,12 +49,16 @@ compile-dart:
 	$(PROTOC_INCLUDE_PATH)/include/google/protobuf/wrappers.proto
 
 compile-py: check
-	@rm -rf panther-py && mkdir -p panther-py
+	@rm -rf panther && mkdir -p panther
 	@$(PYTHON) -m grpc_tools.protoc \
-	--grpc_python_out=panther-py \
-	--python_out=pyi_out:panther-py \
+	--grpc_python_out=panther \
+	--python_out=pyi_out:panther \
 	--proto_path=protos/v1 \
 	./protos/v1/*/*.proto
+
+	@touch panther/__init__.py
+	@touch panther/auth/__init__.py
+	@touch panther/basic/__init__.py
 
 build-py: check
 	@rm -rf dist
