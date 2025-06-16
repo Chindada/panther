@@ -22,25 +22,28 @@ import 'stock.pbjson.dart' as $1;
 const $core.Map<$core.String, $core.dynamic> BasicDataInterfaceServiceBase$json = {
   '1': 'BasicDataInterface',
   '2': [
-    {'1': 'GetAllStockDetail', '2': '.google.protobuf.Empty', '3': '.basic.StockDetail', '4': {}},
-    {'1': 'GetAllFutureDetail', '2': '.google.protobuf.Empty', '3': '.basic.FutureDetail', '4': {}},
-    {'1': 'GetAllOptionDetail', '2': '.google.protobuf.Empty', '3': '.basic.OptionDetail', '4': {}},
+    {'1': 'GetAllStockDetail', '2': '.google.protobuf.Empty', '3': '.basic.StockDetailList', '4': {}},
+    {'1': 'GetAllFutureDetail', '2': '.google.protobuf.Empty', '3': '.basic.FutureDetailList', '4': {}},
+    {'1': 'GetAllOptionDetail', '2': '.google.protobuf.Empty', '3': '.basic.OptionDetailList', '4': {}},
   ],
 };
 
 @$core.Deprecated('Use basicDataInterfaceServiceDescriptor instead')
 const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> BasicDataInterfaceServiceBase$messageJson = {
   '.google.protobuf.Empty': $0.Empty$json,
+  '.basic.StockDetailList': $1.StockDetailList$json,
   '.basic.StockDetail': $1.StockDetail$json,
+  '.basic.FutureDetailList': $2.FutureDetailList$json,
   '.basic.FutureDetail': $2.FutureDetail$json,
+  '.basic.OptionDetailList': $3.OptionDetailList$json,
   '.basic.OptionDetail': $3.OptionDetail$json,
 };
 
 /// Descriptor for `BasicDataInterface`. Decode as a `google.protobuf.ServiceDescriptorProto`.
 final $typed_data.Uint8List basicDataInterfaceServiceDescriptor = $convert.base64Decode(
-    'ChJCYXNpY0RhdGFJbnRlcmZhY2USQQoRR2V0QWxsU3RvY2tEZXRhaWwSFi5nb29nbGUucHJvdG'
-    '9idWYuRW1wdHkaEi5iYXNpYy5TdG9ja0RldGFpbCIAEkMKEkdldEFsbEZ1dHVyZURldGFpbBIW'
-    'Lmdvb2dsZS5wcm90b2J1Zi5FbXB0eRoTLmJhc2ljLkZ1dHVyZURldGFpbCIAEkMKEkdldEFsbE'
-    '9wdGlvbkRldGFpbBIWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRoTLmJhc2ljLk9wdGlvbkRldGFp'
-    'bCIA');
+    'ChJCYXNpY0RhdGFJbnRlcmZhY2USRQoRR2V0QWxsU3RvY2tEZXRhaWwSFi5nb29nbGUucHJvdG'
+    '9idWYuRW1wdHkaFi5iYXNpYy5TdG9ja0RldGFpbExpc3QiABJHChJHZXRBbGxGdXR1cmVEZXRh'
+    'aWwSFi5nb29nbGUucHJvdG9idWYuRW1wdHkaFy5iYXNpYy5GdXR1cmVEZXRhaWxMaXN0IgASRw'
+    'oSR2V0QWxsT3B0aW9uRGV0YWlsEhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5GhcuYmFzaWMuT3B0'
+    'aW9uRGV0YWlsTGlzdCIA');
 

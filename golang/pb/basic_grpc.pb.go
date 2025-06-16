@@ -29,9 +29,9 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type BasicDataInterfaceClient interface {
-	GetAllStockDetail(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*StockDetail, error)
-	GetAllFutureDetail(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*FutureDetail, error)
-	GetAllOptionDetail(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*OptionDetail, error)
+	GetAllStockDetail(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*StockDetailList, error)
+	GetAllFutureDetail(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*FutureDetailList, error)
+	GetAllOptionDetail(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*OptionDetailList, error)
 }
 
 type basicDataInterfaceClient struct {
@@ -42,9 +42,9 @@ func NewBasicDataInterfaceClient(cc grpc.ClientConnInterface) BasicDataInterface
 	return &basicDataInterfaceClient{cc}
 }
 
-func (c *basicDataInterfaceClient) GetAllStockDetail(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*StockDetail, error) {
+func (c *basicDataInterfaceClient) GetAllStockDetail(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*StockDetailList, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StockDetail)
+	out := new(StockDetailList)
 	err := c.cc.Invoke(ctx, BasicDataInterface_GetAllStockDetail_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -52,9 +52,9 @@ func (c *basicDataInterfaceClient) GetAllStockDetail(ctx context.Context, in *em
 	return out, nil
 }
 
-func (c *basicDataInterfaceClient) GetAllFutureDetail(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*FutureDetail, error) {
+func (c *basicDataInterfaceClient) GetAllFutureDetail(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*FutureDetailList, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FutureDetail)
+	out := new(FutureDetailList)
 	err := c.cc.Invoke(ctx, BasicDataInterface_GetAllFutureDetail_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -62,9 +62,9 @@ func (c *basicDataInterfaceClient) GetAllFutureDetail(ctx context.Context, in *e
 	return out, nil
 }
 
-func (c *basicDataInterfaceClient) GetAllOptionDetail(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*OptionDetail, error) {
+func (c *basicDataInterfaceClient) GetAllOptionDetail(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*OptionDetailList, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OptionDetail)
+	out := new(OptionDetailList)
 	err := c.cc.Invoke(ctx, BasicDataInterface_GetAllOptionDetail_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -76,9 +76,9 @@ func (c *basicDataInterfaceClient) GetAllOptionDetail(ctx context.Context, in *e
 // All implementations must embed UnimplementedBasicDataInterfaceServer
 // for forward compatibility.
 type BasicDataInterfaceServer interface {
-	GetAllStockDetail(context.Context, *emptypb.Empty) (*StockDetail, error)
-	GetAllFutureDetail(context.Context, *emptypb.Empty) (*FutureDetail, error)
-	GetAllOptionDetail(context.Context, *emptypb.Empty) (*OptionDetail, error)
+	GetAllStockDetail(context.Context, *emptypb.Empty) (*StockDetailList, error)
+	GetAllFutureDetail(context.Context, *emptypb.Empty) (*FutureDetailList, error)
+	GetAllOptionDetail(context.Context, *emptypb.Empty) (*OptionDetailList, error)
 	mustEmbedUnimplementedBasicDataInterfaceServer()
 }
 
@@ -89,13 +89,13 @@ type BasicDataInterfaceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedBasicDataInterfaceServer struct{}
 
-func (UnimplementedBasicDataInterfaceServer) GetAllStockDetail(context.Context, *emptypb.Empty) (*StockDetail, error) {
+func (UnimplementedBasicDataInterfaceServer) GetAllStockDetail(context.Context, *emptypb.Empty) (*StockDetailList, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllStockDetail not implemented")
 }
-func (UnimplementedBasicDataInterfaceServer) GetAllFutureDetail(context.Context, *emptypb.Empty) (*FutureDetail, error) {
+func (UnimplementedBasicDataInterfaceServer) GetAllFutureDetail(context.Context, *emptypb.Empty) (*FutureDetailList, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllFutureDetail not implemented")
 }
-func (UnimplementedBasicDataInterfaceServer) GetAllOptionDetail(context.Context, *emptypb.Empty) (*OptionDetail, error) {
+func (UnimplementedBasicDataInterfaceServer) GetAllOptionDetail(context.Context, *emptypb.Empty) (*OptionDetailList, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllOptionDetail not implemented")
 }
 func (UnimplementedBasicDataInterfaceServer) mustEmbedUnimplementedBasicDataInterfaceServer() {}

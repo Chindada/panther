@@ -27,14 +27,14 @@ class BasicDataInterfaceApi {
 
   BasicDataInterfaceApi(this._client);
 
-  $async.Future<$1.StockDetail> getAllStockDetail($pb.ClientContext? ctx, $0.Empty request) =>
-    _client.invoke<$1.StockDetail>(ctx, 'BasicDataInterface', 'GetAllStockDetail', request, $1.StockDetail())
+  $async.Future<$1.StockDetailList> getAllStockDetail($pb.ClientContext? ctx, $0.Empty request) =>
+    _client.invoke<$1.StockDetailList>(ctx, 'BasicDataInterface', 'GetAllStockDetail', request, $1.StockDetailList())
   ;
-  $async.Future<$2.FutureDetail> getAllFutureDetail($pb.ClientContext? ctx, $0.Empty request) =>
-    _client.invoke<$2.FutureDetail>(ctx, 'BasicDataInterface', 'GetAllFutureDetail', request, $2.FutureDetail())
+  $async.Future<$2.FutureDetailList> getAllFutureDetail($pb.ClientContext? ctx, $0.Empty request) =>
+    _client.invoke<$2.FutureDetailList>(ctx, 'BasicDataInterface', 'GetAllFutureDetail', request, $2.FutureDetailList())
   ;
-  $async.Future<$3.OptionDetail> getAllOptionDetail($pb.ClientContext? ctx, $0.Empty request) =>
-    _client.invoke<$3.OptionDetail>(ctx, 'BasicDataInterface', 'GetAllOptionDetail', request, $3.OptionDetail())
+  $async.Future<$3.OptionDetailList> getAllOptionDetail($pb.ClientContext? ctx, $0.Empty request) =>
+    _client.invoke<$3.OptionDetailList>(ctx, 'BasicDataInterface', 'GetAllOptionDetail', request, $3.OptionDetailList())
   ;
 }
 

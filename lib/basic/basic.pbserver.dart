@@ -24,9 +24,9 @@ import 'stock.pb.dart' as $1;
 export 'basic.pb.dart';
 
 abstract class BasicDataInterfaceServiceBase extends $pb.GeneratedService {
-  $async.Future<$1.StockDetail> getAllStockDetail($pb.ServerContext ctx, $0.Empty request);
-  $async.Future<$2.FutureDetail> getAllFutureDetail($pb.ServerContext ctx, $0.Empty request);
-  $async.Future<$3.OptionDetail> getAllOptionDetail($pb.ServerContext ctx, $0.Empty request);
+  $async.Future<$1.StockDetailList> getAllStockDetail($pb.ServerContext ctx, $0.Empty request);
+  $async.Future<$2.FutureDetailList> getAllFutureDetail($pb.ServerContext ctx, $0.Empty request);
+  $async.Future<$3.OptionDetailList> getAllOptionDetail($pb.ServerContext ctx, $0.Empty request);
 
   $pb.GeneratedMessage createRequest($core.String methodName) {
     switch (methodName) {

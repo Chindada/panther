@@ -40,17 +40,17 @@ class BasicDataInterfaceStub(object):
         self.GetAllStockDetail = channel.unary_unary(
                 '/basic.BasicDataInterface/GetAllStockDetail',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-                response_deserializer=basic_dot_stock__pb2.StockDetail.FromString,
+                response_deserializer=basic_dot_stock__pb2.StockDetailList.FromString,
                 _registered_method=True)
         self.GetAllFutureDetail = channel.unary_unary(
                 '/basic.BasicDataInterface/GetAllFutureDetail',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-                response_deserializer=basic_dot_future__pb2.FutureDetail.FromString,
+                response_deserializer=basic_dot_future__pb2.FutureDetailList.FromString,
                 _registered_method=True)
         self.GetAllOptionDetail = channel.unary_unary(
                 '/basic.BasicDataInterface/GetAllOptionDetail',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-                response_deserializer=basic_dot_option__pb2.OptionDetail.FromString,
+                response_deserializer=basic_dot_option__pb2.OptionDetailList.FromString,
                 _registered_method=True)
 
 
@@ -81,17 +81,17 @@ def add_BasicDataInterfaceServicer_to_server(servicer, server):
             'GetAllStockDetail': grpc.unary_unary_rpc_method_handler(
                     servicer.GetAllStockDetail,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                    response_serializer=basic_dot_stock__pb2.StockDetail.SerializeToString,
+                    response_serializer=basic_dot_stock__pb2.StockDetailList.SerializeToString,
             ),
             'GetAllFutureDetail': grpc.unary_unary_rpc_method_handler(
                     servicer.GetAllFutureDetail,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                    response_serializer=basic_dot_future__pb2.FutureDetail.SerializeToString,
+                    response_serializer=basic_dot_future__pb2.FutureDetailList.SerializeToString,
             ),
             'GetAllOptionDetail': grpc.unary_unary_rpc_method_handler(
                     servicer.GetAllOptionDetail,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                    response_serializer=basic_dot_option__pb2.OptionDetail.SerializeToString,
+                    response_serializer=basic_dot_option__pb2.OptionDetailList.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -120,7 +120,7 @@ class BasicDataInterface(object):
             target,
             '/basic.BasicDataInterface/GetAllStockDetail',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            basic_dot_stock__pb2.StockDetail.FromString,
+            basic_dot_stock__pb2.StockDetailList.FromString,
             options,
             channel_credentials,
             insecure,
@@ -147,7 +147,7 @@ class BasicDataInterface(object):
             target,
             '/basic.BasicDataInterface/GetAllFutureDetail',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            basic_dot_future__pb2.FutureDetail.FromString,
+            basic_dot_future__pb2.FutureDetailList.FromString,
             options,
             channel_credentials,
             insecure,
@@ -174,7 +174,7 @@ class BasicDataInterface(object):
             target,
             '/basic.BasicDataInterface/GetAllOptionDetail',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            basic_dot_option__pb2.OptionDetail.FromString,
+            basic_dot_option__pb2.OptionDetailList.FromString,
             options,
             channel_credentials,
             insecure,

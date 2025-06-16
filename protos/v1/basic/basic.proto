@@ -8,7 +8,7 @@ import "basic/future.proto";
 import "basic/option.proto";
 
 service BasicDataInterface {
-    rpc GetAllStockDetail(google.protobuf.Empty) returns (basic.StockDetail) {}
-    rpc GetAllFutureDetail(google.protobuf.Empty) returns (basic.FutureDetail) {}
-    rpc GetAllOptionDetail(google.protobuf.Empty) returns (basic.OptionDetail) {}
+    rpc GetAllStockDetail(google.protobuf.Empty) returns (basic.StockDetailList) {}
+    rpc GetAllFutureDetail(google.protobuf.Empty) returns (basic.FutureDetailList) {}
+    rpc GetAllOptionDetail(google.protobuf.Empty) returns (basic.OptionDetailList) {}
 }
