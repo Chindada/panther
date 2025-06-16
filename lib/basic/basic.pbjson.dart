@@ -1,6 +1,6 @@
 //
 //  Generated code. Do not modify.
-//  source: basic/grpc/basic.proto
+//  source: basic/basic.proto
 //
 // @dart = 3.3
 
@@ -14,10 +14,10 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
-import '../../google/protobuf/empty.pbjson.dart' as $0;
-import '../future.pbjson.dart' as $2;
-import '../option.pbjson.dart' as $3;
-import '../stock.pbjson.dart' as $1;
+import '../google/protobuf/empty.pbjson.dart' as $0;
+import 'future.pbjson.dart' as $2;
+import 'option.pbjson.dart' as $3;
+import 'stock.pbjson.dart' as $1;
 
 const $core.Map<$core.String, $core.dynamic> BasicDataInterfaceServiceBase$json = {
   '1': 'BasicDataInterface',

@@ -1,6 +1,6 @@
 //
 //  Generated code. Do not modify.
-//  source: basic/grpc/basic.proto
+//  source: basic/basic.proto
 //
 // @dart = 3.3
 
@@ -15,10 +15,10 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../google/protobuf/empty.pb.dart' as $0;
-import '../future.pb.dart' as $2;
-import '../option.pb.dart' as $3;
-import '../stock.pb.dart' as $1;
+import '../google/protobuf/empty.pb.dart' as $0;
+import 'future.pb.dart' as $2;
+import 'option.pb.dart' as $3;
+import 'stock.pb.dart' as $1;
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 

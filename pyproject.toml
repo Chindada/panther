@@ -12,7 +12,7 @@ requires-python = ">=3.11"
 classifiers = ["Programming Language :: Python :: 3"]
 
 [tool.hatch.build.targets.wheel]
-packages = ["python/panther"]
+packages = ["panther-py"]
 
 [project.urls]
 Homepage = "https://github.com/Chindada/panther"

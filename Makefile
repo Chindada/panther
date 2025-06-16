@@ -13,8 +13,7 @@ compile-go:
 	--proto_path=protos/v1 \
 	--go_out=golang \
 	--go-grpc_out=golang \
-	./protos/v1/*/*.proto \
-	./protos/v1/*/grpc/*.proto
+	./protos/v1/*/*.proto
 	@. ./scripts/gomod_update.sh
 
 compile-ts:
@@ -28,7 +27,6 @@ compile-ts:
     --ts_opt=server_none \
     --ts_out=typescript \
 	./protos/v1/*/*.proto \
-	./protos/v1/*/grpc/*.proto \
 	$(PROTOC_INCLUDE_PATH)/include/google/protobuf/any.proto \
 	$(PROTOC_INCLUDE_PATH)/include/google/protobuf/duration.proto \
 	$(PROTOC_INCLUDE_PATH)/include/google/protobuf/empty.proto \
@@ -43,7 +41,6 @@ compile-dart:
 	--proto_path=protos/v1 \
 	--dart_out=lib \
 	./protos/v1/*/*.proto \
-	./protos/v1/*/grpc/*.proto \
 	$(PROTOC_INCLUDE_PATH)/include/google/protobuf/any.proto \
 	$(PROTOC_INCLUDE_PATH)/include/google/protobuf/duration.proto \
 	$(PROTOC_INCLUDE_PATH)/include/google/protobuf/empty.proto \
@@ -52,18 +49,12 @@ compile-dart:
 	$(PROTOC_INCLUDE_PATH)/include/google/protobuf/wrappers.proto
 
 compile-py: check
-	@rm -rf python/panther && mkdir -p python/panther
+	@rm -rf panther-py && mkdir -p panther-py
 	@$(PYTHON) -m grpc_tools.protoc \
-	--grpc_python_out=python/panther \
-	--python_out=pyi_out:python/panther \
+	--grpc_python_out=panther-py \
+	--python_out=pyi_out:panther-py \
 	--proto_path=protos/v1 \
-	./protos/v1/*/*.proto \
-	./protos/v1/*/grpc/*.proto
-
-	@touch python/panther/__init__.py
-	@touch python/panther/auth/__init__.py
-	@touch python/panther/basic/__init__.py
-	@touch python/panther/basic/grpc/__init__.py
+	./protos/v1/*/*.proto
 
 build-py: check
 	@rm -rf dist
