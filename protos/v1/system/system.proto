@@ -1,0 +1,17 @@
+syntax            = "proto3";
+option go_package = "./pb";
+package system;
+
+import "google/protobuf/timestamp.proto";
+
+message SystemBuild {
+    string version = 1;
+    string commit  = 2;
+}
+
+message SystemInfo {
+    google.protobuf.Timestamp launch_time = 1;
+    double disk_usage                     = 2;
+    SystemBuild core                      = 3;
+    SystemBuild web                       = 4;
+}
