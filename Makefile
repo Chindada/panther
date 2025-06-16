@@ -60,6 +60,7 @@ compile-py: check
 build-py: check
 	@rm -rf dist
 	@$(PYTHON) -m build
+	@rm -f dist/*.tar.gz
 
 check: ## check environment
 ifneq ($(PYTHON),$(PWD)/venv/bin/python3)
