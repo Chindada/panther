@@ -1,0 +1,14 @@
+syntax            = "proto3";
+option go_package = "./pb";
+package basic;
+
+import "google/protobuf/empty.proto";
+import "basic/stock.proto";
+import "basic/future.proto";
+import "basic/option.proto";
+
+service BasicDataInterface {
+    rpc GetAllStockDetail(google.protobuf.Empty) returns (basic.StockDetail) {}
+    rpc GetAllFutureDetail(google.protobuf.Empty) returns (basic.FutureDetail) {}
+    rpc GetAllOptionDetail(google.protobuf.Empty) returns (basic.OptionDetail) {}
+}

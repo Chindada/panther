@@ -56,3 +56,4 @@ lib/l10n
 TEMP.md
 
 venv
+node_modules
