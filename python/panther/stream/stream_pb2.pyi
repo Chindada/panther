@@ -18,6 +18,12 @@ class ShioajiEvent(_message.Message):
     event_time: str
     def __init__(self, resp_code: _Optional[int] = ..., event_code: _Optional[int] = ..., info: _Optional[str] = ..., event: _Optional[str] = ..., event_time: _Optional[str] = ...) -> None: ...
 
+class SubscribeFutureTickRequest(_message.Message):
+    __slots__ = ("code",)
+    CODE_FIELD_NUMBER: _ClassVar[int]
+    code: str
+    def __init__(self, code: _Optional[str] = ...) -> None: ...
+
 class FutureTick(_message.Message):
     __slots__ = ("code", "date_time", "open", "underlying_price", "bid_side_total_vol", "ask_side_total_vol", "avg_price", "close", "high", "low", "amount", "total_amount", "volume", "total_volume", "tick_type", "chg_type", "price_chg", "pct_chg", "simtrade")
     CODE_FIELD_NUMBER: _ClassVar[int]

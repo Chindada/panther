@@ -3,6 +3,7 @@
 import grpc
 import warnings
 
+from panther.stream import stream_pb2 as stream_dot_stream__pb2
 
 GRPC_GENERATED_VERSION = '1.73.0'
 GRPC_VERSION = grpc.__version__
@@ -22,3 +23,75 @@ if _version_not_supported:
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
+
+
+class StreamInterfaceStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.SubscribeFutureTick = channel.unary_stream(
+                '/stream.StreamInterface/SubscribeFutureTick',
+                request_serializer=stream_dot_stream__pb2.SubscribeFutureTickRequest.SerializeToString,
+                response_deserializer=stream_dot_stream__pb2.FutureTick.FromString,
+                _registered_method=True)
+
+
+class StreamInterfaceServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def SubscribeFutureTick(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_StreamInterfaceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'SubscribeFutureTick': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeFutureTick,
+                    request_deserializer=stream_dot_stream__pb2.SubscribeFutureTickRequest.FromString,
+                    response_serializer=stream_dot_stream__pb2.FutureTick.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'stream.StreamInterface', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('stream.StreamInterface', rpc_method_handlers)
+
+
+ # This class is part of an EXPERIMENTAL API.
+class StreamInterface(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def SubscribeFutureTick(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/stream.StreamInterface/SubscribeFutureTick',
+            stream_dot_stream__pb2.SubscribeFutureTickRequest.SerializeToString,
+            stream_dot_stream__pb2.FutureTick.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)

@@ -32,6 +32,18 @@ final $typed_data.Uint8List shioajiEventDescriptor = $convert.base64Decode(
     'RlGAIgASgDUglldmVudENvZGUSEgoEaW5mbxgDIAEoCVIEaW5mbxIUCgVldmVudBgEIAEoCVIF'
     'ZXZlbnQSHQoKZXZlbnRfdGltZRgFIAEoCVIJZXZlbnRUaW1l');
 
+@$core.Deprecated('Use subscribeFutureTickRequestDescriptor instead')
+const SubscribeFutureTickRequest$json = {
+  '1': 'SubscribeFutureTickRequest',
+  '2': [
+    {'1': 'code', '3': 1, '4': 1, '5': 9, '10': 'code'},
+  ],
+};
+
+/// Descriptor for `SubscribeFutureTickRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List subscribeFutureTickRequestDescriptor = $convert.base64Decode(
+    'ChpTdWJzY3JpYmVGdXR1cmVUaWNrUmVxdWVzdBISCgRjb2RlGAEgASgJUgRjb2Rl');
+
 @$core.Deprecated('Use futureTickDescriptor instead')
 const FutureTick$json = {
   '1': 'FutureTick',
@@ -71,4 +83,22 @@ final $typed_data.Uint8List futureTickDescriptor = $convert.base64Decode(
     'Y2tUeXBlEhkKCGNoZ190eXBlGBAgASgDUgdjaGdUeXBlEhsKCXByaWNlX2NoZxgRIAEoAVIIcH'
     'JpY2VDaGcSFwoHcGN0X2NoZxgSIAEoAVIGcGN0Q2hnEhoKCHNpbXRyYWRlGBMgASgIUghzaW10'
     'cmFkZQ==');
+
+const $core.Map<$core.String, $core.dynamic> StreamInterfaceServiceBase$json = {
+  '1': 'StreamInterface',
+  '2': [
+    {'1': 'SubscribeFutureTick', '2': '.stream.SubscribeFutureTickRequest', '3': '.stream.FutureTick', '4': {}, '6': true},
+  ],
+};
+
+@$core.Deprecated('Use streamInterfaceServiceDescriptor instead')
+const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> StreamInterfaceServiceBase$messageJson = {
+  '.stream.SubscribeFutureTickRequest': SubscribeFutureTickRequest$json,
+  '.stream.FutureTick': FutureTick$json,
+};
+
+/// Descriptor for `StreamInterface`. Decode as a `google.protobuf.ServiceDescriptorProto`.
+final $typed_data.Uint8List streamInterfaceServiceDescriptor = $convert.base64Decode(
+    'Cg9TdHJlYW1JbnRlcmZhY2USUQoTU3Vic2NyaWJlRnV0dXJlVGljaxIiLnN0cmVhbS5TdWJzY3'
+    'JpYmVGdXR1cmVUaWNrUmVxdWVzdBoSLnN0cmVhbS5GdXR1cmVUaWNrIgAwAQ==');
 

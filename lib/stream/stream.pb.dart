@@ -10,6 +10,7 @@
 // ignore_for_file: deprecated_member_use_from_same_package, library_prefixes
 // ignore_for_file: non_constant_identifier_names
 
+import 'dart:async' as $async;
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
@@ -109,6 +110,52 @@ class ShioajiEvent extends $pb.GeneratedMessage {
   $core.bool hasEventTime() => $_has(4);
   @$pb.TagNumber(5)
   void clearEventTime() => $_clearField(5);
+}
+
+class SubscribeFutureTickRequest extends $pb.GeneratedMessage {
+  factory SubscribeFutureTickRequest({
+    $core.String? code,
+  }) {
+    final result = create();
+    if (code != null) result.code = code;
+    return result;
+  }
+
+  SubscribeFutureTickRequest._();
+
+  factory SubscribeFutureTickRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
+  factory SubscribeFutureTickRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SubscribeFutureTickRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'stream'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'code')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  SubscribeFutureTickRequest clone() => SubscribeFutureTickRequest()..mergeFromMessage(this);
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  SubscribeFutureTickRequest copyWith(void Function(SubscribeFutureTickRequest) updates) => super.copyWith((message) => updates(message as SubscribeFutureTickRequest)) as SubscribeFutureTickRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static SubscribeFutureTickRequest create() => SubscribeFutureTickRequest._();
+  @$core.override
+  SubscribeFutureTickRequest createEmptyInstance() => create();
+  static $pb.PbList<SubscribeFutureTickRequest> createRepeated() => $pb.PbList<SubscribeFutureTickRequest>();
+  @$core.pragma('dart2js:noInline')
+  static SubscribeFutureTickRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SubscribeFutureTickRequest>(create);
+  static SubscribeFutureTickRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get code => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set code($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasCode() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCode() => $_clearField(1);
 }
 
 class FutureTick extends $pb.GeneratedMessage {
@@ -371,6 +418,16 @@ class FutureTick extends $pb.GeneratedMessage {
   $core.bool hasSimtrade() => $_has(18);
   @$pb.TagNumber(19)
   void clearSimtrade() => $_clearField(19);
+}
+
+class StreamInterfaceApi {
+  final $pb.RpcClient _client;
+
+  StreamInterfaceApi(this._client);
+
+  $async.Future<FutureTick> subscribeFutureTick($pb.ClientContext? ctx, SubscribeFutureTickRequest request) =>
+    _client.invoke<FutureTick>(ctx, 'StreamInterface', 'SubscribeFutureTick', request, FutureTick())
+  ;
 }
 
 

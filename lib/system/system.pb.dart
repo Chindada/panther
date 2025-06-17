@@ -14,7 +14,7 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../google/protobuf/timestamp.pb.dart' as $4;
+import '../google/protobuf/timestamp.pb.dart' as $5;
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
@@ -78,7 +78,7 @@ class SystemBuild extends $pb.GeneratedMessage {
 
 class SystemInfo extends $pb.GeneratedMessage {
   factory SystemInfo({
-    $4.Timestamp? launchTime,
+    $5.Timestamp? launchTime,
     $core.double? diskUsage,
     SystemBuild? core,
     SystemBuild? web,
@@ -97,7 +97,7 @@ class SystemInfo extends $pb.GeneratedMessage {
   factory SystemInfo.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SystemInfo', package: const $pb.PackageName(_omitMessageNames ? '' : 'system'), createEmptyInstance: create)
-    ..aOM<$4.Timestamp>(1, _omitFieldNames ? '' : 'launchTime', subBuilder: $4.Timestamp.create)
+    ..aOM<$5.Timestamp>(1, _omitFieldNames ? '' : 'launchTime', subBuilder: $5.Timestamp.create)
     ..a<$core.double>(2, _omitFieldNames ? '' : 'diskUsage', $pb.PbFieldType.OD)
     ..aOM<SystemBuild>(3, _omitFieldNames ? '' : 'core', subBuilder: SystemBuild.create)
     ..aOM<SystemBuild>(4, _omitFieldNames ? '' : 'web', subBuilder: SystemBuild.create)
@@ -122,15 +122,15 @@ class SystemInfo extends $pb.GeneratedMessage {
   static SystemInfo? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $4.Timestamp get launchTime => $_getN(0);
+  $5.Timestamp get launchTime => $_getN(0);
   @$pb.TagNumber(1)
-  set launchTime($4.Timestamp value) => $_setField(1, value);
+  set launchTime($5.Timestamp value) => $_setField(1, value);
   @$pb.TagNumber(1)
   $core.bool hasLaunchTime() => $_has(0);
   @$pb.TagNumber(1)
   void clearLaunchTime() => $_clearField(1);
   @$pb.TagNumber(1)
-  $4.Timestamp ensureLaunchTime() => $_ensure(0);
+  $5.Timestamp ensureLaunchTime() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.double get diskUsage => $_getN(1);

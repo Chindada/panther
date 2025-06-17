@@ -15,7 +15,7 @@ import 'dart:core' as $core;
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../google/protobuf/timestamp.pb.dart' as $4;
+import '../google/protobuf/timestamp.pb.dart' as $5;
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
@@ -94,8 +94,8 @@ class LocalUser extends $pb.GeneratedMessage {
     $fixnum.Int64? id,
     BasicUser? basic,
     $core.bool? needChangePassword,
-    $4.Timestamp? createdAt,
-    $4.Timestamp? updatedAt,
+    $5.Timestamp? createdAt,
+    $5.Timestamp? updatedAt,
   }) {
     final result = create();
     if (id != null) result.id = id;
@@ -115,8 +115,8 @@ class LocalUser extends $pb.GeneratedMessage {
     ..aInt64(1, _omitFieldNames ? '' : 'id')
     ..aOM<BasicUser>(2, _omitFieldNames ? '' : 'basic', subBuilder: BasicUser.create)
     ..aOB(3, _omitFieldNames ? '' : 'needChangePassword')
-    ..aOM<$4.Timestamp>(31, _omitFieldNames ? '' : 'createdAt', subBuilder: $4.Timestamp.create)
-    ..aOM<$4.Timestamp>(32, _omitFieldNames ? '' : 'updatedAt', subBuilder: $4.Timestamp.create)
+    ..aOM<$5.Timestamp>(31, _omitFieldNames ? '' : 'createdAt', subBuilder: $5.Timestamp.create)
+    ..aOM<$5.Timestamp>(32, _omitFieldNames ? '' : 'updatedAt', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -167,26 +167,26 @@ class LocalUser extends $pb.GeneratedMessage {
   void clearNeedChangePassword() => $_clearField(3);
 
   @$pb.TagNumber(31)
-  $4.Timestamp get createdAt => $_getN(3);
+  $5.Timestamp get createdAt => $_getN(3);
   @$pb.TagNumber(31)
-  set createdAt($4.Timestamp value) => $_setField(31, value);
+  set createdAt($5.Timestamp value) => $_setField(31, value);
   @$pb.TagNumber(31)
   $core.bool hasCreatedAt() => $_has(3);
   @$pb.TagNumber(31)
   void clearCreatedAt() => $_clearField(31);
   @$pb.TagNumber(31)
-  $4.Timestamp ensureCreatedAt() => $_ensure(3);
+  $5.Timestamp ensureCreatedAt() => $_ensure(3);
 
   @$pb.TagNumber(32)
-  $4.Timestamp get updatedAt => $_getN(4);
+  $5.Timestamp get updatedAt => $_getN(4);
   @$pb.TagNumber(32)
-  set updatedAt($4.Timestamp value) => $_setField(32, value);
+  set updatedAt($5.Timestamp value) => $_setField(32, value);
   @$pb.TagNumber(32)
   $core.bool hasUpdatedAt() => $_has(4);
   @$pb.TagNumber(32)
   void clearUpdatedAt() => $_clearField(32);
   @$pb.TagNumber(32)
-  $4.Timestamp ensureUpdatedAt() => $_ensure(4);
+  $5.Timestamp ensureUpdatedAt() => $_ensure(4);
 }
 
 class LocalUserList extends $pb.GeneratedMessage {

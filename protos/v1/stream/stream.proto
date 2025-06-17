@@ -2,12 +2,20 @@ syntax            = "proto3";
 option go_package = "./pb";
 package stream;
 
+service StreamInterface {
+    rpc SubscribeFutureTick(SubscribeFutureTickRequest) returns (stream FutureTick) {}
+}
+
 message ShioajiEvent {
     int64 resp_code   = 1;
     int64 event_code  = 2;
     string info       = 3;
     string event      = 4;
     string event_time = 5;
+}
+
+message SubscribeFutureTickRequest {
+    string code = 1;
 }
 
 message FutureTick {
