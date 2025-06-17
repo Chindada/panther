@@ -11,4 +11,6 @@ fi
 for file in $(find $SEARCH_DIR -name "*.py"); do
     sed -i '' 's/from auth import/from panther.auth import/g' $file
     sed -i '' 's/from basic import/from panther.basic import/g' $file
+    sed -i '' 's/from system import/from panther.system import/g' $file
+    sed -i '' 's/from stream import/from panther.stream import/g' $file
 done

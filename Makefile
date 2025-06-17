@@ -77,16 +77,10 @@ clean:
 venv: clean
 	@$(PYTHON) -m venv venv
 
-go-mod-update:
+update:
 	@./scripts/gomod_update.sh
-
-npm-update:
-	@./scripts/update_dependency.sh
-
-dart-update:
+	@./scripts/npm_update.sh
 	@./scripts/dart_update.sh
-
-update: go-mod-update npm-update dart-update
 
 pre:
 	@go install github.com/go-bindata/go-bindata/...@latest
