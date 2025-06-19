@@ -28,7 +28,7 @@ from panther.basic import future_pb2 as basic_dot_future__pb2
 from panther.basic import option_pb2 as basic_dot_option__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11\x62\x61sic/basic.proto\x12\x05\x62\x61sic\x1a\x1bgoogle/protobuf/empty.proto\x1a\x11\x62\x61sic/stock.proto\x1a\x12\x62\x61sic/future.proto\x1a\x12\x62\x61sic/option.proto2\xb0\x02\n\x12\x42\x61sicDataInterface\x12\x41\n\x0bHealthCheck\x12\x16.google.protobuf.Empty\x1a\x16.google.protobuf.Empty\"\x00(\x01\x12\x45\n\x11GetAllStockDetail\x12\x16.google.protobuf.Empty\x1a\x16.basic.StockDetailList\"\x00\x12G\n\x12GetAllFutureDetail\x12\x16.google.protobuf.Empty\x1a\x17.basic.FutureDetailList\"\x00\x12G\n\x12GetAllOptionDetail\x12\x16.google.protobuf.Empty\x1a\x17.basic.OptionDetailList\"\x00\x42\x06Z\x04./pbb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11\x62\x61sic/basic.proto\x12\x05\x62\x61sic\x1a\x1bgoogle/protobuf/empty.proto\x1a\x11\x62\x61sic/stock.proto\x1a\x12\x62\x61sic/future.proto\x1a\x12\x62\x61sic/option.proto2\xb4\x02\n\x12\x42\x61sicDataInterface\x12\x45\n\rHealthChannel\x12\x16.google.protobuf.Empty\x1a\x16.google.protobuf.Empty\"\x00(\x01\x30\x01\x12\x45\n\x11GetAllStockDetail\x12\x16.google.protobuf.Empty\x1a\x16.basic.StockDetailList\"\x00\x12G\n\x12GetAllFutureDetail\x12\x16.google.protobuf.Empty\x1a\x17.basic.FutureDetailList\"\x00\x12G\n\x12GetAllOptionDetail\x12\x16.google.protobuf.Empty\x1a\x17.basic.OptionDetailList\"\x00\x42\x06Z\x04./pbb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -37,5 +37,5 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z\004./pb'
   _globals['_BASICDATAINTERFACE']._serialized_start=117
-  _globals['_BASICDATAINTERFACE']._serialized_end=421
+  _globals['_BASICDATAINTERFACE']._serialized_end=425
 # @@protoc_insertion_point(module_scope)

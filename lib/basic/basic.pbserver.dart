@@ -24,14 +24,14 @@ import 'stock.pb.dart' as $1;
 export 'basic.pb.dart';
 
 abstract class BasicDataInterfaceServiceBase extends $pb.GeneratedService {
-  $async.Future<$0.Empty> healthCheck($pb.ServerContext ctx, $0.Empty request);
+  $async.Future<$0.Empty> healthChannel($pb.ServerContext ctx, $0.Empty request);
   $async.Future<$1.StockDetailList> getAllStockDetail($pb.ServerContext ctx, $0.Empty request);
   $async.Future<$2.FutureDetailList> getAllFutureDetail($pb.ServerContext ctx, $0.Empty request);
   $async.Future<$3.OptionDetailList> getAllOptionDetail($pb.ServerContext ctx, $0.Empty request);
 
   $pb.GeneratedMessage createRequest($core.String methodName) {
     switch (methodName) {
-      case 'HealthCheck': return $0.Empty();
+      case 'HealthChannel': return $0.Empty();
       case 'GetAllStockDetail': return $0.Empty();
       case 'GetAllFutureDetail': return $0.Empty();
       case 'GetAllOptionDetail': return $0.Empty();
@@ -41,7 +41,7 @@ abstract class BasicDataInterfaceServiceBase extends $pb.GeneratedService {
 
   $async.Future<$pb.GeneratedMessage> handleCall($pb.ServerContext ctx, $core.String methodName, $pb.GeneratedMessage request) {
     switch (methodName) {
-      case 'HealthCheck': return healthCheck(ctx, request as $0.Empty);
+      case 'HealthChannel': return healthChannel(ctx, request as $0.Empty);
       case 'GetAllStockDetail': return getAllStockDetail(ctx, request as $0.Empty);
       case 'GetAllFutureDetail': return getAllFutureDetail(ctx, request as $0.Empty);
       case 'GetAllOptionDetail': return getAllOptionDetail(ctx, request as $0.Empty);

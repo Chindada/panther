@@ -10,7 +10,7 @@ import { ServiceType } from "@protobuf-ts/runtime-rpc";
  * @generated ServiceType for protobuf service basic.BasicDataInterface
  */
 export const BasicDataInterface = new ServiceType("basic.BasicDataInterface", [
-    { name: "HealthCheck", clientStreaming: true, options: {}, I: Empty, O: Empty },
+    { name: "HealthChannel", serverStreaming: true, clientStreaming: true, options: {}, I: Empty, O: Empty },
     { name: "GetAllStockDetail", options: {}, I: Empty, O: StockDetailList },
     { name: "GetAllFutureDetail", options: {}, I: Empty, O: FutureDetailList },
     { name: "GetAllOptionDetail", options: {}, I: Empty, O: OptionDetailList }

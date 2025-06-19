@@ -27,8 +27,8 @@ class BasicDataInterfaceApi {
 
   BasicDataInterfaceApi(this._client);
 
-  $async.Future<$0.Empty> healthCheck($pb.ClientContext? ctx, $0.Empty request) =>
-    _client.invoke<$0.Empty>(ctx, 'BasicDataInterface', 'HealthCheck', request, $0.Empty())
+  $async.Future<$0.Empty> healthChannel($pb.ClientContext? ctx, $0.Empty request) =>
+    _client.invoke<$0.Empty>(ctx, 'BasicDataInterface', 'HealthChannel', request, $0.Empty())
   ;
   $async.Future<$1.StockDetailList> getAllStockDetail($pb.ClientContext? ctx, $0.Empty request) =>
     _client.invoke<$1.StockDetailList>(ctx, 'BasicDataInterface', 'GetAllStockDetail', request, $1.StockDetailList())
