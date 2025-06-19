@@ -1,4 +1,43 @@
 BEGIN;
+CREATE TABLE basic_stock(
+    "code" varchar PRIMARY KEY,
+    "name" varchar NOT NULL,
+    "exchange" varchar NOT NULL,
+    "category" varchar NOT NULL,
+    "day_trade" boolean NOT NULL,
+    "last_close" DECIMAL NOT NULL,
+    "update_date" timestamptz NOT NULL
+);
+CREATE TABLE basic_future(
+    "code" varchar PRIMARY KEY,
+    "symbol" varchar NOT NULL,
+    "name" varchar NOT NULL,
+    "category" varchar NOT NULL,
+    "delivery_month" varchar NOT NULL,
+    "delivery_date" timestamptz NOT NULL,
+    "underlying_kind" varchar NOT NULL,
+    "unit" int NOT NULL,
+    "limit_up" DECIMAL NOT NULL,
+    "limit_down" DECIMAL NOT NULL,
+    "reference" DECIMAL NOT NULL,
+    "update_date" timestamptz NOT NULL
+);
+CREATE TABLE basic_option(
+    "code" varchar PRIMARY KEY,
+    "symbol" varchar NOT NULL,
+    "name" varchar NOT NULL,
+    "category" varchar NOT NULL,
+    "delivery_month" varchar NOT NULL,
+    "delivery_date" timestamptz NOT NULL,
+    "strike_price" DECIMAL NOT NULL,
+    "option_right" varchar NOT NULL,
+    "underlying_kind" varchar NOT NULL,
+    "unit" int NOT NULL,
+    "limit_up" DECIMAL NOT NULL,
+    "limit_down" DECIMAL NOT NULL,
+    "reference" DECIMAL NOT NULL,
+    "update_date" timestamptz NOT NULL
+);
 CREATE TABLE IF NOT EXISTS system_totp(
     "id" serial PRIMARY KEY,
     "secret" varchar NOT NULL UNIQUE,

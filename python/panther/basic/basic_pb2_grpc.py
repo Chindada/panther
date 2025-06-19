@@ -37,6 +37,11 @@ class BasicDataInterfaceStub(object):
         Args:
             channel: A grpc.Channel.
         """
+        self.HealthCheck = channel.stream_unary(
+                '/basic.BasicDataInterface/HealthCheck',
+                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                _registered_method=True)
         self.GetAllStockDetail = channel.unary_unary(
                 '/basic.BasicDataInterface/GetAllStockDetail',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
@@ -56,6 +61,12 @@ class BasicDataInterfaceStub(object):
 
 class BasicDataInterfaceServicer(object):
     """Missing associated documentation comment in .proto file."""
+
+    def HealthCheck(self, request_iterator, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def GetAllStockDetail(self, request, context):
         """Missing associated documentation comment in .proto file."""
@@ -78,6 +89,11 @@ class BasicDataInterfaceServicer(object):
 
 def add_BasicDataInterfaceServicer_to_server(servicer, server):
     rpc_method_handlers = {
+            'HealthCheck': grpc.stream_unary_rpc_method_handler(
+                    servicer.HealthCheck,
+                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ),
             'GetAllStockDetail': grpc.unary_unary_rpc_method_handler(
                     servicer.GetAllStockDetail,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
@@ -103,6 +119,33 @@ def add_BasicDataInterfaceServicer_to_server(servicer, server):
  # This class is part of an EXPERIMENTAL API.
 class BasicDataInterface(object):
     """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def HealthCheck(request_iterator,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_unary(
+            request_iterator,
+            target,
+            '/basic.BasicDataInterface/HealthCheck',
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetAllStockDetail(request,
