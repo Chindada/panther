@@ -38,12 +38,12 @@ CREATE TABLE basic_option(
     "reference" DECIMAL NOT NULL,
     "update_date" timestamptz NOT NULL
 );
-CREATE TABLE IF NOT EXISTS system_totp(
+CREATE TABLE system_totp(
     "id" serial PRIMARY KEY,
     "secret" varchar NOT NULL UNIQUE,
     "qr_code" varchar NOT NULL UNIQUE
 );
-CREATE TABLE IF NOT EXISTS system_account(
+CREATE TABLE system_account(
     "id" serial PRIMARY KEY,
     "email" varchar NOT NULL UNIQUE,
     "username" varchar NOT NULL UNIQUE,
@@ -54,11 +54,19 @@ CREATE TABLE IF NOT EXISTS system_account(
     "created_at" timestamptz NOT NULL,
     "updated_at" timestamptz NOT NULL
 );
-CREATE TABLE IF NOT EXISTS system_event_login(
+CREATE TABLE system_event_login(
     "id" serial PRIMARY KEY,
     "account_id" int REFERENCES system_account("id") ON DELETE SET NULL DEFAULT NULL,
     "ip" varchar NOT NULL,
     "resp_code" int NOT NULL,
+    "created_at" timestamptz NOT NULL
+);
+CREATE TABLE system_event_shioaji(
+    "id" serial PRIMARY KEY,
+    "event_code" int NOT NULL,
+    "response" int NOT NULL,
+    "event" varchar NOT NULL,
+    "info" varchar NOT NULL,
     "created_at" timestamptz NOT NULL
 );
 COMMIT;
