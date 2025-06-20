@@ -420,6 +420,196 @@ class FutureTick extends $pb.GeneratedMessage {
   void clearSimtrade() => $_clearField(19);
 }
 
+class FutureBidAsk extends $pb.GeneratedMessage {
+  factory FutureBidAsk({
+    $core.String? code,
+    $core.String? dateTime,
+    $fixnum.Int64? bidTotalVol,
+    $fixnum.Int64? askTotalVol,
+    $core.Iterable<$core.double>? bidPrice,
+    $core.Iterable<$fixnum.Int64>? bidVolume,
+    $core.Iterable<$fixnum.Int64>? diffBidVol,
+    $core.Iterable<$core.double>? askPrice,
+    $core.Iterable<$fixnum.Int64>? askVolume,
+    $core.Iterable<$fixnum.Int64>? diffAskVol,
+    $core.double? firstDerivedBidPrice,
+    $core.double? firstDerivedAskPrice,
+    $fixnum.Int64? firstDerivedBidVol,
+    $fixnum.Int64? firstDerivedAskVol,
+    $core.double? underlyingPrice,
+    $core.bool? simtrade,
+  }) {
+    final result = create();
+    if (code != null) result.code = code;
+    if (dateTime != null) result.dateTime = dateTime;
+    if (bidTotalVol != null) result.bidTotalVol = bidTotalVol;
+    if (askTotalVol != null) result.askTotalVol = askTotalVol;
+    if (bidPrice != null) result.bidPrice.addAll(bidPrice);
+    if (bidVolume != null) result.bidVolume.addAll(bidVolume);
+    if (diffBidVol != null) result.diffBidVol.addAll(diffBidVol);
+    if (askPrice != null) result.askPrice.addAll(askPrice);
+    if (askVolume != null) result.askVolume.addAll(askVolume);
+    if (diffAskVol != null) result.diffAskVol.addAll(diffAskVol);
+    if (firstDerivedBidPrice != null) result.firstDerivedBidPrice = firstDerivedBidPrice;
+    if (firstDerivedAskPrice != null) result.firstDerivedAskPrice = firstDerivedAskPrice;
+    if (firstDerivedBidVol != null) result.firstDerivedBidVol = firstDerivedBidVol;
+    if (firstDerivedAskVol != null) result.firstDerivedAskVol = firstDerivedAskVol;
+    if (underlyingPrice != null) result.underlyingPrice = underlyingPrice;
+    if (simtrade != null) result.simtrade = simtrade;
+    return result;
+  }
+
+  FutureBidAsk._();
+
+  factory FutureBidAsk.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
+  factory FutureBidAsk.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'FutureBidAsk', package: const $pb.PackageName(_omitMessageNames ? '' : 'stream'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'code')
+    ..aOS(2, _omitFieldNames ? '' : 'dateTime')
+    ..aInt64(3, _omitFieldNames ? '' : 'bidTotalVol')
+    ..aInt64(4, _omitFieldNames ? '' : 'askTotalVol')
+    ..p<$core.double>(5, _omitFieldNames ? '' : 'bidPrice', $pb.PbFieldType.KD)
+    ..p<$fixnum.Int64>(6, _omitFieldNames ? '' : 'bidVolume', $pb.PbFieldType.K6)
+    ..p<$fixnum.Int64>(7, _omitFieldNames ? '' : 'diffBidVol', $pb.PbFieldType.K6)
+    ..p<$core.double>(8, _omitFieldNames ? '' : 'askPrice', $pb.PbFieldType.KD)
+    ..p<$fixnum.Int64>(9, _omitFieldNames ? '' : 'askVolume', $pb.PbFieldType.K6)
+    ..p<$fixnum.Int64>(10, _omitFieldNames ? '' : 'diffAskVol', $pb.PbFieldType.K6)
+    ..a<$core.double>(11, _omitFieldNames ? '' : 'firstDerivedBidPrice', $pb.PbFieldType.OD)
+    ..a<$core.double>(12, _omitFieldNames ? '' : 'firstDerivedAskPrice', $pb.PbFieldType.OD)
+    ..aInt64(13, _omitFieldNames ? '' : 'firstDerivedBidVol')
+    ..aInt64(14, _omitFieldNames ? '' : 'firstDerivedAskVol')
+    ..a<$core.double>(15, _omitFieldNames ? '' : 'underlyingPrice', $pb.PbFieldType.OD)
+    ..aOB(16, _omitFieldNames ? '' : 'simtrade')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  FutureBidAsk clone() => FutureBidAsk()..mergeFromMessage(this);
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  FutureBidAsk copyWith(void Function(FutureBidAsk) updates) => super.copyWith((message) => updates(message as FutureBidAsk)) as FutureBidAsk;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static FutureBidAsk create() => FutureBidAsk._();
+  @$core.override
+  FutureBidAsk createEmptyInstance() => create();
+  static $pb.PbList<FutureBidAsk> createRepeated() => $pb.PbList<FutureBidAsk>();
+  @$core.pragma('dart2js:noInline')
+  static FutureBidAsk getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FutureBidAsk>(create);
+  static FutureBidAsk? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get code => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set code($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasCode() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCode() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get dateTime => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set dateTime($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasDateTime() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDateTime() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $fixnum.Int64 get bidTotalVol => $_getI64(2);
+  @$pb.TagNumber(3)
+  set bidTotalVol($fixnum.Int64 value) => $_setInt64(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasBidTotalVol() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearBidTotalVol() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $fixnum.Int64 get askTotalVol => $_getI64(3);
+  @$pb.TagNumber(4)
+  set askTotalVol($fixnum.Int64 value) => $_setInt64(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasAskTotalVol() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearAskTotalVol() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $pb.PbList<$core.double> get bidPrice => $_getList(4);
+
+  @$pb.TagNumber(6)
+  $pb.PbList<$fixnum.Int64> get bidVolume => $_getList(5);
+
+  @$pb.TagNumber(7)
+  $pb.PbList<$fixnum.Int64> get diffBidVol => $_getList(6);
+
+  @$pb.TagNumber(8)
+  $pb.PbList<$core.double> get askPrice => $_getList(7);
+
+  @$pb.TagNumber(9)
+  $pb.PbList<$fixnum.Int64> get askVolume => $_getList(8);
+
+  @$pb.TagNumber(10)
+  $pb.PbList<$fixnum.Int64> get diffAskVol => $_getList(9);
+
+  @$pb.TagNumber(11)
+  $core.double get firstDerivedBidPrice => $_getN(10);
+  @$pb.TagNumber(11)
+  set firstDerivedBidPrice($core.double value) => $_setDouble(10, value);
+  @$pb.TagNumber(11)
+  $core.bool hasFirstDerivedBidPrice() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearFirstDerivedBidPrice() => $_clearField(11);
+
+  @$pb.TagNumber(12)
+  $core.double get firstDerivedAskPrice => $_getN(11);
+  @$pb.TagNumber(12)
+  set firstDerivedAskPrice($core.double value) => $_setDouble(11, value);
+  @$pb.TagNumber(12)
+  $core.bool hasFirstDerivedAskPrice() => $_has(11);
+  @$pb.TagNumber(12)
+  void clearFirstDerivedAskPrice() => $_clearField(12);
+
+  @$pb.TagNumber(13)
+  $fixnum.Int64 get firstDerivedBidVol => $_getI64(12);
+  @$pb.TagNumber(13)
+  set firstDerivedBidVol($fixnum.Int64 value) => $_setInt64(12, value);
+  @$pb.TagNumber(13)
+  $core.bool hasFirstDerivedBidVol() => $_has(12);
+  @$pb.TagNumber(13)
+  void clearFirstDerivedBidVol() => $_clearField(13);
+
+  @$pb.TagNumber(14)
+  $fixnum.Int64 get firstDerivedAskVol => $_getI64(13);
+  @$pb.TagNumber(14)
+  set firstDerivedAskVol($fixnum.Int64 value) => $_setInt64(13, value);
+  @$pb.TagNumber(14)
+  $core.bool hasFirstDerivedAskVol() => $_has(13);
+  @$pb.TagNumber(14)
+  void clearFirstDerivedAskVol() => $_clearField(14);
+
+  @$pb.TagNumber(15)
+  $core.double get underlyingPrice => $_getN(14);
+  @$pb.TagNumber(15)
+  set underlyingPrice($core.double value) => $_setDouble(14, value);
+  @$pb.TagNumber(15)
+  $core.bool hasUnderlyingPrice() => $_has(14);
+  @$pb.TagNumber(15)
+  void clearUnderlyingPrice() => $_clearField(15);
+
+  @$pb.TagNumber(16)
+  $core.bool get simtrade => $_getBF(15);
+  @$pb.TagNumber(16)
+  set simtrade($core.bool value) => $_setBool(15, value);
+  @$pb.TagNumber(16)
+  $core.bool hasSimtrade() => $_has(15);
+  @$pb.TagNumber(16)
+  void clearSimtrade() => $_clearField(16);
+}
+
 class StreamInterfaceApi {
   final $pb.RpcClient _client;
 

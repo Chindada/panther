@@ -84,6 +84,43 @@ final $typed_data.Uint8List futureTickDescriptor = $convert.base64Decode(
     'JpY2VDaGcSFwoHcGN0X2NoZxgSIAEoAVIGcGN0Q2hnEhoKCHNpbXRyYWRlGBMgASgIUghzaW10'
     'cmFkZQ==');
 
+@$core.Deprecated('Use futureBidAskDescriptor instead')
+const FutureBidAsk$json = {
+  '1': 'FutureBidAsk',
+  '2': [
+    {'1': 'code', '3': 1, '4': 1, '5': 9, '10': 'code'},
+    {'1': 'date_time', '3': 2, '4': 1, '5': 9, '10': 'dateTime'},
+    {'1': 'bid_total_vol', '3': 3, '4': 1, '5': 3, '10': 'bidTotalVol'},
+    {'1': 'ask_total_vol', '3': 4, '4': 1, '5': 3, '10': 'askTotalVol'},
+    {'1': 'bid_price', '3': 5, '4': 3, '5': 1, '10': 'bidPrice'},
+    {'1': 'bid_volume', '3': 6, '4': 3, '5': 3, '10': 'bidVolume'},
+    {'1': 'diff_bid_vol', '3': 7, '4': 3, '5': 3, '10': 'diffBidVol'},
+    {'1': 'ask_price', '3': 8, '4': 3, '5': 1, '10': 'askPrice'},
+    {'1': 'ask_volume', '3': 9, '4': 3, '5': 3, '10': 'askVolume'},
+    {'1': 'diff_ask_vol', '3': 10, '4': 3, '5': 3, '10': 'diffAskVol'},
+    {'1': 'first_derived_bid_price', '3': 11, '4': 1, '5': 1, '10': 'firstDerivedBidPrice'},
+    {'1': 'first_derived_ask_price', '3': 12, '4': 1, '5': 1, '10': 'firstDerivedAskPrice'},
+    {'1': 'first_derived_bid_vol', '3': 13, '4': 1, '5': 3, '10': 'firstDerivedBidVol'},
+    {'1': 'first_derived_ask_vol', '3': 14, '4': 1, '5': 3, '10': 'firstDerivedAskVol'},
+    {'1': 'underlying_price', '3': 15, '4': 1, '5': 1, '10': 'underlyingPrice'},
+    {'1': 'simtrade', '3': 16, '4': 1, '5': 8, '10': 'simtrade'},
+  ],
+};
+
+/// Descriptor for `FutureBidAsk`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List futureBidAskDescriptor = $convert.base64Decode(
+    'CgxGdXR1cmVCaWRBc2sSEgoEY29kZRgBIAEoCVIEY29kZRIbCglkYXRlX3RpbWUYAiABKAlSCG'
+    'RhdGVUaW1lEiIKDWJpZF90b3RhbF92b2wYAyABKANSC2JpZFRvdGFsVm9sEiIKDWFza190b3Rh'
+    'bF92b2wYBCABKANSC2Fza1RvdGFsVm9sEhsKCWJpZF9wcmljZRgFIAMoAVIIYmlkUHJpY2USHQ'
+    'oKYmlkX3ZvbHVtZRgGIAMoA1IJYmlkVm9sdW1lEiAKDGRpZmZfYmlkX3ZvbBgHIAMoA1IKZGlm'
+    'ZkJpZFZvbBIbCglhc2tfcHJpY2UYCCADKAFSCGFza1ByaWNlEh0KCmFza192b2x1bWUYCSADKA'
+    'NSCWFza1ZvbHVtZRIgCgxkaWZmX2Fza192b2wYCiADKANSCmRpZmZBc2tWb2wSNQoXZmlyc3Rf'
+    'ZGVyaXZlZF9iaWRfcHJpY2UYCyABKAFSFGZpcnN0RGVyaXZlZEJpZFByaWNlEjUKF2ZpcnN0X2'
+    'Rlcml2ZWRfYXNrX3ByaWNlGAwgASgBUhRmaXJzdERlcml2ZWRBc2tQcmljZRIxChVmaXJzdF9k'
+    'ZXJpdmVkX2JpZF92b2wYDSABKANSEmZpcnN0RGVyaXZlZEJpZFZvbBIxChVmaXJzdF9kZXJpdm'
+    'VkX2Fza192b2wYDiABKANSEmZpcnN0RGVyaXZlZEFza1ZvbBIpChB1bmRlcmx5aW5nX3ByaWNl'
+    'GA8gASgBUg91bmRlcmx5aW5nUHJpY2USGgoIc2ltdHJhZGUYECABKAhSCHNpbXRyYWRl');
+
 const $core.Map<$core.String, $core.dynamic> StreamInterfaceServiceBase$json = {
   '1': 'StreamInterface',
   '2': [

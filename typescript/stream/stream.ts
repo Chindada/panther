@@ -126,6 +126,75 @@ export interface FutureTick {
      */
     simtrade: boolean;
 }
+/**
+ * @generated from protobuf message stream.FutureBidAsk
+ */
+export interface FutureBidAsk {
+    /**
+     * @generated from protobuf field: string code = 1
+     */
+    code: string;
+    /**
+     * @generated from protobuf field: string date_time = 2
+     */
+    date_time: string;
+    /**
+     * @generated from protobuf field: int64 bid_total_vol = 3
+     */
+    bid_total_vol: number;
+    /**
+     * @generated from protobuf field: int64 ask_total_vol = 4
+     */
+    ask_total_vol: number;
+    /**
+     * @generated from protobuf field: repeated double bid_price = 5
+     */
+    bid_price: number[];
+    /**
+     * @generated from protobuf field: repeated int64 bid_volume = 6
+     */
+    bid_volume: number[];
+    /**
+     * @generated from protobuf field: repeated int64 diff_bid_vol = 7
+     */
+    diff_bid_vol: number[];
+    /**
+     * @generated from protobuf field: repeated double ask_price = 8
+     */
+    ask_price: number[];
+    /**
+     * @generated from protobuf field: repeated int64 ask_volume = 9
+     */
+    ask_volume: number[];
+    /**
+     * @generated from protobuf field: repeated int64 diff_ask_vol = 10
+     */
+    diff_ask_vol: number[];
+    /**
+     * @generated from protobuf field: double first_derived_bid_price = 11
+     */
+    first_derived_bid_price: number;
+    /**
+     * @generated from protobuf field: double first_derived_ask_price = 12
+     */
+    first_derived_ask_price: number;
+    /**
+     * @generated from protobuf field: int64 first_derived_bid_vol = 13
+     */
+    first_derived_bid_vol: number;
+    /**
+     * @generated from protobuf field: int64 first_derived_ask_vol = 14
+     */
+    first_derived_ask_vol: number;
+    /**
+     * @generated from protobuf field: double underlying_price = 15
+     */
+    underlying_price: number;
+    /**
+     * @generated from protobuf field: bool simtrade = 16
+     */
+    simtrade: boolean;
+}
 // @generated message type with reflection information, may provide speed optimized methods
 class ShioajiEvent$Type extends MessageType<ShioajiEvent> {
     constructor() {
@@ -443,6 +512,221 @@ class FutureTick$Type extends MessageType<FutureTick> {
  * @generated MessageType for protobuf message stream.FutureTick
  */
 export const FutureTick = new FutureTick$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class FutureBidAsk$Type extends MessageType<FutureBidAsk> {
+    constructor() {
+        super("stream.FutureBidAsk", [
+            { no: 1, name: "code", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "date_time", kind: "scalar", localName: "date_time", T: 9 /*ScalarType.STRING*/ },
+            { no: 3, name: "bid_total_vol", kind: "scalar", localName: "bid_total_vol", T: 3 /*ScalarType.INT64*/, L: 2 /*LongType.NUMBER*/ },
+            { no: 4, name: "ask_total_vol", kind: "scalar", localName: "ask_total_vol", T: 3 /*ScalarType.INT64*/, L: 2 /*LongType.NUMBER*/ },
+            { no: 5, name: "bid_price", kind: "scalar", localName: "bid_price", repeat: 1 /*RepeatType.PACKED*/, T: 1 /*ScalarType.DOUBLE*/ },
+            { no: 6, name: "bid_volume", kind: "scalar", localName: "bid_volume", repeat: 1 /*RepeatType.PACKED*/, T: 3 /*ScalarType.INT64*/, L: 2 /*LongType.NUMBER*/ },
+            { no: 7, name: "diff_bid_vol", kind: "scalar", localName: "diff_bid_vol", repeat: 1 /*RepeatType.PACKED*/, T: 3 /*ScalarType.INT64*/, L: 2 /*LongType.NUMBER*/ },
+            { no: 8, name: "ask_price", kind: "scalar", localName: "ask_price", repeat: 1 /*RepeatType.PACKED*/, T: 1 /*ScalarType.DOUBLE*/ },
+            { no: 9, name: "ask_volume", kind: "scalar", localName: "ask_volume", repeat: 1 /*RepeatType.PACKED*/, T: 3 /*ScalarType.INT64*/, L: 2 /*LongType.NUMBER*/ },
+            { no: 10, name: "diff_ask_vol", kind: "scalar", localName: "diff_ask_vol", repeat: 1 /*RepeatType.PACKED*/, T: 3 /*ScalarType.INT64*/, L: 2 /*LongType.NUMBER*/ },
+            { no: 11, name: "first_derived_bid_price", kind: "scalar", localName: "first_derived_bid_price", T: 1 /*ScalarType.DOUBLE*/ },
+            { no: 12, name: "first_derived_ask_price", kind: "scalar", localName: "first_derived_ask_price", T: 1 /*ScalarType.DOUBLE*/ },
+            { no: 13, name: "first_derived_bid_vol", kind: "scalar", localName: "first_derived_bid_vol", T: 3 /*ScalarType.INT64*/, L: 2 /*LongType.NUMBER*/ },
+            { no: 14, name: "first_derived_ask_vol", kind: "scalar", localName: "first_derived_ask_vol", T: 3 /*ScalarType.INT64*/, L: 2 /*LongType.NUMBER*/ },
+            { no: 15, name: "underlying_price", kind: "scalar", localName: "underlying_price", T: 1 /*ScalarType.DOUBLE*/ },
+            { no: 16, name: "simtrade", kind: "scalar", T: 8 /*ScalarType.BOOL*/ }
+        ]);
+    }
+    create(value?: PartialMessage<FutureBidAsk>): FutureBidAsk {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.code = "";
+        message.date_time = "";
+        message.bid_total_vol = 0;
+        message.ask_total_vol = 0;
+        message.bid_price = [];
+        message.bid_volume = [];
+        message.diff_bid_vol = [];
+        message.ask_price = [];
+        message.ask_volume = [];
+        message.diff_ask_vol = [];
+        message.first_derived_bid_price = 0;
+        message.first_derived_ask_price = 0;
+        message.first_derived_bid_vol = 0;
+        message.first_derived_ask_vol = 0;
+        message.underlying_price = 0;
+        message.simtrade = false;
+        if (value !== undefined)
+            reflectionMergePartial<FutureBidAsk>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: FutureBidAsk): FutureBidAsk {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string code */ 1:
+                    message.code = reader.string();
+                    break;
+                case /* string date_time */ 2:
+                    message.date_time = reader.string();
+                    break;
+                case /* int64 bid_total_vol */ 3:
+                    message.bid_total_vol = reader.int64().toNumber();
+                    break;
+                case /* int64 ask_total_vol */ 4:
+                    message.ask_total_vol = reader.int64().toNumber();
+                    break;
+                case /* repeated double bid_price */ 5:
+                    if (wireType === WireType.LengthDelimited)
+                        for (let e = reader.int32() + reader.pos; reader.pos < e;)
+                            message.bid_price.push(reader.double());
+                    else
+                        message.bid_price.push(reader.double());
+                    break;
+                case /* repeated int64 bid_volume */ 6:
+                    if (wireType === WireType.LengthDelimited)
+                        for (let e = reader.int32() + reader.pos; reader.pos < e;)
+                            message.bid_volume.push(reader.int64().toNumber());
+                    else
+                        message.bid_volume.push(reader.int64().toNumber());
+                    break;
+                case /* repeated int64 diff_bid_vol */ 7:
+                    if (wireType === WireType.LengthDelimited)
+                        for (let e = reader.int32() + reader.pos; reader.pos < e;)
+                            message.diff_bid_vol.push(reader.int64().toNumber());
+                    else
+                        message.diff_bid_vol.push(reader.int64().toNumber());
+                    break;
+                case /* repeated double ask_price */ 8:
+                    if (wireType === WireType.LengthDelimited)
+                        for (let e = reader.int32() + reader.pos; reader.pos < e;)
+                            message.ask_price.push(reader.double());
+                    else
+                        message.ask_price.push(reader.double());
+                    break;
+                case /* repeated int64 ask_volume */ 9:
+                    if (wireType === WireType.LengthDelimited)
+                        for (let e = reader.int32() + reader.pos; reader.pos < e;)
+                            message.ask_volume.push(reader.int64().toNumber());
+                    else
+                        message.ask_volume.push(reader.int64().toNumber());
+                    break;
+                case /* repeated int64 diff_ask_vol */ 10:
+                    if (wireType === WireType.LengthDelimited)
+                        for (let e = reader.int32() + reader.pos; reader.pos < e;)
+                            message.diff_ask_vol.push(reader.int64().toNumber());
+                    else
+                        message.diff_ask_vol.push(reader.int64().toNumber());
+                    break;
+                case /* double first_derived_bid_price */ 11:
+                    message.first_derived_bid_price = reader.double();
+                    break;
+                case /* double first_derived_ask_price */ 12:
+                    message.first_derived_ask_price = reader.double();
+                    break;
+                case /* int64 first_derived_bid_vol */ 13:
+                    message.first_derived_bid_vol = reader.int64().toNumber();
+                    break;
+                case /* int64 first_derived_ask_vol */ 14:
+                    message.first_derived_ask_vol = reader.int64().toNumber();
+                    break;
+                case /* double underlying_price */ 15:
+                    message.underlying_price = reader.double();
+                    break;
+                case /* bool simtrade */ 16:
+                    message.simtrade = reader.bool();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: FutureBidAsk, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string code = 1; */
+        if (message.code !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.code);
+        /* string date_time = 2; */
+        if (message.date_time !== "")
+            writer.tag(2, WireType.LengthDelimited).string(message.date_time);
+        /* int64 bid_total_vol = 3; */
+        if (message.bid_total_vol !== 0)
+            writer.tag(3, WireType.Varint).int64(message.bid_total_vol);
+        /* int64 ask_total_vol = 4; */
+        if (message.ask_total_vol !== 0)
+            writer.tag(4, WireType.Varint).int64(message.ask_total_vol);
+        /* repeated double bid_price = 5; */
+        if (message.bid_price.length) {
+            writer.tag(5, WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.bid_price.length; i++)
+                writer.double(message.bid_price[i]);
+            writer.join();
+        }
+        /* repeated int64 bid_volume = 6; */
+        if (message.bid_volume.length) {
+            writer.tag(6, WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.bid_volume.length; i++)
+                writer.int64(message.bid_volume[i]);
+            writer.join();
+        }
+        /* repeated int64 diff_bid_vol = 7; */
+        if (message.diff_bid_vol.length) {
+            writer.tag(7, WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.diff_bid_vol.length; i++)
+                writer.int64(message.diff_bid_vol[i]);
+            writer.join();
+        }
+        /* repeated double ask_price = 8; */
+        if (message.ask_price.length) {
+            writer.tag(8, WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.ask_price.length; i++)
+                writer.double(message.ask_price[i]);
+            writer.join();
+        }
+        /* repeated int64 ask_volume = 9; */
+        if (message.ask_volume.length) {
+            writer.tag(9, WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.ask_volume.length; i++)
+                writer.int64(message.ask_volume[i]);
+            writer.join();
+        }
+        /* repeated int64 diff_ask_vol = 10; */
+        if (message.diff_ask_vol.length) {
+            writer.tag(10, WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.diff_ask_vol.length; i++)
+                writer.int64(message.diff_ask_vol[i]);
+            writer.join();
+        }
+        /* double first_derived_bid_price = 11; */
+        if (message.first_derived_bid_price !== 0)
+            writer.tag(11, WireType.Bit64).double(message.first_derived_bid_price);
+        /* double first_derived_ask_price = 12; */
+        if (message.first_derived_ask_price !== 0)
+            writer.tag(12, WireType.Bit64).double(message.first_derived_ask_price);
+        /* int64 first_derived_bid_vol = 13; */
+        if (message.first_derived_bid_vol !== 0)
+            writer.tag(13, WireType.Varint).int64(message.first_derived_bid_vol);
+        /* int64 first_derived_ask_vol = 14; */
+        if (message.first_derived_ask_vol !== 0)
+            writer.tag(14, WireType.Varint).int64(message.first_derived_ask_vol);
+        /* double underlying_price = 15; */
+        if (message.underlying_price !== 0)
+            writer.tag(15, WireType.Bit64).double(message.underlying_price);
+        /* bool simtrade = 16; */
+        if (message.simtrade !== false)
+            writer.tag(16, WireType.Varint).bool(message.simtrade);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message stream.FutureBidAsk
+ */
+export const FutureBidAsk = new FutureBidAsk$Type();
 /**
  * @generated ServiceType for protobuf service stream.StreamInterface
  */

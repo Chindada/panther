@@ -1,5 +1,7 @@
+from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
+from collections.abc import Iterable as _Iterable
 from typing import ClassVar as _ClassVar, Optional as _Optional
 
 DESCRIPTOR: _descriptor.FileDescriptor
@@ -65,3 +67,39 @@ class FutureTick(_message.Message):
     pct_chg: float
     simtrade: bool
     def __init__(self, code: _Optional[str] = ..., date_time: _Optional[str] = ..., open: _Optional[float] = ..., underlying_price: _Optional[float] = ..., bid_side_total_vol: _Optional[int] = ..., ask_side_total_vol: _Optional[int] = ..., avg_price: _Optional[float] = ..., close: _Optional[float] = ..., high: _Optional[float] = ..., low: _Optional[float] = ..., amount: _Optional[float] = ..., total_amount: _Optional[float] = ..., volume: _Optional[int] = ..., total_volume: _Optional[int] = ..., tick_type: _Optional[int] = ..., chg_type: _Optional[int] = ..., price_chg: _Optional[float] = ..., pct_chg: _Optional[float] = ..., simtrade: bool = ...) -> None: ...
+
+class FutureBidAsk(_message.Message):
+    __slots__ = ("code", "date_time", "bid_total_vol", "ask_total_vol", "bid_price", "bid_volume", "diff_bid_vol", "ask_price", "ask_volume", "diff_ask_vol", "first_derived_bid_price", "first_derived_ask_price", "first_derived_bid_vol", "first_derived_ask_vol", "underlying_price", "simtrade")
+    CODE_FIELD_NUMBER: _ClassVar[int]
+    DATE_TIME_FIELD_NUMBER: _ClassVar[int]
+    BID_TOTAL_VOL_FIELD_NUMBER: _ClassVar[int]
+    ASK_TOTAL_VOL_FIELD_NUMBER: _ClassVar[int]
+    BID_PRICE_FIELD_NUMBER: _ClassVar[int]
+    BID_VOLUME_FIELD_NUMBER: _ClassVar[int]
+    DIFF_BID_VOL_FIELD_NUMBER: _ClassVar[int]
+    ASK_PRICE_FIELD_NUMBER: _ClassVar[int]
+    ASK_VOLUME_FIELD_NUMBER: _ClassVar[int]
+    DIFF_ASK_VOL_FIELD_NUMBER: _ClassVar[int]
+    FIRST_DERIVED_BID_PRICE_FIELD_NUMBER: _ClassVar[int]
+    FIRST_DERIVED_ASK_PRICE_FIELD_NUMBER: _ClassVar[int]
+    FIRST_DERIVED_BID_VOL_FIELD_NUMBER: _ClassVar[int]
+    FIRST_DERIVED_ASK_VOL_FIELD_NUMBER: _ClassVar[int]
+    UNDERLYING_PRICE_FIELD_NUMBER: _ClassVar[int]
+    SIMTRADE_FIELD_NUMBER: _ClassVar[int]
+    code: str
+    date_time: str
+    bid_total_vol: int
+    ask_total_vol: int
+    bid_price: _containers.RepeatedScalarFieldContainer[float]
+    bid_volume: _containers.RepeatedScalarFieldContainer[int]
+    diff_bid_vol: _containers.RepeatedScalarFieldContainer[int]
+    ask_price: _containers.RepeatedScalarFieldContainer[float]
+    ask_volume: _containers.RepeatedScalarFieldContainer[int]
+    diff_ask_vol: _containers.RepeatedScalarFieldContainer[int]
+    first_derived_bid_price: float
+    first_derived_ask_price: float
+    first_derived_bid_vol: int
+    first_derived_ask_vol: int
+    underlying_price: float
+    simtrade: bool
+    def __init__(self, code: _Optional[str] = ..., date_time: _Optional[str] = ..., bid_total_vol: _Optional[int] = ..., ask_total_vol: _Optional[int] = ..., bid_price: _Optional[_Iterable[float]] = ..., bid_volume: _Optional[_Iterable[int]] = ..., diff_bid_vol: _Optional[_Iterable[int]] = ..., ask_price: _Optional[_Iterable[float]] = ..., ask_volume: _Optional[_Iterable[int]] = ..., diff_ask_vol: _Optional[_Iterable[int]] = ..., first_derived_bid_price: _Optional[float] = ..., first_derived_ask_price: _Optional[float] = ..., first_derived_bid_vol: _Optional[int] = ..., first_derived_ask_vol: _Optional[int] = ..., underlying_price: _Optional[float] = ..., simtrade: bool = ...) -> None: ...

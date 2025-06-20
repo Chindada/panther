@@ -329,6 +329,170 @@ func (x *FutureTick) GetSimtrade() bool {
 	return false
 }
 
+type FutureBidAsk struct {
+	state                protoimpl.MessageState `protogen:"open.v1"`
+	Code                 string                 `protobuf:"bytes,1,opt,name=code,proto3" json:"code,omitempty"`
+	DateTime             string                 `protobuf:"bytes,2,opt,name=date_time,json=dateTime,proto3" json:"date_time,omitempty"`
+	BidTotalVol          int64                  `protobuf:"varint,3,opt,name=bid_total_vol,json=bidTotalVol,proto3" json:"bid_total_vol,omitempty"`
+	AskTotalVol          int64                  `protobuf:"varint,4,opt,name=ask_total_vol,json=askTotalVol,proto3" json:"ask_total_vol,omitempty"`
+	BidPrice             []float64              `protobuf:"fixed64,5,rep,packed,name=bid_price,json=bidPrice,proto3" json:"bid_price,omitempty"`
+	BidVolume            []int64                `protobuf:"varint,6,rep,packed,name=bid_volume,json=bidVolume,proto3" json:"bid_volume,omitempty"`
+	DiffBidVol           []int64                `protobuf:"varint,7,rep,packed,name=diff_bid_vol,json=diffBidVol,proto3" json:"diff_bid_vol,omitempty"`
+	AskPrice             []float64              `protobuf:"fixed64,8,rep,packed,name=ask_price,json=askPrice,proto3" json:"ask_price,omitempty"`
+	AskVolume            []int64                `protobuf:"varint,9,rep,packed,name=ask_volume,json=askVolume,proto3" json:"ask_volume,omitempty"`
+	DiffAskVol           []int64                `protobuf:"varint,10,rep,packed,name=diff_ask_vol,json=diffAskVol,proto3" json:"diff_ask_vol,omitempty"`
+	FirstDerivedBidPrice float64                `protobuf:"fixed64,11,opt,name=first_derived_bid_price,json=firstDerivedBidPrice,proto3" json:"first_derived_bid_price,omitempty"`
+	FirstDerivedAskPrice float64                `protobuf:"fixed64,12,opt,name=first_derived_ask_price,json=firstDerivedAskPrice,proto3" json:"first_derived_ask_price,omitempty"`
+	FirstDerivedBidVol   int64                  `protobuf:"varint,13,opt,name=first_derived_bid_vol,json=firstDerivedBidVol,proto3" json:"first_derived_bid_vol,omitempty"`
+	FirstDerivedAskVol   int64                  `protobuf:"varint,14,opt,name=first_derived_ask_vol,json=firstDerivedAskVol,proto3" json:"first_derived_ask_vol,omitempty"`
+	UnderlyingPrice      float64                `protobuf:"fixed64,15,opt,name=underlying_price,json=underlyingPrice,proto3" json:"underlying_price,omitempty"`
+	Simtrade             bool                   `protobuf:"varint,16,opt,name=simtrade,proto3" json:"simtrade,omitempty"`
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
+}
+
+func (x *FutureBidAsk) Reset() {
+	*x = FutureBidAsk{}
+	mi := &file_stream_stream_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FutureBidAsk) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FutureBidAsk) ProtoMessage() {}
+
+func (x *FutureBidAsk) ProtoReflect() protoreflect.Message {
+	mi := &file_stream_stream_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FutureBidAsk.ProtoReflect.Descriptor instead.
+func (*FutureBidAsk) Descriptor() ([]byte, []int) {
+	return file_stream_stream_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *FutureBidAsk) GetCode() string {
+	if x != nil {
+		return x.Code
+	}
+	return ""
+}
+
+func (x *FutureBidAsk) GetDateTime() string {
+	if x != nil {
+		return x.DateTime
+	}
+	return ""
+}
+
+func (x *FutureBidAsk) GetBidTotalVol() int64 {
+	if x != nil {
+		return x.BidTotalVol
+	}
+	return 0
+}
+
+func (x *FutureBidAsk) GetAskTotalVol() int64 {
+	if x != nil {
+		return x.AskTotalVol
+	}
+	return 0
+}
+
+func (x *FutureBidAsk) GetBidPrice() []float64 {
+	if x != nil {
+		return x.BidPrice
+	}
+	return nil
+}
+
+func (x *FutureBidAsk) GetBidVolume() []int64 {
+	if x != nil {
+		return x.BidVolume
+	}
+	return nil
+}
+
+func (x *FutureBidAsk) GetDiffBidVol() []int64 {
+	if x != nil {
+		return x.DiffBidVol
+	}
+	return nil
+}
+
+func (x *FutureBidAsk) GetAskPrice() []float64 {
+	if x != nil {
+		return x.AskPrice
+	}
+	return nil
+}
+
+func (x *FutureBidAsk) GetAskVolume() []int64 {
+	if x != nil {
+		return x.AskVolume
+	}
+	return nil
+}
+
+func (x *FutureBidAsk) GetDiffAskVol() []int64 {
+	if x != nil {
+		return x.DiffAskVol
+	}
+	return nil
+}
+
+func (x *FutureBidAsk) GetFirstDerivedBidPrice() float64 {
+	if x != nil {
+		return x.FirstDerivedBidPrice
+	}
+	return 0
+}
+
+func (x *FutureBidAsk) GetFirstDerivedAskPrice() float64 {
+	if x != nil {
+		return x.FirstDerivedAskPrice
+	}
+	return 0
+}
+
+func (x *FutureBidAsk) GetFirstDerivedBidVol() int64 {
+	if x != nil {
+		return x.FirstDerivedBidVol
+	}
+	return 0
+}
+
+func (x *FutureBidAsk) GetFirstDerivedAskVol() int64 {
+	if x != nil {
+		return x.FirstDerivedAskVol
+	}
+	return 0
+}
+
+func (x *FutureBidAsk) GetUnderlyingPrice() float64 {
+	if x != nil {
+		return x.UnderlyingPrice
+	}
+	return 0
+}
+
+func (x *FutureBidAsk) GetSimtrade() bool {
+	if x != nil {
+		return x.Simtrade
+	}
+	return false
+}
+
 var File_stream_stream_proto protoreflect.FileDescriptor
 
 const file_stream_stream_proto_rawDesc = "" +
@@ -365,7 +529,29 @@ const file_stream_stream_proto_rawDesc = "" +
 	"\bchg_type\x18\x10 \x01(\x03R\achgType\x12\x1b\n" +
 	"\tprice_chg\x18\x11 \x01(\x01R\bpriceChg\x12\x17\n" +
 	"\apct_chg\x18\x12 \x01(\x01R\x06pctChg\x12\x1a\n" +
-	"\bsimtrade\x18\x13 \x01(\bR\bsimtrade2d\n" +
+	"\bsimtrade\x18\x13 \x01(\bR\bsimtrade\"\xde\x04\n" +
+	"\fFutureBidAsk\x12\x12\n" +
+	"\x04code\x18\x01 \x01(\tR\x04code\x12\x1b\n" +
+	"\tdate_time\x18\x02 \x01(\tR\bdateTime\x12\"\n" +
+	"\rbid_total_vol\x18\x03 \x01(\x03R\vbidTotalVol\x12\"\n" +
+	"\rask_total_vol\x18\x04 \x01(\x03R\vaskTotalVol\x12\x1b\n" +
+	"\tbid_price\x18\x05 \x03(\x01R\bbidPrice\x12\x1d\n" +
+	"\n" +
+	"bid_volume\x18\x06 \x03(\x03R\tbidVolume\x12 \n" +
+	"\fdiff_bid_vol\x18\a \x03(\x03R\n" +
+	"diffBidVol\x12\x1b\n" +
+	"\task_price\x18\b \x03(\x01R\baskPrice\x12\x1d\n" +
+	"\n" +
+	"ask_volume\x18\t \x03(\x03R\taskVolume\x12 \n" +
+	"\fdiff_ask_vol\x18\n" +
+	" \x03(\x03R\n" +
+	"diffAskVol\x125\n" +
+	"\x17first_derived_bid_price\x18\v \x01(\x01R\x14firstDerivedBidPrice\x125\n" +
+	"\x17first_derived_ask_price\x18\f \x01(\x01R\x14firstDerivedAskPrice\x121\n" +
+	"\x15first_derived_bid_vol\x18\r \x01(\x03R\x12firstDerivedBidVol\x121\n" +
+	"\x15first_derived_ask_vol\x18\x0e \x01(\x03R\x12firstDerivedAskVol\x12)\n" +
+	"\x10underlying_price\x18\x0f \x01(\x01R\x0funderlyingPrice\x12\x1a\n" +
+	"\bsimtrade\x18\x10 \x01(\bR\bsimtrade2d\n" +
 	"\x0fStreamInterface\x12Q\n" +
 	"\x13SubscribeFutureTick\x12\".stream.SubscribeFutureTickRequest\x1a\x12.stream.FutureTick\"\x000\x01B\x06Z\x04./pbb\x06proto3"
 
@@ -381,11 +567,12 @@ func file_stream_stream_proto_rawDescGZIP() []byte {
 	return file_stream_stream_proto_rawDescData
 }
 
-var file_stream_stream_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_stream_stream_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_stream_stream_proto_goTypes = []any{
 	(*ShioajiEvent)(nil),               // 0: stream.ShioajiEvent
 	(*SubscribeFutureTickRequest)(nil), // 1: stream.SubscribeFutureTickRequest
 	(*FutureTick)(nil),                 // 2: stream.FutureTick
+	(*FutureBidAsk)(nil),               // 3: stream.FutureBidAsk
 }
 var file_stream_stream_proto_depIdxs = []int32{
 	1, // 0: stream.StreamInterface.SubscribeFutureTick:input_type -> stream.SubscribeFutureTickRequest
@@ -408,7 +595,7 @@ func file_stream_stream_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_stream_stream_proto_rawDesc), len(file_stream_stream_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   3,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
