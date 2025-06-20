@@ -1,0 +1,26 @@
+syntax            = "proto3";
+option go_package = "./pb";
+package system;
+
+import "google/protobuf/timestamp.proto";
+import "system/user.proto";
+
+enum LoginRespCode {
+    OK                 = 0;
+    PASSWORD_INCORRECT = 1;
+    USER_NOT_FOUND     = 2;
+    DB_ERROR           = 3;
+    MFA_FAILED         = 4;
+}
+
+message LoginEvent {
+    int64 id                             = 1;
+    system.LocalUser local               = 2;
+    string ip                            = 3;
+    LoginRespCode resp_code              = 4;
+    google.protobuf.Timestamp created_at = 5;
+}
+
+message LoginEventList {
+    repeated LoginEvent list = 1;
+}
