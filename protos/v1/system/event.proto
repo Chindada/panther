@@ -15,7 +15,7 @@ enum LoginRespCode {
 
 message LoginEvent {
     int64 id                             = 1;
-    system.LocalUser local               = 2;
+    system.LocalUser user                = 2;
     string ip                            = 3;
     LoginRespCode resp_code              = 4;
     google.protobuf.Timestamp created_at = 5;

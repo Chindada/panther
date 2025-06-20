@@ -80,7 +80,7 @@ func (LoginRespCode) EnumDescriptor() ([]byte, []int) {
 type LoginEvent struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	Local         *LocalUser             `protobuf:"bytes,2,opt,name=local,proto3" json:"local,omitempty"`
+	User          *LocalUser             `protobuf:"bytes,2,opt,name=user,proto3" json:"user,omitempty"`
 	Ip            string                 `protobuf:"bytes,3,opt,name=ip,proto3" json:"ip,omitempty"`
 	RespCode      LoginRespCode          `protobuf:"varint,4,opt,name=resp_code,json=respCode,proto3,enum=system.LoginRespCode" json:"resp_code,omitempty"`
 	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
@@ -125,9 +125,9 @@ func (x *LoginEvent) GetId() int64 {
 	return 0
 }
 
-func (x *LoginEvent) GetLocal() *LocalUser {
+func (x *LoginEvent) GetUser() *LocalUser {
 	if x != nil {
-		return x.Local
+		return x.User
 	}
 	return nil
 }
@@ -201,11 +201,11 @@ var File_system_event_proto protoreflect.FileDescriptor
 
 const file_system_event_proto_rawDesc = "" +
 	"\n" +
-	"\x12system/event.proto\x12\x06system\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x11system/user.proto\"\xc4\x01\n" +
+	"\x12system/event.proto\x12\x06system\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x11system/user.proto\"\xc2\x01\n" +
 	"\n" +
 	"LoginEvent\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\x12'\n" +
-	"\x05local\x18\x02 \x01(\v2\x11.system.LocalUserR\x05local\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12%\n" +
+	"\x04user\x18\x02 \x01(\v2\x11.system.LocalUserR\x04user\x12\x0e\n" +
 	"\x02ip\x18\x03 \x01(\tR\x02ip\x122\n" +
 	"\tresp_code\x18\x04 \x01(\x0e2\x15.system.LoginRespCodeR\brespCode\x129\n" +
 	"\n" +
@@ -242,7 +242,7 @@ var file_system_event_proto_goTypes = []any{
 	(*timestamppb.Timestamp)(nil), // 4: google.protobuf.Timestamp
 }
 var file_system_event_proto_depIdxs = []int32{
-	3, // 0: system.LoginEvent.local:type_name -> system.LocalUser
+	3, // 0: system.LoginEvent.user:type_name -> system.LocalUser
 	0, // 1: system.LoginEvent.resp_code:type_name -> system.LoginRespCode
 	4, // 2: system.LoginEvent.created_at:type_name -> google.protobuf.Timestamp
 	1, // 3: system.LoginEventList.list:type_name -> system.LoginEvent

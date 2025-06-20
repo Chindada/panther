@@ -21,9 +21,9 @@ export interface LoginEvent {
      */
     id: number;
     /**
-     * @generated from protobuf field: system.LocalUser local = 2
+     * @generated from protobuf field: system.LocalUser user = 2
      */
-    local?: LocalUser;
+    user?: LocalUser;
     /**
      * @generated from protobuf field: string ip = 3
      */
@@ -76,7 +76,7 @@ class LoginEvent$Type extends MessageType<LoginEvent> {
     constructor() {
         super("system.LoginEvent", [
             { no: 1, name: "id", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 2 /*LongType.NUMBER*/ },
-            { no: 2, name: "local", kind: "message", T: () => LocalUser },
+            { no: 2, name: "user", kind: "message", T: () => LocalUser },
             { no: 3, name: "ip", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 4, name: "resp_code", kind: "enum", localName: "resp_code", T: () => ["system.LoginRespCode", LoginRespCode] },
             { no: 5, name: "created_at", kind: "message", localName: "created_at", T: () => Timestamp }
@@ -99,8 +99,8 @@ class LoginEvent$Type extends MessageType<LoginEvent> {
                 case /* int64 id */ 1:
                     message.id = reader.int64().toNumber();
                     break;
-                case /* system.LocalUser local */ 2:
-                    message.local = LocalUser.internalBinaryRead(reader, reader.uint32(), options, message.local);
+                case /* system.LocalUser user */ 2:
+                    message.user = LocalUser.internalBinaryRead(reader, reader.uint32(), options, message.user);
                     break;
                 case /* string ip */ 3:
                     message.ip = reader.string();
@@ -126,9 +126,9 @@ class LoginEvent$Type extends MessageType<LoginEvent> {
         /* int64 id = 1; */
         if (message.id !== 0)
             writer.tag(1, WireType.Varint).int64(message.id);
-        /* system.LocalUser local = 2; */
-        if (message.local)
-            LocalUser.internalBinaryWrite(message.local, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
+        /* system.LocalUser user = 2; */
+        if (message.user)
+            LocalUser.internalBinaryWrite(message.user, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
         /* string ip = 3; */
         if (message.ip !== "")
             writer.tag(3, WireType.LengthDelimited).string(message.ip);

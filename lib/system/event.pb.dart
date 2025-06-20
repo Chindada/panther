@@ -26,14 +26,14 @@ export 'event.pbenum.dart';
 class LoginEvent extends $pb.GeneratedMessage {
   factory LoginEvent({
     $fixnum.Int64? id,
-    $6.LocalUser? local,
+    $6.LocalUser? user,
     $core.String? ip,
     LoginRespCode? respCode,
     $5.Timestamp? createdAt,
   }) {
     final result = create();
     if (id != null) result.id = id;
-    if (local != null) result.local = local;
+    if (user != null) result.user = user;
     if (ip != null) result.ip = ip;
     if (respCode != null) result.respCode = respCode;
     if (createdAt != null) result.createdAt = createdAt;
@@ -47,7 +47,7 @@ class LoginEvent extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'LoginEvent', package: const $pb.PackageName(_omitMessageNames ? '' : 'system'), createEmptyInstance: create)
     ..aInt64(1, _omitFieldNames ? '' : 'id')
-    ..aOM<$6.LocalUser>(2, _omitFieldNames ? '' : 'local', subBuilder: $6.LocalUser.create)
+    ..aOM<$6.LocalUser>(2, _omitFieldNames ? '' : 'user', subBuilder: $6.LocalUser.create)
     ..aOS(3, _omitFieldNames ? '' : 'ip')
     ..e<LoginRespCode>(4, _omitFieldNames ? '' : 'respCode', $pb.PbFieldType.OE, defaultOrMaker: LoginRespCode.OK, valueOf: LoginRespCode.valueOf, enumValues: LoginRespCode.values)
     ..aOM<$5.Timestamp>(5, _omitFieldNames ? '' : 'createdAt', subBuilder: $5.Timestamp.create)
@@ -81,15 +81,15 @@ class LoginEvent extends $pb.GeneratedMessage {
   void clearId() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $6.LocalUser get local => $_getN(1);
+  $6.LocalUser get user => $_getN(1);
   @$pb.TagNumber(2)
-  set local($6.LocalUser value) => $_setField(2, value);
+  set user($6.LocalUser value) => $_setField(2, value);
   @$pb.TagNumber(2)
-  $core.bool hasLocal() => $_has(1);
+  $core.bool hasUser() => $_has(1);
   @$pb.TagNumber(2)
-  void clearLocal() => $_clearField(2);
+  void clearUser() => $_clearField(2);
   @$pb.TagNumber(2)
-  $6.LocalUser ensureLocal() => $_ensure(1);
+  $6.LocalUser ensureUser() => $_ensure(1);
 
   @$pb.TagNumber(3)
   $core.String get ip => $_getSZ(2);
