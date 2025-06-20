@@ -1,6 +1,6 @@
 module github.com/chindada/panther
 
-go 1.24.3
+go 1.24.4
 
 require (
 	github.com/Masterminds/squirrel v1.5.4

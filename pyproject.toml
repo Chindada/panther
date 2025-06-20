@@ -8,7 +8,7 @@ version = "0.0.0"
 authors = [{ name = "Tim Hsu", email = "maochindada@gmail.com" }]
 description = "pre-compiled protobuf for trading system"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.13"
 classifiers = ["Programming Language :: Python :: 3"]
 
 [tool.hatch.build.targets.wheel]

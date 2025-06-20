@@ -93,7 +93,7 @@ func _0001_capitanDownSql() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "0001_capitan.down.sql", size: 232, mode: os.FileMode(420), modTime: time.Unix(1750214250, 0)}
+	info := bindataFileInfo{name: "0001_capitan.down.sql", size: 232, mode: os.FileMode(420), modTime: time.Unix(1750355801, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -113,7 +113,7 @@ func _0001_capitanUpSql() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "0001_capitan.up.sql", size: 2054, mode: os.FileMode(420), modTime: time.Unix(1750214339, 0)}
+	info := bindataFileInfo{name: "0001_capitan.up.sql", size: 2054, mode: os.FileMode(420), modTime: time.Unix(1750355804, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
