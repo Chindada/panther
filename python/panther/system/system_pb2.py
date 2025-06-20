@@ -25,7 +25,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13system/system.proto\x12\x06system\x1a\x1fgoogle/protobuf/timestamp.proto\".\n\x0bSystemBuild\x12\x0f\n\x07version\x18\x01 \x01(\t\x12\x0e\n\x06\x63ommit\x18\x02 \x01(\t\"\x96\x01\n\nSystemInfo\x12/\n\x0blaunch_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x12\n\ndisk_usage\x18\x02 \x01(\x01\x12!\n\x04\x63ore\x18\x03 \x01(\x0b\x32\x13.system.SystemBuild\x12 \n\x03web\x18\x04 \x01(\x0b\x32\x13.system.SystemBuildB\x06Z\x04./pbb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13system/system.proto\x12\x06system\x1a\x1fgoogle/protobuf/timestamp.proto\"L\n\nSettingJWT\x12\x0e\n\x06secret\x18\x01 \x01(\t\x12.\n\nupdated_at\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\\\n\rSystemSetting\x12\x1f\n\x03key\x18\x01 \x01(\x0e\x32\x12.system.SettingKey\x12!\n\x03jwt\x18\x0b \x01(\x0b\x32\x12.system.SettingJWTH\x00\x42\x07\n\x05value\".\n\x0bSystemBuild\x12\x0f\n\x07version\x18\x01 \x01(\t\x12\x0e\n\x06\x63ommit\x18\x02 \x01(\t\"\x96\x01\n\nSystemInfo\x12/\n\x0blaunch_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x12\n\ndisk_usage\x18\x02 \x01(\x01\x12!\n\x04\x63ore\x18\x03 \x01(\x0b\x32\x13.system.SystemBuild\x12 \n\x03web\x18\x04 \x01(\x0b\x32\x13.system.SystemBuild*2\n\nSettingKey\x12\x13\n\x0fSETTING_UNKNOWN\x10\x00\x12\x0f\n\x0bSETTING_JWT\x10\x01\x42\x06Z\x04./pbb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -33,8 +33,14 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'system.system_pb2', _global
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z\004./pb'
-  _globals['_SYSTEMBUILD']._serialized_start=64
-  _globals['_SYSTEMBUILD']._serialized_end=110
-  _globals['_SYSTEMINFO']._serialized_start=113
-  _globals['_SYSTEMINFO']._serialized_end=263
+  _globals['_SETTINGKEY']._serialized_start=437
+  _globals['_SETTINGKEY']._serialized_end=487
+  _globals['_SETTINGJWT']._serialized_start=64
+  _globals['_SETTINGJWT']._serialized_end=140
+  _globals['_SYSTEMSETTING']._serialized_start=142
+  _globals['_SYSTEMSETTING']._serialized_end=234
+  _globals['_SYSTEMBUILD']._serialized_start=236
+  _globals['_SYSTEMBUILD']._serialized_end=282
+  _globals['_SYSTEMINFO']._serialized_start=285
+  _globals['_SYSTEMINFO']._serialized_end=435
 # @@protoc_insertion_point(module_scope)

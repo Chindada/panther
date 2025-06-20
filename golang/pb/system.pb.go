@@ -22,6 +22,178 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type SettingKey int32
+
+const (
+	SettingKey_SETTING_UNKNOWN SettingKey = 0
+	SettingKey_SETTING_JWT     SettingKey = 1
+)
+
+// Enum value maps for SettingKey.
+var (
+	SettingKey_name = map[int32]string{
+		0: "SETTING_UNKNOWN",
+		1: "SETTING_JWT",
+	}
+	SettingKey_value = map[string]int32{
+		"SETTING_UNKNOWN": 0,
+		"SETTING_JWT":     1,
+	}
+)
+
+func (x SettingKey) Enum() *SettingKey {
+	p := new(SettingKey)
+	*p = x
+	return p
+}
+
+func (x SettingKey) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (SettingKey) Descriptor() protoreflect.EnumDescriptor {
+	return file_system_system_proto_enumTypes[0].Descriptor()
+}
+
+func (SettingKey) Type() protoreflect.EnumType {
+	return &file_system_system_proto_enumTypes[0]
+}
+
+func (x SettingKey) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use SettingKey.Descriptor instead.
+func (SettingKey) EnumDescriptor() ([]byte, []int) {
+	return file_system_system_proto_rawDescGZIP(), []int{0}
+}
+
+type SettingJWT struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Secret        string                 `protobuf:"bytes,1,opt,name=secret,proto3" json:"secret,omitempty"`
+	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,11,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SettingJWT) Reset() {
+	*x = SettingJWT{}
+	mi := &file_system_system_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SettingJWT) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SettingJWT) ProtoMessage() {}
+
+func (x *SettingJWT) ProtoReflect() protoreflect.Message {
+	mi := &file_system_system_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SettingJWT.ProtoReflect.Descriptor instead.
+func (*SettingJWT) Descriptor() ([]byte, []int) {
+	return file_system_system_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *SettingJWT) GetSecret() string {
+	if x != nil {
+		return x.Secret
+	}
+	return ""
+}
+
+func (x *SettingJWT) GetUpdatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.UpdatedAt
+	}
+	return nil
+}
+
+type SystemSetting struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	Key   SettingKey             `protobuf:"varint,1,opt,name=key,proto3,enum=system.SettingKey" json:"key,omitempty"`
+	// Types that are valid to be assigned to Value:
+	//
+	//	*SystemSetting_Jwt
+	Value         isSystemSetting_Value `protobuf_oneof:"value"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SystemSetting) Reset() {
+	*x = SystemSetting{}
+	mi := &file_system_system_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SystemSetting) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SystemSetting) ProtoMessage() {}
+
+func (x *SystemSetting) ProtoReflect() protoreflect.Message {
+	mi := &file_system_system_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SystemSetting.ProtoReflect.Descriptor instead.
+func (*SystemSetting) Descriptor() ([]byte, []int) {
+	return file_system_system_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *SystemSetting) GetKey() SettingKey {
+	if x != nil {
+		return x.Key
+	}
+	return SettingKey_SETTING_UNKNOWN
+}
+
+func (x *SystemSetting) GetValue() isSystemSetting_Value {
+	if x != nil {
+		return x.Value
+	}
+	return nil
+}
+
+func (x *SystemSetting) GetJwt() *SettingJWT {
+	if x != nil {
+		if x, ok := x.Value.(*SystemSetting_Jwt); ok {
+			return x.Jwt
+		}
+	}
+	return nil
+}
+
+type isSystemSetting_Value interface {
+	isSystemSetting_Value()
+}
+
+type SystemSetting_Jwt struct {
+	Jwt *SettingJWT `protobuf:"bytes,11,opt,name=jwt,proto3,oneof"`
+}
+
+func (*SystemSetting_Jwt) isSystemSetting_Value() {}
+
 type SystemBuild struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Version       string                 `protobuf:"bytes,1,opt,name=version,proto3" json:"version,omitempty"`
@@ -32,7 +204,7 @@ type SystemBuild struct {
 
 func (x *SystemBuild) Reset() {
 	*x = SystemBuild{}
-	mi := &file_system_system_proto_msgTypes[0]
+	mi := &file_system_system_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -44,7 +216,7 @@ func (x *SystemBuild) String() string {
 func (*SystemBuild) ProtoMessage() {}
 
 func (x *SystemBuild) ProtoReflect() protoreflect.Message {
-	mi := &file_system_system_proto_msgTypes[0]
+	mi := &file_system_system_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -57,7 +229,7 @@ func (x *SystemBuild) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SystemBuild.ProtoReflect.Descriptor instead.
 func (*SystemBuild) Descriptor() ([]byte, []int) {
-	return file_system_system_proto_rawDescGZIP(), []int{0}
+	return file_system_system_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *SystemBuild) GetVersion() string {
@@ -86,7 +258,7 @@ type SystemInfo struct {
 
 func (x *SystemInfo) Reset() {
 	*x = SystemInfo{}
-	mi := &file_system_system_proto_msgTypes[1]
+	mi := &file_system_system_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -98,7 +270,7 @@ func (x *SystemInfo) String() string {
 func (*SystemInfo) ProtoMessage() {}
 
 func (x *SystemInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_system_system_proto_msgTypes[1]
+	mi := &file_system_system_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -111,7 +283,7 @@ func (x *SystemInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SystemInfo.ProtoReflect.Descriptor instead.
 func (*SystemInfo) Descriptor() ([]byte, []int) {
-	return file_system_system_proto_rawDescGZIP(), []int{1}
+	return file_system_system_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *SystemInfo) GetLaunchTime() *timestamppb.Timestamp {
@@ -146,7 +318,16 @@ var File_system_system_proto protoreflect.FileDescriptor
 
 const file_system_system_proto_rawDesc = "" +
 	"\n" +
-	"\x13system/system.proto\x12\x06system\x1a\x1fgoogle/protobuf/timestamp.proto\"?\n" +
+	"\x13system/system.proto\x12\x06system\x1a\x1fgoogle/protobuf/timestamp.proto\"_\n" +
+	"\n" +
+	"SettingJWT\x12\x16\n" +
+	"\x06secret\x18\x01 \x01(\tR\x06secret\x129\n" +
+	"\n" +
+	"updated_at\x18\v \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\"f\n" +
+	"\rSystemSetting\x12$\n" +
+	"\x03key\x18\x01 \x01(\x0e2\x12.system.SettingKeyR\x03key\x12&\n" +
+	"\x03jwt\x18\v \x01(\v2\x12.system.SettingJWTH\x00R\x03jwtB\a\n" +
+	"\x05value\"?\n" +
 	"\vSystemBuild\x12\x18\n" +
 	"\aversion\x18\x01 \x01(\tR\aversion\x12\x16\n" +
 	"\x06commit\x18\x02 \x01(\tR\x06commit\"\xb8\x01\n" +
@@ -157,7 +338,11 @@ const file_system_system_proto_rawDesc = "" +
 	"\n" +
 	"disk_usage\x18\x02 \x01(\x01R\tdiskUsage\x12'\n" +
 	"\x04core\x18\x03 \x01(\v2\x13.system.SystemBuildR\x04core\x12%\n" +
-	"\x03web\x18\x04 \x01(\v2\x13.system.SystemBuildR\x03webB\x06Z\x04./pbb\x06proto3"
+	"\x03web\x18\x04 \x01(\v2\x13.system.SystemBuildR\x03web*2\n" +
+	"\n" +
+	"SettingKey\x12\x13\n" +
+	"\x0fSETTING_UNKNOWN\x10\x00\x12\x0f\n" +
+	"\vSETTING_JWT\x10\x01B\x06Z\x04./pbb\x06proto3"
 
 var (
 	file_system_system_proto_rawDescOnce sync.Once
@@ -171,21 +356,28 @@ func file_system_system_proto_rawDescGZIP() []byte {
 	return file_system_system_proto_rawDescData
 }
 
-var file_system_system_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_system_system_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_system_system_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_system_system_proto_goTypes = []any{
-	(*SystemBuild)(nil),           // 0: system.SystemBuild
-	(*SystemInfo)(nil),            // 1: system.SystemInfo
-	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
+	(SettingKey)(0),               // 0: system.SettingKey
+	(*SettingJWT)(nil),            // 1: system.SettingJWT
+	(*SystemSetting)(nil),         // 2: system.SystemSetting
+	(*SystemBuild)(nil),           // 3: system.SystemBuild
+	(*SystemInfo)(nil),            // 4: system.SystemInfo
+	(*timestamppb.Timestamp)(nil), // 5: google.protobuf.Timestamp
 }
 var file_system_system_proto_depIdxs = []int32{
-	2, // 0: system.SystemInfo.launch_time:type_name -> google.protobuf.Timestamp
-	0, // 1: system.SystemInfo.core:type_name -> system.SystemBuild
-	0, // 2: system.SystemInfo.web:type_name -> system.SystemBuild
-	3, // [3:3] is the sub-list for method output_type
-	3, // [3:3] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	5, // 0: system.SettingJWT.updated_at:type_name -> google.protobuf.Timestamp
+	0, // 1: system.SystemSetting.key:type_name -> system.SettingKey
+	1, // 2: system.SystemSetting.jwt:type_name -> system.SettingJWT
+	5, // 3: system.SystemInfo.launch_time:type_name -> google.protobuf.Timestamp
+	3, // 4: system.SystemInfo.core:type_name -> system.SystemBuild
+	3, // 5: system.SystemInfo.web:type_name -> system.SystemBuild
+	6, // [6:6] is the sub-list for method output_type
+	6, // [6:6] is the sub-list for method input_type
+	6, // [6:6] is the sub-list for extension type_name
+	6, // [6:6] is the sub-list for extension extendee
+	0, // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_system_system_proto_init() }
@@ -193,18 +385,22 @@ func file_system_system_proto_init() {
 	if File_system_system_proto != nil {
 		return
 	}
+	file_system_system_proto_msgTypes[1].OneofWrappers = []any{
+		(*SystemSetting_Jwt)(nil),
+	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_system_system_proto_rawDesc), len(file_system_system_proto_rawDesc)),
-			NumEnums:      0,
-			NumMessages:   2,
+			NumEnums:      1,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_system_system_proto_goTypes,
 		DependencyIndexes: file_system_system_proto_depIdxs,
+		EnumInfos:         file_system_system_proto_enumTypes,
 		MessageInfos:      file_system_system_proto_msgTypes,
 	}.Build()
 	File_system_system_proto = out.File

@@ -12,6 +12,40 @@ import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
 import { Timestamp } from "../google/protobuf/timestamp";
 /**
+ * @generated from protobuf message system.SettingJWT
+ */
+export interface SettingJWT {
+    /**
+     * @generated from protobuf field: string secret = 1
+     */
+    secret: string;
+    /**
+     * @generated from protobuf field: google.protobuf.Timestamp updated_at = 11
+     */
+    updated_at?: Timestamp;
+}
+/**
+ * @generated from protobuf message system.SystemSetting
+ */
+export interface SystemSetting {
+    /**
+     * @generated from protobuf field: system.SettingKey key = 1
+     */
+    key: SettingKey;
+    /**
+     * @generated from protobuf oneof: value
+     */
+    value: {
+        oneofKind: "jwt";
+        /**
+         * @generated from protobuf field: system.SettingJWT jwt = 11
+         */
+        jwt: SettingJWT;
+    } | {
+        oneofKind: undefined;
+    };
+}
+/**
  * @generated from protobuf message system.SystemBuild
  */
 export interface SystemBuild {
@@ -45,6 +79,131 @@ export interface SystemInfo {
      */
     web?: SystemBuild;
 }
+/**
+ * @generated from protobuf enum system.SettingKey
+ */
+export enum SettingKey {
+    /**
+     * @generated from protobuf enum value: SETTING_UNKNOWN = 0;
+     */
+    SETTING_UNKNOWN = 0,
+    /**
+     * @generated from protobuf enum value: SETTING_JWT = 1;
+     */
+    SETTING_JWT = 1
+}
+// @generated message type with reflection information, may provide speed optimized methods
+class SettingJWT$Type extends MessageType<SettingJWT> {
+    constructor() {
+        super("system.SettingJWT", [
+            { no: 1, name: "secret", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 11, name: "updated_at", kind: "message", localName: "updated_at", T: () => Timestamp }
+        ]);
+    }
+    create(value?: PartialMessage<SettingJWT>): SettingJWT {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.secret = "";
+        if (value !== undefined)
+            reflectionMergePartial<SettingJWT>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: SettingJWT): SettingJWT {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string secret */ 1:
+                    message.secret = reader.string();
+                    break;
+                case /* google.protobuf.Timestamp updated_at */ 11:
+                    message.updated_at = Timestamp.internalBinaryRead(reader, reader.uint32(), options, message.updated_at);
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: SettingJWT, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string secret = 1; */
+        if (message.secret !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.secret);
+        /* google.protobuf.Timestamp updated_at = 11; */
+        if (message.updated_at)
+            Timestamp.internalBinaryWrite(message.updated_at, writer.tag(11, WireType.LengthDelimited).fork(), options).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message system.SettingJWT
+ */
+export const SettingJWT = new SettingJWT$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class SystemSetting$Type extends MessageType<SystemSetting> {
+    constructor() {
+        super("system.SystemSetting", [
+            { no: 1, name: "key", kind: "enum", T: () => ["system.SettingKey", SettingKey] },
+            { no: 11, name: "jwt", kind: "message", oneof: "value", T: () => SettingJWT }
+        ]);
+    }
+    create(value?: PartialMessage<SystemSetting>): SystemSetting {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.key = 0;
+        message.value = { oneofKind: undefined };
+        if (value !== undefined)
+            reflectionMergePartial<SystemSetting>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: SystemSetting): SystemSetting {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* system.SettingKey key */ 1:
+                    message.key = reader.int32();
+                    break;
+                case /* system.SettingJWT jwt */ 11:
+                    message.value = {
+                        oneofKind: "jwt",
+                        jwt: SettingJWT.internalBinaryRead(reader, reader.uint32(), options, (message.value as any).jwt)
+                    };
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: SystemSetting, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* system.SettingKey key = 1; */
+        if (message.key !== 0)
+            writer.tag(1, WireType.Varint).int32(message.key);
+        /* system.SettingJWT jwt = 11; */
+        if (message.value.oneofKind === "jwt")
+            SettingJWT.internalBinaryWrite(message.value.jwt, writer.tag(11, WireType.LengthDelimited).fork(), options).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message system.SystemSetting
+ */
+export const SystemSetting = new SystemSetting$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class SystemBuild$Type extends MessageType<SystemBuild> {
     constructor() {

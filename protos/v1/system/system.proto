@@ -4,6 +4,23 @@ package system;
 
 import "google/protobuf/timestamp.proto";
 
+enum SettingKey {
+    SETTING_UNKNOWN = 0;
+    SETTING_JWT     = 1;
+}
+
+message SettingJWT {
+    string secret                        = 1;
+    google.protobuf.Timestamp updated_at = 11;
+}
+
+message SystemSetting {
+    SettingKey key = 1;
+    oneof value {
+        SettingJWT jwt = 11;
+    }
+}
+
 message SystemBuild {
     string version = 1;
     string commit  = 2;

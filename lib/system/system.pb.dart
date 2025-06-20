@@ -15,8 +15,144 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../google/protobuf/timestamp.pb.dart' as $5;
+import 'system.pbenum.dart';
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
+
+export 'system.pbenum.dart';
+
+class SettingJWT extends $pb.GeneratedMessage {
+  factory SettingJWT({
+    $core.String? secret,
+    $5.Timestamp? updatedAt,
+  }) {
+    final result = create();
+    if (secret != null) result.secret = secret;
+    if (updatedAt != null) result.updatedAt = updatedAt;
+    return result;
+  }
+
+  SettingJWT._();
+
+  factory SettingJWT.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
+  factory SettingJWT.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SettingJWT', package: const $pb.PackageName(_omitMessageNames ? '' : 'system'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'secret')
+    ..aOM<$5.Timestamp>(11, _omitFieldNames ? '' : 'updatedAt', subBuilder: $5.Timestamp.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  SettingJWT clone() => SettingJWT()..mergeFromMessage(this);
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  SettingJWT copyWith(void Function(SettingJWT) updates) => super.copyWith((message) => updates(message as SettingJWT)) as SettingJWT;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static SettingJWT create() => SettingJWT._();
+  @$core.override
+  SettingJWT createEmptyInstance() => create();
+  static $pb.PbList<SettingJWT> createRepeated() => $pb.PbList<SettingJWT>();
+  @$core.pragma('dart2js:noInline')
+  static SettingJWT getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SettingJWT>(create);
+  static SettingJWT? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get secret => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set secret($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasSecret() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearSecret() => $_clearField(1);
+
+  @$pb.TagNumber(11)
+  $5.Timestamp get updatedAt => $_getN(1);
+  @$pb.TagNumber(11)
+  set updatedAt($5.Timestamp value) => $_setField(11, value);
+  @$pb.TagNumber(11)
+  $core.bool hasUpdatedAt() => $_has(1);
+  @$pb.TagNumber(11)
+  void clearUpdatedAt() => $_clearField(11);
+  @$pb.TagNumber(11)
+  $5.Timestamp ensureUpdatedAt() => $_ensure(1);
+}
+
+enum SystemSetting_Value {
+  jwt, 
+  notSet
+}
+
+class SystemSetting extends $pb.GeneratedMessage {
+  factory SystemSetting({
+    SettingKey? key,
+    SettingJWT? jwt,
+  }) {
+    final result = create();
+    if (key != null) result.key = key;
+    if (jwt != null) result.jwt = jwt;
+    return result;
+  }
+
+  SystemSetting._();
+
+  factory SystemSetting.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
+  factory SystemSetting.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+
+  static const $core.Map<$core.int, SystemSetting_Value> _SystemSetting_ValueByTag = {
+    11 : SystemSetting_Value.jwt,
+    0 : SystemSetting_Value.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SystemSetting', package: const $pb.PackageName(_omitMessageNames ? '' : 'system'), createEmptyInstance: create)
+    ..oo(0, [11])
+    ..e<SettingKey>(1, _omitFieldNames ? '' : 'key', $pb.PbFieldType.OE, defaultOrMaker: SettingKey.SETTING_UNKNOWN, valueOf: SettingKey.valueOf, enumValues: SettingKey.values)
+    ..aOM<SettingJWT>(11, _omitFieldNames ? '' : 'jwt', subBuilder: SettingJWT.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  SystemSetting clone() => SystemSetting()..mergeFromMessage(this);
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  SystemSetting copyWith(void Function(SystemSetting) updates) => super.copyWith((message) => updates(message as SystemSetting)) as SystemSetting;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static SystemSetting create() => SystemSetting._();
+  @$core.override
+  SystemSetting createEmptyInstance() => create();
+  static $pb.PbList<SystemSetting> createRepeated() => $pb.PbList<SystemSetting>();
+  @$core.pragma('dart2js:noInline')
+  static SystemSetting getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SystemSetting>(create);
+  static SystemSetting? _defaultInstance;
+
+  SystemSetting_Value whichValue() => _SystemSetting_ValueByTag[$_whichOneof(0)]!;
+  void clearValue() => $_clearField($_whichOneof(0));
+
+  @$pb.TagNumber(1)
+  SettingKey get key => $_getN(0);
+  @$pb.TagNumber(1)
+  set key(SettingKey value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasKey() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearKey() => $_clearField(1);
+
+  @$pb.TagNumber(11)
+  SettingJWT get jwt => $_getN(1);
+  @$pb.TagNumber(11)
+  set jwt(SettingJWT value) => $_setField(11, value);
+  @$pb.TagNumber(11)
+  $core.bool hasJwt() => $_has(1);
+  @$pb.TagNumber(11)
+  void clearJwt() => $_clearField(11);
+  @$pb.TagNumber(11)
+  SettingJWT ensureJwt() => $_ensure(1);
+}
 
 class SystemBuild extends $pb.GeneratedMessage {
   factory SystemBuild({

@@ -69,5 +69,10 @@ CREATE TABLE system_event_shioaji(
     "info" varchar NOT NULL,
     "created_at" timestamptz NOT NULL
 );
+CREATE TABLE system_setting(
+    "key" int PRIMARY KEY,
+    "setting" bytea NOT NULL,
+    "updated_at" timestamptz NOT NULL
+);
 COMMIT;
 
