@@ -9,6 +9,7 @@ package pb
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -97,27 +98,27 @@ func (x *ShioajiEvent) GetEventTime() string {
 	return ""
 }
 
-type SubscribeFutureTickRequest struct {
+type SubscribeFutureRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Code          string                 `protobuf:"bytes,1,opt,name=code,proto3" json:"code,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SubscribeFutureTickRequest) Reset() {
-	*x = SubscribeFutureTickRequest{}
+func (x *SubscribeFutureRequest) Reset() {
+	*x = SubscribeFutureRequest{}
 	mi := &file_stream_stream_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SubscribeFutureTickRequest) String() string {
+func (x *SubscribeFutureRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SubscribeFutureTickRequest) ProtoMessage() {}
+func (*SubscribeFutureRequest) ProtoMessage() {}
 
-func (x *SubscribeFutureTickRequest) ProtoReflect() protoreflect.Message {
+func (x *SubscribeFutureRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_stream_stream_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -129,12 +130,12 @@ func (x *SubscribeFutureTickRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SubscribeFutureTickRequest.ProtoReflect.Descriptor instead.
-func (*SubscribeFutureTickRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use SubscribeFutureRequest.ProtoReflect.Descriptor instead.
+func (*SubscribeFutureRequest) Descriptor() ([]byte, []int) {
 	return file_stream_stream_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *SubscribeFutureTickRequest) GetCode() string {
+func (x *SubscribeFutureRequest) GetCode() string {
 	if x != nil {
 		return x.Code
 	}
@@ -497,7 +498,7 @@ var File_stream_stream_proto protoreflect.FileDescriptor
 
 const file_stream_stream_proto_rawDesc = "" +
 	"\n" +
-	"\x13stream/stream.proto\x12\x06stream\"\x93\x01\n" +
+	"\x13stream/stream.proto\x12\x06stream\x1a\x1bgoogle/protobuf/empty.proto\"\x93\x01\n" +
 	"\fShioajiEvent\x12\x1b\n" +
 	"\tresp_code\x18\x01 \x01(\x03R\brespCode\x12\x1d\n" +
 	"\n" +
@@ -505,8 +506,8 @@ const file_stream_stream_proto_rawDesc = "" +
 	"\x04info\x18\x03 \x01(\tR\x04info\x12\x14\n" +
 	"\x05event\x18\x04 \x01(\tR\x05event\x12\x1d\n" +
 	"\n" +
-	"event_time\x18\x05 \x01(\tR\teventTime\"0\n" +
-	"\x1aSubscribeFutureTickRequest\x12\x12\n" +
+	"event_time\x18\x05 \x01(\tR\teventTime\",\n" +
+	"\x16SubscribeFutureRequest\x12\x12\n" +
 	"\x04code\x18\x01 \x01(\tR\x04code\"\xaf\x04\n" +
 	"\n" +
 	"FutureTick\x12\x12\n" +
@@ -551,9 +552,11 @@ const file_stream_stream_proto_rawDesc = "" +
 	"\x15first_derived_bid_vol\x18\r \x01(\x03R\x12firstDerivedBidVol\x121\n" +
 	"\x15first_derived_ask_vol\x18\x0e \x01(\x03R\x12firstDerivedAskVol\x12)\n" +
 	"\x10underlying_price\x18\x0f \x01(\x01R\x0funderlyingPrice\x12\x1a\n" +
-	"\bsimtrade\x18\x10 \x01(\bR\bsimtrade2d\n" +
-	"\x0fStreamInterface\x12Q\n" +
-	"\x13SubscribeFutureTick\x12\".stream.SubscribeFutureTickRequest\x1a\x12.stream.FutureTick\"\x000\x01B\x06Z\x04./pbb\x06proto3"
+	"\bsimtrade\x18\x10 \x01(\bR\bsimtrade2\xfe\x01\n" +
+	"\x0fStreamInterface\x12I\n" +
+	"\x15SubscribeShioajiEvent\x12\x16.google.protobuf.Empty\x1a\x14.stream.ShioajiEvent\"\x000\x01\x12M\n" +
+	"\x13SubscribeFutureTick\x12\x1e.stream.SubscribeFutureRequest\x1a\x12.stream.FutureTick\"\x000\x01\x12Q\n" +
+	"\x15SubscribeFutureBidAsk\x12\x1e.stream.SubscribeFutureRequest\x1a\x14.stream.FutureBidAsk\"\x000\x01B\x06Z\x04./pbb\x06proto3"
 
 var (
 	file_stream_stream_proto_rawDescOnce sync.Once
@@ -569,16 +572,21 @@ func file_stream_stream_proto_rawDescGZIP() []byte {
 
 var file_stream_stream_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_stream_stream_proto_goTypes = []any{
-	(*ShioajiEvent)(nil),               // 0: stream.ShioajiEvent
-	(*SubscribeFutureTickRequest)(nil), // 1: stream.SubscribeFutureTickRequest
-	(*FutureTick)(nil),                 // 2: stream.FutureTick
-	(*FutureBidAsk)(nil),               // 3: stream.FutureBidAsk
+	(*ShioajiEvent)(nil),           // 0: stream.ShioajiEvent
+	(*SubscribeFutureRequest)(nil), // 1: stream.SubscribeFutureRequest
+	(*FutureTick)(nil),             // 2: stream.FutureTick
+	(*FutureBidAsk)(nil),           // 3: stream.FutureBidAsk
+	(*emptypb.Empty)(nil),          // 4: google.protobuf.Empty
 }
 var file_stream_stream_proto_depIdxs = []int32{
-	1, // 0: stream.StreamInterface.SubscribeFutureTick:input_type -> stream.SubscribeFutureTickRequest
-	2, // 1: stream.StreamInterface.SubscribeFutureTick:output_type -> stream.FutureTick
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
+	4, // 0: stream.StreamInterface.SubscribeShioajiEvent:input_type -> google.protobuf.Empty
+	1, // 1: stream.StreamInterface.SubscribeFutureTick:input_type -> stream.SubscribeFutureRequest
+	1, // 2: stream.StreamInterface.SubscribeFutureBidAsk:input_type -> stream.SubscribeFutureRequest
+	0, // 3: stream.StreamInterface.SubscribeShioajiEvent:output_type -> stream.ShioajiEvent
+	2, // 4: stream.StreamInterface.SubscribeFutureTick:output_type -> stream.FutureTick
+	3, // 5: stream.StreamInterface.SubscribeFutureBidAsk:output_type -> stream.FutureBidAsk
+	3, // [3:6] is the sub-list for method output_type
+	0, // [0:3] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name

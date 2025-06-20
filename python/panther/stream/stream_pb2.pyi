@@ -1,3 +1,4 @@
+from google.protobuf import empty_pb2 as _empty_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -20,7 +21,7 @@ class ShioajiEvent(_message.Message):
     event_time: str
     def __init__(self, resp_code: _Optional[int] = ..., event_code: _Optional[int] = ..., info: _Optional[str] = ..., event: _Optional[str] = ..., event_time: _Optional[str] = ...) -> None: ...
 
-class SubscribeFutureTickRequest(_message.Message):
+class SubscribeFutureRequest(_message.Message):
     __slots__ = ("code",)
     CODE_FIELD_NUMBER: _ClassVar[int]
     code: str

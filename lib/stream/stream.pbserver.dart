@@ -15,24 +15,31 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import '../google/protobuf/empty.pb.dart' as $0;
 import 'stream.pb.dart' as $4;
 import 'stream.pbjson.dart';
 
 export 'stream.pb.dart';
 
 abstract class StreamInterfaceServiceBase extends $pb.GeneratedService {
-  $async.Future<$4.FutureTick> subscribeFutureTick($pb.ServerContext ctx, $4.SubscribeFutureTickRequest request);
+  $async.Future<$4.ShioajiEvent> subscribeShioajiEvent($pb.ServerContext ctx, $0.Empty request);
+  $async.Future<$4.FutureTick> subscribeFutureTick($pb.ServerContext ctx, $4.SubscribeFutureRequest request);
+  $async.Future<$4.FutureBidAsk> subscribeFutureBidAsk($pb.ServerContext ctx, $4.SubscribeFutureRequest request);
 
   $pb.GeneratedMessage createRequest($core.String methodName) {
     switch (methodName) {
-      case 'SubscribeFutureTick': return $4.SubscribeFutureTickRequest();
+      case 'SubscribeShioajiEvent': return $0.Empty();
+      case 'SubscribeFutureTick': return $4.SubscribeFutureRequest();
+      case 'SubscribeFutureBidAsk': return $4.SubscribeFutureRequest();
       default: throw $core.ArgumentError('Unknown method: $methodName');
     }
   }
 
   $async.Future<$pb.GeneratedMessage> handleCall($pb.ServerContext ctx, $core.String methodName, $pb.GeneratedMessage request) {
     switch (methodName) {
-      case 'SubscribeFutureTick': return subscribeFutureTick(ctx, request as $4.SubscribeFutureTickRequest);
+      case 'SubscribeShioajiEvent': return subscribeShioajiEvent(ctx, request as $0.Empty);
+      case 'SubscribeFutureTick': return subscribeFutureTick(ctx, request as $4.SubscribeFutureRequest);
+      case 'SubscribeFutureBidAsk': return subscribeFutureBidAsk(ctx, request as $4.SubscribeFutureRequest);
       default: throw $core.ArgumentError('Unknown method: $methodName');
     }
   }

@@ -14,6 +14,8 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
+import '../google/protobuf/empty.pbjson.dart' as $0;
+
 @$core.Deprecated('Use shioajiEventDescriptor instead')
 const ShioajiEvent$json = {
   '1': 'ShioajiEvent',
@@ -32,17 +34,17 @@ final $typed_data.Uint8List shioajiEventDescriptor = $convert.base64Decode(
     'RlGAIgASgDUglldmVudENvZGUSEgoEaW5mbxgDIAEoCVIEaW5mbxIUCgVldmVudBgEIAEoCVIF'
     'ZXZlbnQSHQoKZXZlbnRfdGltZRgFIAEoCVIJZXZlbnRUaW1l');
 
-@$core.Deprecated('Use subscribeFutureTickRequestDescriptor instead')
-const SubscribeFutureTickRequest$json = {
-  '1': 'SubscribeFutureTickRequest',
+@$core.Deprecated('Use subscribeFutureRequestDescriptor instead')
+const SubscribeFutureRequest$json = {
+  '1': 'SubscribeFutureRequest',
   '2': [
     {'1': 'code', '3': 1, '4': 1, '5': 9, '10': 'code'},
   ],
 };
 
-/// Descriptor for `SubscribeFutureTickRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List subscribeFutureTickRequestDescriptor = $convert.base64Decode(
-    'ChpTdWJzY3JpYmVGdXR1cmVUaWNrUmVxdWVzdBISCgRjb2RlGAEgASgJUgRjb2Rl');
+/// Descriptor for `SubscribeFutureRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List subscribeFutureRequestDescriptor = $convert.base64Decode(
+    'ChZTdWJzY3JpYmVGdXR1cmVSZXF1ZXN0EhIKBGNvZGUYASABKAlSBGNvZGU=');
 
 @$core.Deprecated('Use futureTickDescriptor instead')
 const FutureTick$json = {
@@ -124,18 +126,26 @@ final $typed_data.Uint8List futureBidAskDescriptor = $convert.base64Decode(
 const $core.Map<$core.String, $core.dynamic> StreamInterfaceServiceBase$json = {
   '1': 'StreamInterface',
   '2': [
-    {'1': 'SubscribeFutureTick', '2': '.stream.SubscribeFutureTickRequest', '3': '.stream.FutureTick', '4': {}, '6': true},
+    {'1': 'SubscribeShioajiEvent', '2': '.google.protobuf.Empty', '3': '.stream.ShioajiEvent', '4': {}, '6': true},
+    {'1': 'SubscribeFutureTick', '2': '.stream.SubscribeFutureRequest', '3': '.stream.FutureTick', '4': {}, '6': true},
+    {'1': 'SubscribeFutureBidAsk', '2': '.stream.SubscribeFutureRequest', '3': '.stream.FutureBidAsk', '4': {}, '6': true},
   ],
 };
 
 @$core.Deprecated('Use streamInterfaceServiceDescriptor instead')
 const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> StreamInterfaceServiceBase$messageJson = {
-  '.stream.SubscribeFutureTickRequest': SubscribeFutureTickRequest$json,
+  '.google.protobuf.Empty': $0.Empty$json,
+  '.stream.ShioajiEvent': ShioajiEvent$json,
+  '.stream.SubscribeFutureRequest': SubscribeFutureRequest$json,
   '.stream.FutureTick': FutureTick$json,
+  '.stream.FutureBidAsk': FutureBidAsk$json,
 };
 
 /// Descriptor for `StreamInterface`. Decode as a `google.protobuf.ServiceDescriptorProto`.
 final $typed_data.Uint8List streamInterfaceServiceDescriptor = $convert.base64Decode(
-    'Cg9TdHJlYW1JbnRlcmZhY2USUQoTU3Vic2NyaWJlRnV0dXJlVGljaxIiLnN0cmVhbS5TdWJzY3'
-    'JpYmVGdXR1cmVUaWNrUmVxdWVzdBoSLnN0cmVhbS5GdXR1cmVUaWNrIgAwAQ==');
+    'Cg9TdHJlYW1JbnRlcmZhY2USSQoVU3Vic2NyaWJlU2hpb2FqaUV2ZW50EhYuZ29vZ2xlLnByb3'
+    'RvYnVmLkVtcHR5GhQuc3RyZWFtLlNoaW9hamlFdmVudCIAMAESTQoTU3Vic2NyaWJlRnV0dXJl'
+    'VGljaxIeLnN0cmVhbS5TdWJzY3JpYmVGdXR1cmVSZXF1ZXN0GhIuc3RyZWFtLkZ1dHVyZVRpY2'
+    'siADABElEKFVN1YnNjcmliZUZ1dHVyZUJpZEFzaxIeLnN0cmVhbS5TdWJzY3JpYmVGdXR1cmVS'
+    'ZXF1ZXN0GhQuc3RyZWFtLkZ1dHVyZUJpZEFzayIAMAE=');
 

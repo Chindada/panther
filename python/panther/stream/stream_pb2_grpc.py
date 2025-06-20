@@ -3,6 +3,7 @@
 import grpc
 import warnings
 
+from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 from panther.stream import stream_pb2 as stream_dot_stream__pb2
 
 GRPC_GENERATED_VERSION = '1.73.0'
@@ -34,17 +35,39 @@ class StreamInterfaceStub(object):
         Args:
             channel: A grpc.Channel.
         """
+        self.SubscribeShioajiEvent = channel.unary_stream(
+                '/stream.StreamInterface/SubscribeShioajiEvent',
+                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                response_deserializer=stream_dot_stream__pb2.ShioajiEvent.FromString,
+                _registered_method=True)
         self.SubscribeFutureTick = channel.unary_stream(
                 '/stream.StreamInterface/SubscribeFutureTick',
-                request_serializer=stream_dot_stream__pb2.SubscribeFutureTickRequest.SerializeToString,
+                request_serializer=stream_dot_stream__pb2.SubscribeFutureRequest.SerializeToString,
                 response_deserializer=stream_dot_stream__pb2.FutureTick.FromString,
+                _registered_method=True)
+        self.SubscribeFutureBidAsk = channel.unary_stream(
+                '/stream.StreamInterface/SubscribeFutureBidAsk',
+                request_serializer=stream_dot_stream__pb2.SubscribeFutureRequest.SerializeToString,
+                response_deserializer=stream_dot_stream__pb2.FutureBidAsk.FromString,
                 _registered_method=True)
 
 
 class StreamInterfaceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
+    def SubscribeShioajiEvent(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def SubscribeFutureTick(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SubscribeFutureBidAsk(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -53,10 +76,20 @@ class StreamInterfaceServicer(object):
 
 def add_StreamInterfaceServicer_to_server(servicer, server):
     rpc_method_handlers = {
+            'SubscribeShioajiEvent': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeShioajiEvent,
+                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                    response_serializer=stream_dot_stream__pb2.ShioajiEvent.SerializeToString,
+            ),
             'SubscribeFutureTick': grpc.unary_stream_rpc_method_handler(
                     servicer.SubscribeFutureTick,
-                    request_deserializer=stream_dot_stream__pb2.SubscribeFutureTickRequest.FromString,
+                    request_deserializer=stream_dot_stream__pb2.SubscribeFutureRequest.FromString,
                     response_serializer=stream_dot_stream__pb2.FutureTick.SerializeToString,
+            ),
+            'SubscribeFutureBidAsk': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeFutureBidAsk,
+                    request_deserializer=stream_dot_stream__pb2.SubscribeFutureRequest.FromString,
+                    response_serializer=stream_dot_stream__pb2.FutureBidAsk.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -68,6 +101,33 @@ def add_StreamInterfaceServicer_to_server(servicer, server):
  # This class is part of an EXPERIMENTAL API.
 class StreamInterface(object):
     """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def SubscribeShioajiEvent(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/stream.StreamInterface/SubscribeShioajiEvent',
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            stream_dot_stream__pb2.ShioajiEvent.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def SubscribeFutureTick(request,
@@ -84,8 +144,35 @@ class StreamInterface(object):
             request,
             target,
             '/stream.StreamInterface/SubscribeFutureTick',
-            stream_dot_stream__pb2.SubscribeFutureTickRequest.SerializeToString,
+            stream_dot_stream__pb2.SubscribeFutureRequest.SerializeToString,
             stream_dot_stream__pb2.FutureTick.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def SubscribeFutureBidAsk(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/stream.StreamInterface/SubscribeFutureBidAsk',
+            stream_dot_stream__pb2.SubscribeFutureRequest.SerializeToString,
+            stream_dot_stream__pb2.FutureBidAsk.FromString,
             options,
             channel_credentials,
             insecure,

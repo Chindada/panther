@@ -16,6 +16,8 @@ import 'dart:core' as $core;
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import '../google/protobuf/empty.pb.dart' as $0;
+
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
 class ShioajiEvent extends $pb.GeneratedMessage {
@@ -112,8 +114,8 @@ class ShioajiEvent extends $pb.GeneratedMessage {
   void clearEventTime() => $_clearField(5);
 }
 
-class SubscribeFutureTickRequest extends $pb.GeneratedMessage {
-  factory SubscribeFutureTickRequest({
+class SubscribeFutureRequest extends $pb.GeneratedMessage {
+  factory SubscribeFutureRequest({
     $core.String? code,
   }) {
     final result = create();
@@ -121,32 +123,32 @@ class SubscribeFutureTickRequest extends $pb.GeneratedMessage {
     return result;
   }
 
-  SubscribeFutureTickRequest._();
+  SubscribeFutureRequest._();
 
-  factory SubscribeFutureTickRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory SubscribeFutureTickRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory SubscribeFutureRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
+  factory SubscribeFutureRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SubscribeFutureTickRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'stream'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SubscribeFutureRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'stream'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'code')
     ..hasRequiredFields = false
   ;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SubscribeFutureTickRequest clone() => SubscribeFutureTickRequest()..mergeFromMessage(this);
+  SubscribeFutureRequest clone() => SubscribeFutureRequest()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SubscribeFutureTickRequest copyWith(void Function(SubscribeFutureTickRequest) updates) => super.copyWith((message) => updates(message as SubscribeFutureTickRequest)) as SubscribeFutureTickRequest;
+  SubscribeFutureRequest copyWith(void Function(SubscribeFutureRequest) updates) => super.copyWith((message) => updates(message as SubscribeFutureRequest)) as SubscribeFutureRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static SubscribeFutureTickRequest create() => SubscribeFutureTickRequest._();
+  static SubscribeFutureRequest create() => SubscribeFutureRequest._();
   @$core.override
-  SubscribeFutureTickRequest createEmptyInstance() => create();
-  static $pb.PbList<SubscribeFutureTickRequest> createRepeated() => $pb.PbList<SubscribeFutureTickRequest>();
+  SubscribeFutureRequest createEmptyInstance() => create();
+  static $pb.PbList<SubscribeFutureRequest> createRepeated() => $pb.PbList<SubscribeFutureRequest>();
   @$core.pragma('dart2js:noInline')
-  static SubscribeFutureTickRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SubscribeFutureTickRequest>(create);
-  static SubscribeFutureTickRequest? _defaultInstance;
+  static SubscribeFutureRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SubscribeFutureRequest>(create);
+  static SubscribeFutureRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get code => $_getSZ(0);
@@ -615,8 +617,14 @@ class StreamInterfaceApi {
 
   StreamInterfaceApi(this._client);
 
-  $async.Future<FutureTick> subscribeFutureTick($pb.ClientContext? ctx, SubscribeFutureTickRequest request) =>
+  $async.Future<ShioajiEvent> subscribeShioajiEvent($pb.ClientContext? ctx, $0.Empty request) =>
+    _client.invoke<ShioajiEvent>(ctx, 'StreamInterface', 'SubscribeShioajiEvent', request, ShioajiEvent())
+  ;
+  $async.Future<FutureTick> subscribeFutureTick($pb.ClientContext? ctx, SubscribeFutureRequest request) =>
     _client.invoke<FutureTick>(ctx, 'StreamInterface', 'SubscribeFutureTick', request, FutureTick())
+  ;
+  $async.Future<FutureBidAsk> subscribeFutureBidAsk($pb.ClientContext? ctx, SubscribeFutureRequest request) =>
+    _client.invoke<FutureBidAsk>(ctx, 'StreamInterface', 'SubscribeFutureBidAsk', request, FutureBidAsk())
   ;
 }
 

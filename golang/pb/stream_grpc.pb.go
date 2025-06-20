@@ -11,6 +11,7 @@ import (
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -19,14 +20,18 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	StreamInterface_SubscribeFutureTick_FullMethodName = "/stream.StreamInterface/SubscribeFutureTick"
+	StreamInterface_SubscribeShioajiEvent_FullMethodName = "/stream.StreamInterface/SubscribeShioajiEvent"
+	StreamInterface_SubscribeFutureTick_FullMethodName   = "/stream.StreamInterface/SubscribeFutureTick"
+	StreamInterface_SubscribeFutureBidAsk_FullMethodName = "/stream.StreamInterface/SubscribeFutureBidAsk"
 )
 
 // StreamInterfaceClient is the client API for StreamInterface service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type StreamInterfaceClient interface {
-	SubscribeFutureTick(ctx context.Context, in *SubscribeFutureTickRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[FutureTick], error)
+	SubscribeShioajiEvent(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (grpc.ServerStreamingClient[ShioajiEvent], error)
+	SubscribeFutureTick(ctx context.Context, in *SubscribeFutureRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[FutureTick], error)
+	SubscribeFutureBidAsk(ctx context.Context, in *SubscribeFutureRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[FutureBidAsk], error)
 }
 
 type streamInterfaceClient struct {
@@ -37,13 +42,32 @@ func NewStreamInterfaceClient(cc grpc.ClientConnInterface) StreamInterfaceClient
 	return &streamInterfaceClient{cc}
 }
 
-func (c *streamInterfaceClient) SubscribeFutureTick(ctx context.Context, in *SubscribeFutureTickRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[FutureTick], error) {
+func (c *streamInterfaceClient) SubscribeShioajiEvent(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (grpc.ServerStreamingClient[ShioajiEvent], error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	stream, err := c.cc.NewStream(ctx, &StreamInterface_ServiceDesc.Streams[0], StreamInterface_SubscribeFutureTick_FullMethodName, cOpts...)
+	stream, err := c.cc.NewStream(ctx, &StreamInterface_ServiceDesc.Streams[0], StreamInterface_SubscribeShioajiEvent_FullMethodName, cOpts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &grpc.GenericClientStream[SubscribeFutureTickRequest, FutureTick]{ClientStream: stream}
+	x := &grpc.GenericClientStream[emptypb.Empty, ShioajiEvent]{ClientStream: stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type StreamInterface_SubscribeShioajiEventClient = grpc.ServerStreamingClient[ShioajiEvent]
+
+func (c *streamInterfaceClient) SubscribeFutureTick(ctx context.Context, in *SubscribeFutureRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[FutureTick], error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	stream, err := c.cc.NewStream(ctx, &StreamInterface_ServiceDesc.Streams[1], StreamInterface_SubscribeFutureTick_FullMethodName, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &grpc.GenericClientStream[SubscribeFutureRequest, FutureTick]{ClientStream: stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -56,11 +80,32 @@ func (c *streamInterfaceClient) SubscribeFutureTick(ctx context.Context, in *Sub
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type StreamInterface_SubscribeFutureTickClient = grpc.ServerStreamingClient[FutureTick]
 
+func (c *streamInterfaceClient) SubscribeFutureBidAsk(ctx context.Context, in *SubscribeFutureRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[FutureBidAsk], error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	stream, err := c.cc.NewStream(ctx, &StreamInterface_ServiceDesc.Streams[2], StreamInterface_SubscribeFutureBidAsk_FullMethodName, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &grpc.GenericClientStream[SubscribeFutureRequest, FutureBidAsk]{ClientStream: stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type StreamInterface_SubscribeFutureBidAskClient = grpc.ServerStreamingClient[FutureBidAsk]
+
 // StreamInterfaceServer is the server API for StreamInterface service.
 // All implementations must embed UnimplementedStreamInterfaceServer
 // for forward compatibility.
 type StreamInterfaceServer interface {
-	SubscribeFutureTick(*SubscribeFutureTickRequest, grpc.ServerStreamingServer[FutureTick]) error
+	SubscribeShioajiEvent(*emptypb.Empty, grpc.ServerStreamingServer[ShioajiEvent]) error
+	SubscribeFutureTick(*SubscribeFutureRequest, grpc.ServerStreamingServer[FutureTick]) error
+	SubscribeFutureBidAsk(*SubscribeFutureRequest, grpc.ServerStreamingServer[FutureBidAsk]) error
 	mustEmbedUnimplementedStreamInterfaceServer()
 }
 
@@ -71,8 +116,14 @@ type StreamInterfaceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedStreamInterfaceServer struct{}
 
-func (UnimplementedStreamInterfaceServer) SubscribeFutureTick(*SubscribeFutureTickRequest, grpc.ServerStreamingServer[FutureTick]) error {
+func (UnimplementedStreamInterfaceServer) SubscribeShioajiEvent(*emptypb.Empty, grpc.ServerStreamingServer[ShioajiEvent]) error {
+	return status.Errorf(codes.Unimplemented, "method SubscribeShioajiEvent not implemented")
+}
+func (UnimplementedStreamInterfaceServer) SubscribeFutureTick(*SubscribeFutureRequest, grpc.ServerStreamingServer[FutureTick]) error {
 	return status.Errorf(codes.Unimplemented, "method SubscribeFutureTick not implemented")
+}
+func (UnimplementedStreamInterfaceServer) SubscribeFutureBidAsk(*SubscribeFutureRequest, grpc.ServerStreamingServer[FutureBidAsk]) error {
+	return status.Errorf(codes.Unimplemented, "method SubscribeFutureBidAsk not implemented")
 }
 func (UnimplementedStreamInterfaceServer) mustEmbedUnimplementedStreamInterfaceServer() {}
 func (UnimplementedStreamInterfaceServer) testEmbeddedByValue()                         {}
@@ -95,16 +146,38 @@ func RegisterStreamInterfaceServer(s grpc.ServiceRegistrar, srv StreamInterfaceS
 	s.RegisterService(&StreamInterface_ServiceDesc, srv)
 }
 
-func _StreamInterface_SubscribeFutureTick_Handler(srv interface{}, stream grpc.ServerStream) error {
-	m := new(SubscribeFutureTickRequest)
+func _StreamInterface_SubscribeShioajiEvent_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(emptypb.Empty)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(StreamInterfaceServer).SubscribeFutureTick(m, &grpc.GenericServerStream[SubscribeFutureTickRequest, FutureTick]{ServerStream: stream})
+	return srv.(StreamInterfaceServer).SubscribeShioajiEvent(m, &grpc.GenericServerStream[emptypb.Empty, ShioajiEvent]{ServerStream: stream})
+}
+
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type StreamInterface_SubscribeShioajiEventServer = grpc.ServerStreamingServer[ShioajiEvent]
+
+func _StreamInterface_SubscribeFutureTick_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(SubscribeFutureRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(StreamInterfaceServer).SubscribeFutureTick(m, &grpc.GenericServerStream[SubscribeFutureRequest, FutureTick]{ServerStream: stream})
 }
 
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type StreamInterface_SubscribeFutureTickServer = grpc.ServerStreamingServer[FutureTick]
+
+func _StreamInterface_SubscribeFutureBidAsk_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(SubscribeFutureRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(StreamInterfaceServer).SubscribeFutureBidAsk(m, &grpc.GenericServerStream[SubscribeFutureRequest, FutureBidAsk]{ServerStream: stream})
+}
+
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type StreamInterface_SubscribeFutureBidAskServer = grpc.ServerStreamingServer[FutureBidAsk]
 
 // StreamInterface_ServiceDesc is the grpc.ServiceDesc for StreamInterface service.
 // It's only intended for direct use with grpc.RegisterService,
@@ -115,8 +188,18 @@ var StreamInterface_ServiceDesc = grpc.ServiceDesc{
 	Methods:     []grpc.MethodDesc{},
 	Streams: []grpc.StreamDesc{
 		{
+			StreamName:    "SubscribeShioajiEvent",
+			Handler:       _StreamInterface_SubscribeShioajiEvent_Handler,
+			ServerStreams: true,
+		},
+		{
 			StreamName:    "SubscribeFutureTick",
 			Handler:       _StreamInterface_SubscribeFutureTick_Handler,
+			ServerStreams: true,
+		},
+		{
+			StreamName:    "SubscribeFutureBidAsk",
+			Handler:       _StreamInterface_SubscribeFutureBidAsk_Handler,
 			ServerStreams: true,
 		},
 	},

@@ -2,8 +2,12 @@ syntax            = "proto3";
 option go_package = "./pb";
 package stream;
 
+import "google/protobuf/empty.proto";
+
 service StreamInterface {
-    rpc SubscribeFutureTick(SubscribeFutureTickRequest) returns (stream FutureTick) {}
+    rpc SubscribeShioajiEvent(google.protobuf.Empty) returns (stream ShioajiEvent) {}
+    rpc SubscribeFutureTick(SubscribeFutureRequest) returns (stream FutureTick) {}
+    rpc SubscribeFutureBidAsk(SubscribeFutureRequest) returns (stream FutureBidAsk) {}
 }
 
 message ShioajiEvent {
@@ -14,7 +18,7 @@ message ShioajiEvent {
     string event_time = 5;
 }
 
-message SubscribeFutureTickRequest {
+message SubscribeFutureRequest {
     string code = 1;
 }
 
