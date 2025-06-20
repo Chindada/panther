@@ -1,5 +1,6 @@
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
+from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from collections.abc import Iterable as _Iterable, Mapping as _Mapping
@@ -7,15 +8,28 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
+class UserRole(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    UNKNOWN: _ClassVar[UserRole]
+    USER: _ClassVar[UserRole]
+    ADMIN: _ClassVar[UserRole]
+    ROOT: _ClassVar[UserRole]
+UNKNOWN: UserRole
+USER: UserRole
+ADMIN: UserRole
+ROOT: UserRole
+
 class BasicUser(_message.Message):
-    __slots__ = ("email", "username", "password")
+    __slots__ = ("email", "username", "password", "role")
     EMAIL_FIELD_NUMBER: _ClassVar[int]
     USERNAME_FIELD_NUMBER: _ClassVar[int]
     PASSWORD_FIELD_NUMBER: _ClassVar[int]
+    ROLE_FIELD_NUMBER: _ClassVar[int]
     email: str
     username: str
     password: str
-    def __init__(self, email: _Optional[str] = ..., username: _Optional[str] = ..., password: _Optional[str] = ...) -> None: ...
+    role: UserRole
+    def __init__(self, email: _Optional[str] = ..., username: _Optional[str] = ..., password: _Optional[str] = ..., role: _Optional[_Union[UserRole, str]] = ...) -> None: ...
 
 class LocalUser(_message.Message):
     __slots__ = ("id", "basic", "need_change_password", "created_at", "updated_at")

@@ -14,6 +14,21 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
+@$core.Deprecated('Use userRoleDescriptor instead')
+const UserRole$json = {
+  '1': 'UserRole',
+  '2': [
+    {'1': 'UNKNOWN', '2': 0},
+    {'1': 'USER', '2': 1},
+    {'1': 'ADMIN', '2': 2},
+    {'1': 'ROOT', '2': 3},
+  ],
+};
+
+/// Descriptor for `UserRole`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List userRoleDescriptor = $convert.base64Decode(
+    'CghVc2VyUm9sZRILCgdVTktOT1dOEAASCAoEVVNFUhABEgkKBUFETUlOEAISCAoEUk9PVBAD');
+
 @$core.Deprecated('Use basicUserDescriptor instead')
 const BasicUser$json = {
   '1': 'BasicUser',
@@ -21,13 +36,15 @@ const BasicUser$json = {
     {'1': 'email', '3': 1, '4': 1, '5': 9, '10': 'email'},
     {'1': 'username', '3': 2, '4': 1, '5': 9, '10': 'username'},
     {'1': 'password', '3': 3, '4': 1, '5': 9, '10': 'password'},
+    {'1': 'role', '3': 4, '4': 1, '5': 14, '6': '.system.UserRole', '10': 'role'},
   ],
 };
 
 /// Descriptor for `BasicUser`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List basicUserDescriptor = $convert.base64Decode(
     'CglCYXNpY1VzZXISFAoFZW1haWwYASABKAlSBWVtYWlsEhoKCHVzZXJuYW1lGAIgASgJUgh1c2'
-    'VybmFtZRIaCghwYXNzd29yZBgDIAEoCVIIcGFzc3dvcmQ=');
+    'VybmFtZRIaCghwYXNzd29yZBgDIAEoCVIIcGFzc3dvcmQSJAoEcm9sZRgEIAEoDjIQLnN5c3Rl'
+    'bS5Vc2VyUm9sZVIEcm9sZQ==');
 
 @$core.Deprecated('Use localUserDescriptor instead')
 const LocalUser$json = {

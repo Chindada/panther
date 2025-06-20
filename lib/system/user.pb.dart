@@ -16,19 +16,24 @@ import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../google/protobuf/timestamp.pb.dart' as $5;
+import 'user.pbenum.dart';
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
+
+export 'user.pbenum.dart';
 
 class BasicUser extends $pb.GeneratedMessage {
   factory BasicUser({
     $core.String? email,
     $core.String? username,
     $core.String? password,
+    UserRole? role,
   }) {
     final result = create();
     if (email != null) result.email = email;
     if (username != null) result.username = username;
     if (password != null) result.password = password;
+    if (role != null) result.role = role;
     return result;
   }
 
@@ -41,6 +46,7 @@ class BasicUser extends $pb.GeneratedMessage {
     ..aOS(1, _omitFieldNames ? '' : 'email')
     ..aOS(2, _omitFieldNames ? '' : 'username')
     ..aOS(3, _omitFieldNames ? '' : 'password')
+    ..e<UserRole>(4, _omitFieldNames ? '' : 'role', $pb.PbFieldType.OE, defaultOrMaker: UserRole.UNKNOWN, valueOf: UserRole.valueOf, enumValues: UserRole.values)
     ..hasRequiredFields = false
   ;
 
@@ -87,6 +93,15 @@ class BasicUser extends $pb.GeneratedMessage {
   $core.bool hasPassword() => $_has(2);
   @$pb.TagNumber(3)
   void clearPassword() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  UserRole get role => $_getN(3);
+  @$pb.TagNumber(4)
+  set role(UserRole value) => $_setField(4, value);
+  @$pb.TagNumber(4)
+  $core.bool hasRole() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearRole() => $_clearField(4);
 }
 
 class LocalUser extends $pb.GeneratedMessage {

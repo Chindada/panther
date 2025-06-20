@@ -22,11 +22,64 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type UserRole int32
+
+const (
+	UserRole_UNKNOWN UserRole = 0
+	UserRole_USER    UserRole = 1
+	UserRole_ADMIN   UserRole = 2
+	UserRole_ROOT    UserRole = 3
+)
+
+// Enum value maps for UserRole.
+var (
+	UserRole_name = map[int32]string{
+		0: "UNKNOWN",
+		1: "USER",
+		2: "ADMIN",
+		3: "ROOT",
+	}
+	UserRole_value = map[string]int32{
+		"UNKNOWN": 0,
+		"USER":    1,
+		"ADMIN":   2,
+		"ROOT":    3,
+	}
+)
+
+func (x UserRole) Enum() *UserRole {
+	p := new(UserRole)
+	*p = x
+	return p
+}
+
+func (x UserRole) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (UserRole) Descriptor() protoreflect.EnumDescriptor {
+	return file_system_user_proto_enumTypes[0].Descriptor()
+}
+
+func (UserRole) Type() protoreflect.EnumType {
+	return &file_system_user_proto_enumTypes[0]
+}
+
+func (x UserRole) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use UserRole.Descriptor instead.
+func (UserRole) EnumDescriptor() ([]byte, []int) {
+	return file_system_user_proto_rawDescGZIP(), []int{0}
+}
+
 type BasicUser struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Email         string                 `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
 	Username      string                 `protobuf:"bytes,2,opt,name=username,proto3" json:"username,omitempty"`
 	Password      string                 `protobuf:"bytes,3,opt,name=password,proto3" json:"password,omitempty"`
+	Role          UserRole               `protobuf:"varint,4,opt,name=role,proto3,enum=system.UserRole" json:"role,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -80,6 +133,13 @@ func (x *BasicUser) GetPassword() string {
 		return x.Password
 	}
 	return ""
+}
+
+func (x *BasicUser) GetRole() UserRole {
+	if x != nil {
+		return x.Role
+	}
+	return UserRole_UNKNOWN
 }
 
 type LocalUser struct {
@@ -266,11 +326,12 @@ var File_system_user_proto protoreflect.FileDescriptor
 
 const file_system_user_proto_rawDesc = "" +
 	"\n" +
-	"\x11system/user.proto\x12\x06system\x1a\x1fgoogle/protobuf/timestamp.proto\"Y\n" +
+	"\x11system/user.proto\x12\x06system\x1a\x1fgoogle/protobuf/timestamp.proto\"\x7f\n" +
 	"\tBasicUser\x12\x14\n" +
 	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
 	"\busername\x18\x02 \x01(\tR\busername\x12\x1a\n" +
-	"\bpassword\x18\x03 \x01(\tR\bpassword\"\xec\x01\n" +
+	"\bpassword\x18\x03 \x01(\tR\bpassword\x12$\n" +
+	"\x04role\x18\x04 \x01(\x0e2\x10.system.UserRoleR\x04role\"\xec\x01\n" +
 	"\tLocalUser\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12'\n" +
 	"\x05basic\x18\x02 \x01(\v2\x11.system.BasicUserR\x05basic\x120\n" +
@@ -284,7 +345,12 @@ const file_system_user_proto_rawDesc = "" +
 	"\x04Totp\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x16\n" +
 	"\x06secret\x18\x02 \x01(\tR\x06secret\x12\x17\n" +
-	"\aqr_code\x18\x03 \x01(\tR\x06qrCodeB\x06Z\x04./pbb\x06proto3"
+	"\aqr_code\x18\x03 \x01(\tR\x06qrCode*6\n" +
+	"\bUserRole\x12\v\n" +
+	"\aUNKNOWN\x10\x00\x12\b\n" +
+	"\x04USER\x10\x01\x12\t\n" +
+	"\x05ADMIN\x10\x02\x12\b\n" +
+	"\x04ROOT\x10\x03B\x06Z\x04./pbb\x06proto3"
 
 var (
 	file_system_user_proto_rawDescOnce sync.Once
@@ -298,24 +364,27 @@ func file_system_user_proto_rawDescGZIP() []byte {
 	return file_system_user_proto_rawDescData
 }
 
+var file_system_user_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_system_user_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_system_user_proto_goTypes = []any{
-	(*BasicUser)(nil),             // 0: system.BasicUser
-	(*LocalUser)(nil),             // 1: system.LocalUser
-	(*LocalUserList)(nil),         // 2: system.LocalUserList
-	(*Totp)(nil),                  // 3: system.Totp
-	(*timestamppb.Timestamp)(nil), // 4: google.protobuf.Timestamp
+	(UserRole)(0),                 // 0: system.UserRole
+	(*BasicUser)(nil),             // 1: system.BasicUser
+	(*LocalUser)(nil),             // 2: system.LocalUser
+	(*LocalUserList)(nil),         // 3: system.LocalUserList
+	(*Totp)(nil),                  // 4: system.Totp
+	(*timestamppb.Timestamp)(nil), // 5: google.protobuf.Timestamp
 }
 var file_system_user_proto_depIdxs = []int32{
-	0, // 0: system.LocalUser.basic:type_name -> system.BasicUser
-	4, // 1: system.LocalUser.created_at:type_name -> google.protobuf.Timestamp
-	4, // 2: system.LocalUser.updated_at:type_name -> google.protobuf.Timestamp
-	1, // 3: system.LocalUserList.list:type_name -> system.LocalUser
-	4, // [4:4] is the sub-list for method output_type
-	4, // [4:4] is the sub-list for method input_type
-	4, // [4:4] is the sub-list for extension type_name
-	4, // [4:4] is the sub-list for extension extendee
-	0, // [0:4] is the sub-list for field type_name
+	0, // 0: system.BasicUser.role:type_name -> system.UserRole
+	1, // 1: system.LocalUser.basic:type_name -> system.BasicUser
+	5, // 2: system.LocalUser.created_at:type_name -> google.protobuf.Timestamp
+	5, // 3: system.LocalUser.updated_at:type_name -> google.protobuf.Timestamp
+	2, // 4: system.LocalUserList.list:type_name -> system.LocalUser
+	5, // [5:5] is the sub-list for method output_type
+	5, // [5:5] is the sub-list for method input_type
+	5, // [5:5] is the sub-list for extension type_name
+	5, // [5:5] is the sub-list for extension extendee
+	0, // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_system_user_proto_init() }
@@ -328,13 +397,14 @@ func file_system_user_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_system_user_proto_rawDesc), len(file_system_user_proto_rawDesc)),
-			NumEnums:      0,
+			NumEnums:      1,
 			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_system_user_proto_goTypes,
 		DependencyIndexes: file_system_user_proto_depIdxs,
+		EnumInfos:         file_system_user_proto_enumTypes,
 		MessageInfos:      file_system_user_proto_msgTypes,
 	}.Build()
 	File_system_user_proto = out.File

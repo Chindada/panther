@@ -27,6 +27,10 @@ export interface BasicUser {
      * @generated from protobuf field: string password = 3
      */
     password: string;
+    /**
+     * @generated from protobuf field: system.UserRole role = 4
+     */
+    role: UserRole;
 }
 /**
  * @generated from protobuf message system.LocalUser
@@ -79,13 +83,35 @@ export interface Totp {
      */
     qr_code: string;
 }
+/**
+ * @generated from protobuf enum system.UserRole
+ */
+export enum UserRole {
+    /**
+     * @generated from protobuf enum value: UNKNOWN = 0;
+     */
+    UNKNOWN = 0,
+    /**
+     * @generated from protobuf enum value: USER = 1;
+     */
+    USER = 1,
+    /**
+     * @generated from protobuf enum value: ADMIN = 2;
+     */
+    ADMIN = 2,
+    /**
+     * @generated from protobuf enum value: ROOT = 3;
+     */
+    ROOT = 3
+}
 // @generated message type with reflection information, may provide speed optimized methods
 class BasicUser$Type extends MessageType<BasicUser> {
     constructor() {
         super("system.BasicUser", [
             { no: 1, name: "email", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 2, name: "username", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 3, name: "password", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
+            { no: 3, name: "password", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 4, name: "role", kind: "enum", T: () => ["system.UserRole", UserRole] }
         ]);
     }
     create(value?: PartialMessage<BasicUser>): BasicUser {
@@ -93,6 +119,7 @@ class BasicUser$Type extends MessageType<BasicUser> {
         message.email = "";
         message.username = "";
         message.password = "";
+        message.role = 0;
         if (value !== undefined)
             reflectionMergePartial<BasicUser>(this, message, value);
         return message;
@@ -110,6 +137,9 @@ class BasicUser$Type extends MessageType<BasicUser> {
                     break;
                 case /* string password */ 3:
                     message.password = reader.string();
+                    break;
+                case /* system.UserRole role */ 4:
+                    message.role = reader.int32();
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -132,6 +162,9 @@ class BasicUser$Type extends MessageType<BasicUser> {
         /* string password = 3; */
         if (message.password !== "")
             writer.tag(3, WireType.LengthDelimited).string(message.password);
+        /* system.UserRole role = 4; */
+        if (message.role !== 0)
+            writer.tag(4, WireType.Varint).int32(message.role);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
