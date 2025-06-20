@@ -19,11 +19,10 @@ message BasicUser {
 }
 
 message User {
-    int64 id                  = 1;
-    BasicUser basic           = 2;
-    bool enable_totp          = 3;
-    int64 totp_id             = 4;
-    bool need_change_password = 5;
+    int64 id         = 1;
+    BasicUser basic  = 2;
+    bool enable_totp = 3;
+    int64 totp_id    = 4;
 
     google.protobuf.Timestamp created_at = 31;
     google.protobuf.Timestamp updated_at = 32;

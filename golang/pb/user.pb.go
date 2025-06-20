@@ -143,16 +143,15 @@ func (x *BasicUser) GetRole() UserRole {
 }
 
 type User struct {
-	state              protoimpl.MessageState `protogen:"open.v1"`
-	Id                 int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	Basic              *BasicUser             `protobuf:"bytes,2,opt,name=basic,proto3" json:"basic,omitempty"`
-	EnableTotp         bool                   `protobuf:"varint,3,opt,name=enable_totp,json=enableTotp,proto3" json:"enable_totp,omitempty"`
-	TotpId             int64                  `protobuf:"varint,4,opt,name=totp_id,json=totpId,proto3" json:"totp_id,omitempty"`
-	NeedChangePassword bool                   `protobuf:"varint,5,opt,name=need_change_password,json=needChangePassword,proto3" json:"need_change_password,omitempty"`
-	CreatedAt          *timestamppb.Timestamp `protobuf:"bytes,31,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt          *timestamppb.Timestamp `protobuf:"bytes,32,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	unknownFields      protoimpl.UnknownFields
-	sizeCache          protoimpl.SizeCache
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Basic         *BasicUser             `protobuf:"bytes,2,opt,name=basic,proto3" json:"basic,omitempty"`
+	EnableTotp    bool                   `protobuf:"varint,3,opt,name=enable_totp,json=enableTotp,proto3" json:"enable_totp,omitempty"`
+	TotpId        int64                  `protobuf:"varint,4,opt,name=totp_id,json=totpId,proto3" json:"totp_id,omitempty"`
+	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,31,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,32,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *User) Reset() {
@@ -211,13 +210,6 @@ func (x *User) GetTotpId() int64 {
 		return x.TotpId
 	}
 	return 0
-}
-
-func (x *User) GetNeedChangePassword() bool {
-	if x != nil {
-		return x.NeedChangePassword
-	}
-	return false
 }
 
 func (x *User) GetCreatedAt() *timestamppb.Timestamp {
@@ -347,14 +339,13 @@ const file_system_user_proto_rawDesc = "" +
 	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
 	"\busername\x18\x02 \x01(\tR\busername\x12\x1a\n" +
 	"\bpassword\x18\x03 \x01(\tR\bpassword\x12$\n" +
-	"\x04role\x18\x04 \x01(\x0e2\x10.system.UserRoleR\x04role\"\xa1\x02\n" +
+	"\x04role\x18\x04 \x01(\x0e2\x10.system.UserRoleR\x04role\"\xef\x01\n" +
 	"\x04User\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12'\n" +
 	"\x05basic\x18\x02 \x01(\v2\x11.system.BasicUserR\x05basic\x12\x1f\n" +
 	"\venable_totp\x18\x03 \x01(\bR\n" +
 	"enableTotp\x12\x17\n" +
-	"\atotp_id\x18\x04 \x01(\x03R\x06totpId\x120\n" +
-	"\x14need_change_password\x18\x05 \x01(\bR\x12needChangePassword\x129\n" +
+	"\atotp_id\x18\x04 \x01(\x03R\x06totpId\x129\n" +
 	"\n" +
 	"created_at\x18\x1f \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
 	"\n" +

@@ -53,10 +53,6 @@ export interface User {
      */
     totp_id: number;
     /**
-     * @generated from protobuf field: bool need_change_password = 5
-     */
-    need_change_password: boolean;
-    /**
      * @generated from protobuf field: google.protobuf.Timestamp created_at = 31
      */
     created_at?: Timestamp;
@@ -191,7 +187,6 @@ class User$Type extends MessageType<User> {
             { no: 2, name: "basic", kind: "message", T: () => BasicUser },
             { no: 3, name: "enable_totp", kind: "scalar", localName: "enable_totp", T: 8 /*ScalarType.BOOL*/ },
             { no: 4, name: "totp_id", kind: "scalar", localName: "totp_id", T: 3 /*ScalarType.INT64*/, L: 2 /*LongType.NUMBER*/ },
-            { no: 5, name: "need_change_password", kind: "scalar", localName: "need_change_password", T: 8 /*ScalarType.BOOL*/ },
             { no: 31, name: "created_at", kind: "message", localName: "created_at", T: () => Timestamp },
             { no: 32, name: "updated_at", kind: "message", localName: "updated_at", T: () => Timestamp }
         ]);
@@ -201,7 +196,6 @@ class User$Type extends MessageType<User> {
         message.id = 0;
         message.enable_totp = false;
         message.totp_id = 0;
-        message.need_change_password = false;
         if (value !== undefined)
             reflectionMergePartial<User>(this, message, value);
         return message;
@@ -222,9 +216,6 @@ class User$Type extends MessageType<User> {
                     break;
                 case /* int64 totp_id */ 4:
                     message.totp_id = reader.int64().toNumber();
-                    break;
-                case /* bool need_change_password */ 5:
-                    message.need_change_password = reader.bool();
                     break;
                 case /* google.protobuf.Timestamp created_at */ 31:
                     message.created_at = Timestamp.internalBinaryRead(reader, reader.uint32(), options, message.created_at);
@@ -256,9 +247,6 @@ class User$Type extends MessageType<User> {
         /* int64 totp_id = 4; */
         if (message.totp_id !== 0)
             writer.tag(4, WireType.Varint).int64(message.totp_id);
-        /* bool need_change_password = 5; */
-        if (message.need_change_password !== false)
-            writer.tag(5, WireType.Varint).bool(message.need_change_password);
         /* google.protobuf.Timestamp created_at = 31; */
         if (message.created_at)
             Timestamp.internalBinaryWrite(message.created_at, writer.tag(31, WireType.LengthDelimited).fork(), options).join();

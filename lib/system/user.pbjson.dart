@@ -54,7 +54,6 @@ const User$json = {
     {'1': 'basic', '3': 2, '4': 1, '5': 11, '6': '.system.BasicUser', '10': 'basic'},
     {'1': 'enable_totp', '3': 3, '4': 1, '5': 8, '10': 'enableTotp'},
     {'1': 'totp_id', '3': 4, '4': 1, '5': 3, '10': 'totpId'},
-    {'1': 'need_change_password', '3': 5, '4': 1, '5': 8, '10': 'needChangePassword'},
     {'1': 'created_at', '3': 31, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'createdAt'},
     {'1': 'updated_at', '3': 32, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'updatedAt'},
   ],
@@ -64,10 +63,9 @@ const User$json = {
 final $typed_data.Uint8List userDescriptor = $convert.base64Decode(
     'CgRVc2VyEg4KAmlkGAEgASgDUgJpZBInCgViYXNpYxgCIAEoCzIRLnN5c3RlbS5CYXNpY1VzZX'
     'JSBWJhc2ljEh8KC2VuYWJsZV90b3RwGAMgASgIUgplbmFibGVUb3RwEhcKB3RvdHBfaWQYBCAB'
-    'KANSBnRvdHBJZBIwChRuZWVkX2NoYW5nZV9wYXNzd29yZBgFIAEoCFISbmVlZENoYW5nZVBhc3'
-    'N3b3JkEjkKCmNyZWF0ZWRfYXQYHyABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUglj'
-    'cmVhdGVkQXQSOQoKdXBkYXRlZF9hdBggIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbX'
-    'BSCXVwZGF0ZWRBdA==');
+    'KANSBnRvdHBJZBI5CgpjcmVhdGVkX2F0GB8gASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdG'
+    'FtcFIJY3JlYXRlZEF0EjkKCnVwZGF0ZWRfYXQYICABKAsyGi5nb29nbGUucHJvdG9idWYuVGlt'
+    'ZXN0YW1wUgl1cGRhdGVkQXQ=');
 
 @$core.Deprecated('Use userListDescriptor instead')
 const UserList$json = {

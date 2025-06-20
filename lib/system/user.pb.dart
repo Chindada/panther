@@ -110,7 +110,6 @@ class User extends $pb.GeneratedMessage {
     BasicUser? basic,
     $core.bool? enableTotp,
     $fixnum.Int64? totpId,
-    $core.bool? needChangePassword,
     $5.Timestamp? createdAt,
     $5.Timestamp? updatedAt,
   }) {
@@ -119,7 +118,6 @@ class User extends $pb.GeneratedMessage {
     if (basic != null) result.basic = basic;
     if (enableTotp != null) result.enableTotp = enableTotp;
     if (totpId != null) result.totpId = totpId;
-    if (needChangePassword != null) result.needChangePassword = needChangePassword;
     if (createdAt != null) result.createdAt = createdAt;
     if (updatedAt != null) result.updatedAt = updatedAt;
     return result;
@@ -135,7 +133,6 @@ class User extends $pb.GeneratedMessage {
     ..aOM<BasicUser>(2, _omitFieldNames ? '' : 'basic', subBuilder: BasicUser.create)
     ..aOB(3, _omitFieldNames ? '' : 'enableTotp')
     ..aInt64(4, _omitFieldNames ? '' : 'totpId')
-    ..aOB(5, _omitFieldNames ? '' : 'needChangePassword')
     ..aOM<$5.Timestamp>(31, _omitFieldNames ? '' : 'createdAt', subBuilder: $5.Timestamp.create)
     ..aOM<$5.Timestamp>(32, _omitFieldNames ? '' : 'updatedAt', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
@@ -196,36 +193,27 @@ class User extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearTotpId() => $_clearField(4);
 
-  @$pb.TagNumber(5)
-  $core.bool get needChangePassword => $_getBF(4);
-  @$pb.TagNumber(5)
-  set needChangePassword($core.bool value) => $_setBool(4, value);
-  @$pb.TagNumber(5)
-  $core.bool hasNeedChangePassword() => $_has(4);
-  @$pb.TagNumber(5)
-  void clearNeedChangePassword() => $_clearField(5);
-
   @$pb.TagNumber(31)
-  $5.Timestamp get createdAt => $_getN(5);
+  $5.Timestamp get createdAt => $_getN(4);
   @$pb.TagNumber(31)
   set createdAt($5.Timestamp value) => $_setField(31, value);
   @$pb.TagNumber(31)
-  $core.bool hasCreatedAt() => $_has(5);
+  $core.bool hasCreatedAt() => $_has(4);
   @$pb.TagNumber(31)
   void clearCreatedAt() => $_clearField(31);
   @$pb.TagNumber(31)
-  $5.Timestamp ensureCreatedAt() => $_ensure(5);
+  $5.Timestamp ensureCreatedAt() => $_ensure(4);
 
   @$pb.TagNumber(32)
-  $5.Timestamp get updatedAt => $_getN(6);
+  $5.Timestamp get updatedAt => $_getN(5);
   @$pb.TagNumber(32)
   set updatedAt($5.Timestamp value) => $_setField(32, value);
   @$pb.TagNumber(32)
-  $core.bool hasUpdatedAt() => $_has(6);
+  $core.bool hasUpdatedAt() => $_has(5);
   @$pb.TagNumber(32)
   void clearUpdatedAt() => $_clearField(32);
   @$pb.TagNumber(32)
-  $5.Timestamp ensureUpdatedAt() => $_ensure(6);
+  $5.Timestamp ensureUpdatedAt() => $_ensure(5);
 }
 
 class UserList extends $pb.GeneratedMessage {

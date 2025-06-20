@@ -32,22 +32,20 @@ class BasicUser(_message.Message):
     def __init__(self, email: _Optional[str] = ..., username: _Optional[str] = ..., password: _Optional[str] = ..., role: _Optional[_Union[UserRole, str]] = ...) -> None: ...
 
 class User(_message.Message):
-    __slots__ = ("id", "basic", "enable_totp", "totp_id", "need_change_password", "created_at", "updated_at")
+    __slots__ = ("id", "basic", "enable_totp", "totp_id", "created_at", "updated_at")
     ID_FIELD_NUMBER: _ClassVar[int]
     BASIC_FIELD_NUMBER: _ClassVar[int]
     ENABLE_TOTP_FIELD_NUMBER: _ClassVar[int]
     TOTP_ID_FIELD_NUMBER: _ClassVar[int]
-    NEED_CHANGE_PASSWORD_FIELD_NUMBER: _ClassVar[int]
     CREATED_AT_FIELD_NUMBER: _ClassVar[int]
     UPDATED_AT_FIELD_NUMBER: _ClassVar[int]
     id: int
     basic: BasicUser
     enable_totp: bool
     totp_id: int
-    need_change_password: bool
     created_at: _timestamp_pb2.Timestamp
     updated_at: _timestamp_pb2.Timestamp
-    def __init__(self, id: _Optional[int] = ..., basic: _Optional[_Union[BasicUser, _Mapping]] = ..., enable_totp: bool = ..., totp_id: _Optional[int] = ..., need_change_password: bool = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, id: _Optional[int] = ..., basic: _Optional[_Union[BasicUser, _Mapping]] = ..., enable_totp: bool = ..., totp_id: _Optional[int] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class UserList(_message.Message):
     __slots__ = ("list",)
