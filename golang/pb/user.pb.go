@@ -142,31 +142,33 @@ func (x *BasicUser) GetRole() UserRole {
 	return UserRole_UNKNOWN
 }
 
-type LocalUser struct {
+type User struct {
 	state              protoimpl.MessageState `protogen:"open.v1"`
 	Id                 int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Basic              *BasicUser             `protobuf:"bytes,2,opt,name=basic,proto3" json:"basic,omitempty"`
-	NeedChangePassword bool                   `protobuf:"varint,3,opt,name=need_change_password,json=needChangePassword,proto3" json:"need_change_password,omitempty"`
+	EnableTotp         bool                   `protobuf:"varint,3,opt,name=enable_totp,json=enableTotp,proto3" json:"enable_totp,omitempty"`
+	TotpId             int64                  `protobuf:"varint,4,opt,name=totp_id,json=totpId,proto3" json:"totp_id,omitempty"`
+	NeedChangePassword bool                   `protobuf:"varint,5,opt,name=need_change_password,json=needChangePassword,proto3" json:"need_change_password,omitempty"`
 	CreatedAt          *timestamppb.Timestamp `protobuf:"bytes,31,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	UpdatedAt          *timestamppb.Timestamp `protobuf:"bytes,32,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	unknownFields      protoimpl.UnknownFields
 	sizeCache          protoimpl.SizeCache
 }
 
-func (x *LocalUser) Reset() {
-	*x = LocalUser{}
+func (x *User) Reset() {
+	*x = User{}
 	mi := &file_system_user_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *LocalUser) String() string {
+func (x *User) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*LocalUser) ProtoMessage() {}
+func (*User) ProtoMessage() {}
 
-func (x *LocalUser) ProtoReflect() protoreflect.Message {
+func (x *User) ProtoReflect() protoreflect.Message {
 	mi := &file_system_user_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -178,67 +180,81 @@ func (x *LocalUser) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use LocalUser.ProtoReflect.Descriptor instead.
-func (*LocalUser) Descriptor() ([]byte, []int) {
+// Deprecated: Use User.ProtoReflect.Descriptor instead.
+func (*User) Descriptor() ([]byte, []int) {
 	return file_system_user_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *LocalUser) GetId() int64 {
+func (x *User) GetId() int64 {
 	if x != nil {
 		return x.Id
 	}
 	return 0
 }
 
-func (x *LocalUser) GetBasic() *BasicUser {
+func (x *User) GetBasic() *BasicUser {
 	if x != nil {
 		return x.Basic
 	}
 	return nil
 }
 
-func (x *LocalUser) GetNeedChangePassword() bool {
+func (x *User) GetEnableTotp() bool {
+	if x != nil {
+		return x.EnableTotp
+	}
+	return false
+}
+
+func (x *User) GetTotpId() int64 {
+	if x != nil {
+		return x.TotpId
+	}
+	return 0
+}
+
+func (x *User) GetNeedChangePassword() bool {
 	if x != nil {
 		return x.NeedChangePassword
 	}
 	return false
 }
 
-func (x *LocalUser) GetCreatedAt() *timestamppb.Timestamp {
+func (x *User) GetCreatedAt() *timestamppb.Timestamp {
 	if x != nil {
 		return x.CreatedAt
 	}
 	return nil
 }
 
-func (x *LocalUser) GetUpdatedAt() *timestamppb.Timestamp {
+func (x *User) GetUpdatedAt() *timestamppb.Timestamp {
 	if x != nil {
 		return x.UpdatedAt
 	}
 	return nil
 }
 
-type LocalUserList struct {
+type UserList struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	List          []*LocalUser           `protobuf:"bytes,1,rep,name=list,proto3" json:"list,omitempty"`
+	List          []*User                `protobuf:"bytes,1,rep,name=list,proto3" json:"list,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *LocalUserList) Reset() {
-	*x = LocalUserList{}
+func (x *UserList) Reset() {
+	*x = UserList{}
 	mi := &file_system_user_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *LocalUserList) String() string {
+func (x *UserList) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*LocalUserList) ProtoMessage() {}
+func (*UserList) ProtoMessage() {}
 
-func (x *LocalUserList) ProtoReflect() protoreflect.Message {
+func (x *UserList) ProtoReflect() protoreflect.Message {
 	mi := &file_system_user_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -250,12 +266,12 @@ func (x *LocalUserList) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use LocalUserList.ProtoReflect.Descriptor instead.
-func (*LocalUserList) Descriptor() ([]byte, []int) {
+// Deprecated: Use UserList.ProtoReflect.Descriptor instead.
+func (*UserList) Descriptor() ([]byte, []int) {
 	return file_system_user_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *LocalUserList) GetList() []*LocalUser {
+func (x *UserList) GetList() []*User {
 	if x != nil {
 		return x.List
 	}
@@ -331,17 +347,20 @@ const file_system_user_proto_rawDesc = "" +
 	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
 	"\busername\x18\x02 \x01(\tR\busername\x12\x1a\n" +
 	"\bpassword\x18\x03 \x01(\tR\bpassword\x12$\n" +
-	"\x04role\x18\x04 \x01(\x0e2\x10.system.UserRoleR\x04role\"\xec\x01\n" +
-	"\tLocalUser\x12\x0e\n" +
+	"\x04role\x18\x04 \x01(\x0e2\x10.system.UserRoleR\x04role\"\xa1\x02\n" +
+	"\x04User\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12'\n" +
-	"\x05basic\x18\x02 \x01(\v2\x11.system.BasicUserR\x05basic\x120\n" +
-	"\x14need_change_password\x18\x03 \x01(\bR\x12needChangePassword\x129\n" +
+	"\x05basic\x18\x02 \x01(\v2\x11.system.BasicUserR\x05basic\x12\x1f\n" +
+	"\venable_totp\x18\x03 \x01(\bR\n" +
+	"enableTotp\x12\x17\n" +
+	"\atotp_id\x18\x04 \x01(\x03R\x06totpId\x120\n" +
+	"\x14need_change_password\x18\x05 \x01(\bR\x12needChangePassword\x129\n" +
 	"\n" +
 	"created_at\x18\x1f \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
 	"\n" +
-	"updated_at\x18  \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\"6\n" +
-	"\rLocalUserList\x12%\n" +
-	"\x04list\x18\x01 \x03(\v2\x11.system.LocalUserR\x04list\"G\n" +
+	"updated_at\x18  \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\",\n" +
+	"\bUserList\x12 \n" +
+	"\x04list\x18\x01 \x03(\v2\f.system.UserR\x04list\"G\n" +
 	"\x04Totp\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x16\n" +
 	"\x06secret\x18\x02 \x01(\tR\x06secret\x12\x17\n" +
@@ -369,17 +388,17 @@ var file_system_user_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_system_user_proto_goTypes = []any{
 	(UserRole)(0),                 // 0: system.UserRole
 	(*BasicUser)(nil),             // 1: system.BasicUser
-	(*LocalUser)(nil),             // 2: system.LocalUser
-	(*LocalUserList)(nil),         // 3: system.LocalUserList
+	(*User)(nil),                  // 2: system.User
+	(*UserList)(nil),              // 3: system.UserList
 	(*Totp)(nil),                  // 4: system.Totp
 	(*timestamppb.Timestamp)(nil), // 5: google.protobuf.Timestamp
 }
 var file_system_user_proto_depIdxs = []int32{
 	0, // 0: system.BasicUser.role:type_name -> system.UserRole
-	1, // 1: system.LocalUser.basic:type_name -> system.BasicUser
-	5, // 2: system.LocalUser.created_at:type_name -> google.protobuf.Timestamp
-	5, // 3: system.LocalUser.updated_at:type_name -> google.protobuf.Timestamp
-	2, // 4: system.LocalUserList.list:type_name -> system.LocalUser
+	1, // 1: system.User.basic:type_name -> system.BasicUser
+	5, // 2: system.User.created_at:type_name -> google.protobuf.Timestamp
+	5, // 3: system.User.updated_at:type_name -> google.protobuf.Timestamp
+	2, // 4: system.UserList.list:type_name -> system.User
 	5, // [5:5] is the sub-list for method output_type
 	5, // [5:5] is the sub-list for method input_type
 	5, // [5:5] is the sub-list for extension type_name

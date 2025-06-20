@@ -33,9 +33,9 @@ export interface BasicUser {
     role: UserRole;
 }
 /**
- * @generated from protobuf message system.LocalUser
+ * @generated from protobuf message system.User
  */
-export interface LocalUser {
+export interface User {
     /**
      * @generated from protobuf field: int64 id = 1
      */
@@ -45,7 +45,15 @@ export interface LocalUser {
      */
     basic?: BasicUser;
     /**
-     * @generated from protobuf field: bool need_change_password = 3
+     * @generated from protobuf field: bool enable_totp = 3
+     */
+    enable_totp: boolean;
+    /**
+     * @generated from protobuf field: int64 totp_id = 4
+     */
+    totp_id: number;
+    /**
+     * @generated from protobuf field: bool need_change_password = 5
      */
     need_change_password: boolean;
     /**
@@ -58,13 +66,13 @@ export interface LocalUser {
     updated_at?: Timestamp;
 }
 /**
- * @generated from protobuf message system.LocalUserList
+ * @generated from protobuf message system.UserList
  */
-export interface LocalUserList {
+export interface UserList {
     /**
-     * @generated from protobuf field: repeated system.LocalUser list = 1
+     * @generated from protobuf field: repeated system.User list = 1
      */
-    list: LocalUser[];
+    list: User[];
 }
 /**
  * @generated from protobuf message system.Totp
@@ -176,25 +184,29 @@ class BasicUser$Type extends MessageType<BasicUser> {
  */
 export const BasicUser = new BasicUser$Type();
 // @generated message type with reflection information, may provide speed optimized methods
-class LocalUser$Type extends MessageType<LocalUser> {
+class User$Type extends MessageType<User> {
     constructor() {
-        super("system.LocalUser", [
+        super("system.User", [
             { no: 1, name: "id", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 2 /*LongType.NUMBER*/ },
             { no: 2, name: "basic", kind: "message", T: () => BasicUser },
-            { no: 3, name: "need_change_password", kind: "scalar", localName: "need_change_password", T: 8 /*ScalarType.BOOL*/ },
+            { no: 3, name: "enable_totp", kind: "scalar", localName: "enable_totp", T: 8 /*ScalarType.BOOL*/ },
+            { no: 4, name: "totp_id", kind: "scalar", localName: "totp_id", T: 3 /*ScalarType.INT64*/, L: 2 /*LongType.NUMBER*/ },
+            { no: 5, name: "need_change_password", kind: "scalar", localName: "need_change_password", T: 8 /*ScalarType.BOOL*/ },
             { no: 31, name: "created_at", kind: "message", localName: "created_at", T: () => Timestamp },
             { no: 32, name: "updated_at", kind: "message", localName: "updated_at", T: () => Timestamp }
         ]);
     }
-    create(value?: PartialMessage<LocalUser>): LocalUser {
+    create(value?: PartialMessage<User>): User {
         const message = globalThis.Object.create((this.messagePrototype!));
         message.id = 0;
+        message.enable_totp = false;
+        message.totp_id = 0;
         message.need_change_password = false;
         if (value !== undefined)
-            reflectionMergePartial<LocalUser>(this, message, value);
+            reflectionMergePartial<User>(this, message, value);
         return message;
     }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: LocalUser): LocalUser {
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: User): User {
         let message = target ?? this.create(), end = reader.pos + length;
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
@@ -205,7 +217,13 @@ class LocalUser$Type extends MessageType<LocalUser> {
                 case /* system.BasicUser basic */ 2:
                     message.basic = BasicUser.internalBinaryRead(reader, reader.uint32(), options, message.basic);
                     break;
-                case /* bool need_change_password */ 3:
+                case /* bool enable_totp */ 3:
+                    message.enable_totp = reader.bool();
+                    break;
+                case /* int64 totp_id */ 4:
+                    message.totp_id = reader.int64().toNumber();
+                    break;
+                case /* bool need_change_password */ 5:
                     message.need_change_password = reader.bool();
                     break;
                 case /* google.protobuf.Timestamp created_at */ 31:
@@ -225,16 +243,22 @@ class LocalUser$Type extends MessageType<LocalUser> {
         }
         return message;
     }
-    internalBinaryWrite(message: LocalUser, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+    internalBinaryWrite(message: User, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
         /* int64 id = 1; */
         if (message.id !== 0)
             writer.tag(1, WireType.Varint).int64(message.id);
         /* system.BasicUser basic = 2; */
         if (message.basic)
             BasicUser.internalBinaryWrite(message.basic, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        /* bool need_change_password = 3; */
+        /* bool enable_totp = 3; */
+        if (message.enable_totp !== false)
+            writer.tag(3, WireType.Varint).bool(message.enable_totp);
+        /* int64 totp_id = 4; */
+        if (message.totp_id !== 0)
+            writer.tag(4, WireType.Varint).int64(message.totp_id);
+        /* bool need_change_password = 5; */
         if (message.need_change_password !== false)
-            writer.tag(3, WireType.Varint).bool(message.need_change_password);
+            writer.tag(5, WireType.Varint).bool(message.need_change_password);
         /* google.protobuf.Timestamp created_at = 31; */
         if (message.created_at)
             Timestamp.internalBinaryWrite(message.created_at, writer.tag(31, WireType.LengthDelimited).fork(), options).join();
@@ -248,30 +272,30 @@ class LocalUser$Type extends MessageType<LocalUser> {
     }
 }
 /**
- * @generated MessageType for protobuf message system.LocalUser
+ * @generated MessageType for protobuf message system.User
  */
-export const LocalUser = new LocalUser$Type();
+export const User = new User$Type();
 // @generated message type with reflection information, may provide speed optimized methods
-class LocalUserList$Type extends MessageType<LocalUserList> {
+class UserList$Type extends MessageType<UserList> {
     constructor() {
-        super("system.LocalUserList", [
-            { no: 1, name: "list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => LocalUser }
+        super("system.UserList", [
+            { no: 1, name: "list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => User }
         ]);
     }
-    create(value?: PartialMessage<LocalUserList>): LocalUserList {
+    create(value?: PartialMessage<UserList>): UserList {
         const message = globalThis.Object.create((this.messagePrototype!));
         message.list = [];
         if (value !== undefined)
-            reflectionMergePartial<LocalUserList>(this, message, value);
+            reflectionMergePartial<UserList>(this, message, value);
         return message;
     }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: LocalUserList): LocalUserList {
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: UserList): UserList {
         let message = target ?? this.create(), end = reader.pos + length;
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* repeated system.LocalUser list */ 1:
-                    message.list.push(LocalUser.internalBinaryRead(reader, reader.uint32(), options));
+                case /* repeated system.User list */ 1:
+                    message.list.push(User.internalBinaryRead(reader, reader.uint32(), options));
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -284,10 +308,10 @@ class LocalUserList$Type extends MessageType<LocalUserList> {
         }
         return message;
     }
-    internalBinaryWrite(message: LocalUserList, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* repeated system.LocalUser list = 1; */
+    internalBinaryWrite(message: UserList, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* repeated system.User list = 1; */
         for (let i = 0; i < message.list.length; i++)
-            LocalUser.internalBinaryWrite(message.list[i], writer.tag(1, WireType.LengthDelimited).fork(), options).join();
+            User.internalBinaryWrite(message.list[i], writer.tag(1, WireType.LengthDelimited).fork(), options).join();
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -295,9 +319,9 @@ class LocalUserList$Type extends MessageType<LocalUserList> {
     }
 }
 /**
- * @generated MessageType for protobuf message system.LocalUserList
+ * @generated MessageType for protobuf message system.UserList
  */
-export const LocalUserList = new LocalUserList$Type();
+export const UserList = new UserList$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class Totp$Type extends MessageType<Totp> {
     constructor() {

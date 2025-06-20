@@ -30,11 +30,11 @@ class LoginEvent(_message.Message):
     RESP_CODE_FIELD_NUMBER: _ClassVar[int]
     CREATED_AT_FIELD_NUMBER: _ClassVar[int]
     id: int
-    user: _user_pb2.LocalUser
+    user: _user_pb2.User
     ip: str
     resp_code: LoginRespCode
     created_at: _timestamp_pb2.Timestamp
-    def __init__(self, id: _Optional[int] = ..., user: _Optional[_Union[_user_pb2.LocalUser, _Mapping]] = ..., ip: _Optional[str] = ..., resp_code: _Optional[_Union[LoginRespCode, str]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, id: _Optional[int] = ..., user: _Optional[_Union[_user_pb2.User, _Mapping]] = ..., ip: _Optional[str] = ..., resp_code: _Optional[_Union[LoginRespCode, str]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class LoginEventList(_message.Message):
     __slots__ = ("list",)

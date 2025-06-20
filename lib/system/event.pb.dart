@@ -26,7 +26,7 @@ export 'event.pbenum.dart';
 class LoginEvent extends $pb.GeneratedMessage {
   factory LoginEvent({
     $fixnum.Int64? id,
-    $6.LocalUser? user,
+    $6.User? user,
     $core.String? ip,
     LoginRespCode? respCode,
     $5.Timestamp? createdAt,
@@ -47,7 +47,7 @@ class LoginEvent extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'LoginEvent', package: const $pb.PackageName(_omitMessageNames ? '' : 'system'), createEmptyInstance: create)
     ..aInt64(1, _omitFieldNames ? '' : 'id')
-    ..aOM<$6.LocalUser>(2, _omitFieldNames ? '' : 'user', subBuilder: $6.LocalUser.create)
+    ..aOM<$6.User>(2, _omitFieldNames ? '' : 'user', subBuilder: $6.User.create)
     ..aOS(3, _omitFieldNames ? '' : 'ip')
     ..e<LoginRespCode>(4, _omitFieldNames ? '' : 'respCode', $pb.PbFieldType.OE, defaultOrMaker: LoginRespCode.OK, valueOf: LoginRespCode.valueOf, enumValues: LoginRespCode.values)
     ..aOM<$5.Timestamp>(5, _omitFieldNames ? '' : 'createdAt', subBuilder: $5.Timestamp.create)
@@ -81,15 +81,15 @@ class LoginEvent extends $pb.GeneratedMessage {
   void clearId() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $6.LocalUser get user => $_getN(1);
+  $6.User get user => $_getN(1);
   @$pb.TagNumber(2)
-  set user($6.LocalUser value) => $_setField(2, value);
+  set user($6.User value) => $_setField(2, value);
   @$pb.TagNumber(2)
   $core.bool hasUser() => $_has(1);
   @$pb.TagNumber(2)
   void clearUser() => $_clearField(2);
   @$pb.TagNumber(2)
-  $6.LocalUser ensureUser() => $_ensure(1);
+  $6.User ensureUser() => $_ensure(1);
 
   @$pb.TagNumber(3)
   $core.String get ip => $_getSZ(2);

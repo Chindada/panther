@@ -26,7 +26,7 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from panther.system import user_pb2 as system_dot_user__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x12system/event.proto\x12\x06system\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x11system/user.proto\"\x9f\x01\n\nLoginEvent\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x1f\n\x04user\x18\x02 \x01(\x0b\x32\x11.system.LocalUser\x12\n\n\x02ip\x18\x03 \x01(\t\x12(\n\tresp_code\x18\x04 \x01(\x0e\x32\x15.system.LoginRespCode\x12.\n\ncreated_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"2\n\x0eLoginEventList\x12 \n\x04list\x18\x01 \x03(\x0b\x32\x12.system.LoginEvent*a\n\rLoginRespCode\x12\x06\n\x02OK\x10\x00\x12\x16\n\x12PASSWORD_INCORRECT\x10\x01\x12\x12\n\x0eUSER_NOT_FOUND\x10\x02\x12\x0c\n\x08\x44\x42_ERROR\x10\x03\x12\x0e\n\nMFA_FAILED\x10\x04\x42\x06Z\x04./pbb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x12system/event.proto\x12\x06system\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x11system/user.proto\"\x9a\x01\n\nLoginEvent\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x1a\n\x04user\x18\x02 \x01(\x0b\x32\x0c.system.User\x12\n\n\x02ip\x18\x03 \x01(\t\x12(\n\tresp_code\x18\x04 \x01(\x0e\x32\x15.system.LoginRespCode\x12.\n\ncreated_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"2\n\x0eLoginEventList\x12 \n\x04list\x18\x01 \x03(\x0b\x32\x12.system.LoginEvent*a\n\rLoginRespCode\x12\x06\n\x02OK\x10\x00\x12\x16\n\x12PASSWORD_INCORRECT\x10\x01\x12\x12\n\x0eUSER_NOT_FOUND\x10\x02\x12\x0c\n\x08\x44\x42_ERROR\x10\x03\x12\x0e\n\nMFA_FAILED\x10\x04\x42\x06Z\x04./pbb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,10 +34,10 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'system.event_pb2', _globals
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z\004./pb'
-  _globals['_LOGINRESPCODE']._serialized_start=296
-  _globals['_LOGINRESPCODE']._serialized_end=393
+  _globals['_LOGINRESPCODE']._serialized_start=291
+  _globals['_LOGINRESPCODE']._serialized_end=388
   _globals['_LOGINEVENT']._serialized_start=83
-  _globals['_LOGINEVENT']._serialized_end=242
-  _globals['_LOGINEVENTLIST']._serialized_start=244
-  _globals['_LOGINEVENTLIST']._serialized_end=294
+  _globals['_LOGINEVENT']._serialized_end=237
+  _globals['_LOGINEVENTLIST']._serialized_start=239
+  _globals['_LOGINEVENTLIST']._serialized_end=289
 # @@protoc_insertion_point(module_scope)

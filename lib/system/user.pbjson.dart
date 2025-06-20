@@ -46,37 +46,40 @@ final $typed_data.Uint8List basicUserDescriptor = $convert.base64Decode(
     'VybmFtZRIaCghwYXNzd29yZBgDIAEoCVIIcGFzc3dvcmQSJAoEcm9sZRgEIAEoDjIQLnN5c3Rl'
     'bS5Vc2VyUm9sZVIEcm9sZQ==');
 
-@$core.Deprecated('Use localUserDescriptor instead')
-const LocalUser$json = {
-  '1': 'LocalUser',
+@$core.Deprecated('Use userDescriptor instead')
+const User$json = {
+  '1': 'User',
   '2': [
     {'1': 'id', '3': 1, '4': 1, '5': 3, '10': 'id'},
     {'1': 'basic', '3': 2, '4': 1, '5': 11, '6': '.system.BasicUser', '10': 'basic'},
-    {'1': 'need_change_password', '3': 3, '4': 1, '5': 8, '10': 'needChangePassword'},
+    {'1': 'enable_totp', '3': 3, '4': 1, '5': 8, '10': 'enableTotp'},
+    {'1': 'totp_id', '3': 4, '4': 1, '5': 3, '10': 'totpId'},
+    {'1': 'need_change_password', '3': 5, '4': 1, '5': 8, '10': 'needChangePassword'},
     {'1': 'created_at', '3': 31, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'createdAt'},
     {'1': 'updated_at', '3': 32, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'updatedAt'},
   ],
 };
 
-/// Descriptor for `LocalUser`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List localUserDescriptor = $convert.base64Decode(
-    'CglMb2NhbFVzZXISDgoCaWQYASABKANSAmlkEicKBWJhc2ljGAIgASgLMhEuc3lzdGVtLkJhc2'
-    'ljVXNlclIFYmFzaWMSMAoUbmVlZF9jaGFuZ2VfcGFzc3dvcmQYAyABKAhSEm5lZWRDaGFuZ2VQ'
-    'YXNzd29yZBI5CgpjcmVhdGVkX2F0GB8gASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcF'
-    'IJY3JlYXRlZEF0EjkKCnVwZGF0ZWRfYXQYICABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0'
-    'YW1wUgl1cGRhdGVkQXQ=');
+/// Descriptor for `User`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List userDescriptor = $convert.base64Decode(
+    'CgRVc2VyEg4KAmlkGAEgASgDUgJpZBInCgViYXNpYxgCIAEoCzIRLnN5c3RlbS5CYXNpY1VzZX'
+    'JSBWJhc2ljEh8KC2VuYWJsZV90b3RwGAMgASgIUgplbmFibGVUb3RwEhcKB3RvdHBfaWQYBCAB'
+    'KANSBnRvdHBJZBIwChRuZWVkX2NoYW5nZV9wYXNzd29yZBgFIAEoCFISbmVlZENoYW5nZVBhc3'
+    'N3b3JkEjkKCmNyZWF0ZWRfYXQYHyABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUglj'
+    'cmVhdGVkQXQSOQoKdXBkYXRlZF9hdBggIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbX'
+    'BSCXVwZGF0ZWRBdA==');
 
-@$core.Deprecated('Use localUserListDescriptor instead')
-const LocalUserList$json = {
-  '1': 'LocalUserList',
+@$core.Deprecated('Use userListDescriptor instead')
+const UserList$json = {
+  '1': 'UserList',
   '2': [
-    {'1': 'list', '3': 1, '4': 3, '5': 11, '6': '.system.LocalUser', '10': 'list'},
+    {'1': 'list', '3': 1, '4': 3, '5': 11, '6': '.system.User', '10': 'list'},
   ],
 };
 
-/// Descriptor for `LocalUserList`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List localUserListDescriptor = $convert.base64Decode(
-    'Cg1Mb2NhbFVzZXJMaXN0EiUKBGxpc3QYASADKAsyES5zeXN0ZW0uTG9jYWxVc2VyUgRsaXN0');
+/// Descriptor for `UserList`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List userListDescriptor = $convert.base64Decode(
+    'CghVc2VyTGlzdBIgCgRsaXN0GAEgAygLMgwuc3lzdGVtLlVzZXJSBGxpc3Q=');
 
 @$core.Deprecated('Use totpDescriptor instead')
 const Totp$json = {

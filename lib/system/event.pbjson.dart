@@ -36,7 +36,7 @@ const LoginEvent$json = {
   '1': 'LoginEvent',
   '2': [
     {'1': 'id', '3': 1, '4': 1, '5': 3, '10': 'id'},
-    {'1': 'user', '3': 2, '4': 1, '5': 11, '6': '.system.LocalUser', '10': 'user'},
+    {'1': 'user', '3': 2, '4': 1, '5': 11, '6': '.system.User', '10': 'user'},
     {'1': 'ip', '3': 3, '4': 1, '5': 9, '10': 'ip'},
     {'1': 'resp_code', '3': 4, '4': 1, '5': 14, '6': '.system.LoginRespCode', '10': 'respCode'},
     {'1': 'created_at', '3': 5, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'createdAt'},
@@ -45,10 +45,10 @@ const LoginEvent$json = {
 
 /// Descriptor for `LoginEvent`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List loginEventDescriptor = $convert.base64Decode(
-    'CgpMb2dpbkV2ZW50Eg4KAmlkGAEgASgDUgJpZBIlCgR1c2VyGAIgASgLMhEuc3lzdGVtLkxvY2'
-    'FsVXNlclIEdXNlchIOCgJpcBgDIAEoCVICaXASMgoJcmVzcF9jb2RlGAQgASgOMhUuc3lzdGVt'
-    'LkxvZ2luUmVzcENvZGVSCHJlc3BDb2RlEjkKCmNyZWF0ZWRfYXQYBSABKAsyGi5nb29nbGUucH'
-    'JvdG9idWYuVGltZXN0YW1wUgljcmVhdGVkQXQ=');
+    'CgpMb2dpbkV2ZW50Eg4KAmlkGAEgASgDUgJpZBIgCgR1c2VyGAIgASgLMgwuc3lzdGVtLlVzZX'
+    'JSBHVzZXISDgoCaXAYAyABKAlSAmlwEjIKCXJlc3BfY29kZRgEIAEoDjIVLnN5c3RlbS5Mb2dp'
+    'blJlc3BDb2RlUghyZXNwQ29kZRI5CgpjcmVhdGVkX2F0GAUgASgLMhouZ29vZ2xlLnByb3RvYn'
+    'VmLlRpbWVzdGFtcFIJY3JlYXRlZEF0');
 
 @$core.Deprecated('Use loginEventListDescriptor instead')
 const LoginEventList$json = {

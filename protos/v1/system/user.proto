@@ -18,17 +18,19 @@ message BasicUser {
     UserRole role   = 4;
 }
 
-message LocalUser {
+message User {
     int64 id                  = 1;
     BasicUser basic           = 2;
-    bool need_change_password = 3;
+    bool enable_totp          = 3;
+    int64 totp_id             = 4;
+    bool need_change_password = 5;
 
     google.protobuf.Timestamp created_at = 31;
     google.protobuf.Timestamp updated_at = 32;
 }
 
-message LocalUserList {
-    repeated LocalUser list = 1;
+message UserList {
+    repeated User list = 1;
 }
 
 message Totp {

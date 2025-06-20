@@ -104,10 +104,12 @@ class BasicUser extends $pb.GeneratedMessage {
   void clearRole() => $_clearField(4);
 }
 
-class LocalUser extends $pb.GeneratedMessage {
-  factory LocalUser({
+class User extends $pb.GeneratedMessage {
+  factory User({
     $fixnum.Int64? id,
     BasicUser? basic,
+    $core.bool? enableTotp,
+    $fixnum.Int64? totpId,
     $core.bool? needChangePassword,
     $5.Timestamp? createdAt,
     $5.Timestamp? updatedAt,
@@ -115,42 +117,46 @@ class LocalUser extends $pb.GeneratedMessage {
     final result = create();
     if (id != null) result.id = id;
     if (basic != null) result.basic = basic;
+    if (enableTotp != null) result.enableTotp = enableTotp;
+    if (totpId != null) result.totpId = totpId;
     if (needChangePassword != null) result.needChangePassword = needChangePassword;
     if (createdAt != null) result.createdAt = createdAt;
     if (updatedAt != null) result.updatedAt = updatedAt;
     return result;
   }
 
-  LocalUser._();
+  User._();
 
-  factory LocalUser.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory LocalUser.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory User.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
+  factory User.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'LocalUser', package: const $pb.PackageName(_omitMessageNames ? '' : 'system'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'User', package: const $pb.PackageName(_omitMessageNames ? '' : 'system'), createEmptyInstance: create)
     ..aInt64(1, _omitFieldNames ? '' : 'id')
     ..aOM<BasicUser>(2, _omitFieldNames ? '' : 'basic', subBuilder: BasicUser.create)
-    ..aOB(3, _omitFieldNames ? '' : 'needChangePassword')
+    ..aOB(3, _omitFieldNames ? '' : 'enableTotp')
+    ..aInt64(4, _omitFieldNames ? '' : 'totpId')
+    ..aOB(5, _omitFieldNames ? '' : 'needChangePassword')
     ..aOM<$5.Timestamp>(31, _omitFieldNames ? '' : 'createdAt', subBuilder: $5.Timestamp.create)
     ..aOM<$5.Timestamp>(32, _omitFieldNames ? '' : 'updatedAt', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  LocalUser clone() => LocalUser()..mergeFromMessage(this);
+  User clone() => User()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  LocalUser copyWith(void Function(LocalUser) updates) => super.copyWith((message) => updates(message as LocalUser)) as LocalUser;
+  User copyWith(void Function(User) updates) => super.copyWith((message) => updates(message as User)) as User;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static LocalUser create() => LocalUser._();
+  static User create() => User._();
   @$core.override
-  LocalUser createEmptyInstance() => create();
-  static $pb.PbList<LocalUser> createRepeated() => $pb.PbList<LocalUser>();
+  User createEmptyInstance() => create();
+  static $pb.PbList<User> createRepeated() => $pb.PbList<User>();
   @$core.pragma('dart2js:noInline')
-  static LocalUser getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<LocalUser>(create);
-  static LocalUser? _defaultInstance;
+  static User getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<User>(create);
+  static User? _defaultInstance;
 
   @$pb.TagNumber(1)
   $fixnum.Int64 get id => $_getI64(0);
@@ -173,75 +179,93 @@ class LocalUser extends $pb.GeneratedMessage {
   BasicUser ensureBasic() => $_ensure(1);
 
   @$pb.TagNumber(3)
-  $core.bool get needChangePassword => $_getBF(2);
+  $core.bool get enableTotp => $_getBF(2);
   @$pb.TagNumber(3)
-  set needChangePassword($core.bool value) => $_setBool(2, value);
+  set enableTotp($core.bool value) => $_setBool(2, value);
   @$pb.TagNumber(3)
-  $core.bool hasNeedChangePassword() => $_has(2);
+  $core.bool hasEnableTotp() => $_has(2);
   @$pb.TagNumber(3)
-  void clearNeedChangePassword() => $_clearField(3);
+  void clearEnableTotp() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $fixnum.Int64 get totpId => $_getI64(3);
+  @$pb.TagNumber(4)
+  set totpId($fixnum.Int64 value) => $_setInt64(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasTotpId() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearTotpId() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.bool get needChangePassword => $_getBF(4);
+  @$pb.TagNumber(5)
+  set needChangePassword($core.bool value) => $_setBool(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasNeedChangePassword() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearNeedChangePassword() => $_clearField(5);
 
   @$pb.TagNumber(31)
-  $5.Timestamp get createdAt => $_getN(3);
+  $5.Timestamp get createdAt => $_getN(5);
   @$pb.TagNumber(31)
   set createdAt($5.Timestamp value) => $_setField(31, value);
   @$pb.TagNumber(31)
-  $core.bool hasCreatedAt() => $_has(3);
+  $core.bool hasCreatedAt() => $_has(5);
   @$pb.TagNumber(31)
   void clearCreatedAt() => $_clearField(31);
   @$pb.TagNumber(31)
-  $5.Timestamp ensureCreatedAt() => $_ensure(3);
+  $5.Timestamp ensureCreatedAt() => $_ensure(5);
 
   @$pb.TagNumber(32)
-  $5.Timestamp get updatedAt => $_getN(4);
+  $5.Timestamp get updatedAt => $_getN(6);
   @$pb.TagNumber(32)
   set updatedAt($5.Timestamp value) => $_setField(32, value);
   @$pb.TagNumber(32)
-  $core.bool hasUpdatedAt() => $_has(4);
+  $core.bool hasUpdatedAt() => $_has(6);
   @$pb.TagNumber(32)
   void clearUpdatedAt() => $_clearField(32);
   @$pb.TagNumber(32)
-  $5.Timestamp ensureUpdatedAt() => $_ensure(4);
+  $5.Timestamp ensureUpdatedAt() => $_ensure(6);
 }
 
-class LocalUserList extends $pb.GeneratedMessage {
-  factory LocalUserList({
-    $core.Iterable<LocalUser>? list,
+class UserList extends $pb.GeneratedMessage {
+  factory UserList({
+    $core.Iterable<User>? list,
   }) {
     final result = create();
     if (list != null) result.list.addAll(list);
     return result;
   }
 
-  LocalUserList._();
+  UserList._();
 
-  factory LocalUserList.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory LocalUserList.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory UserList.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
+  factory UserList.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'LocalUserList', package: const $pb.PackageName(_omitMessageNames ? '' : 'system'), createEmptyInstance: create)
-    ..pc<LocalUser>(1, _omitFieldNames ? '' : 'list', $pb.PbFieldType.PM, subBuilder: LocalUser.create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UserList', package: const $pb.PackageName(_omitMessageNames ? '' : 'system'), createEmptyInstance: create)
+    ..pc<User>(1, _omitFieldNames ? '' : 'list', $pb.PbFieldType.PM, subBuilder: User.create)
     ..hasRequiredFields = false
   ;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  LocalUserList clone() => LocalUserList()..mergeFromMessage(this);
+  UserList clone() => UserList()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  LocalUserList copyWith(void Function(LocalUserList) updates) => super.copyWith((message) => updates(message as LocalUserList)) as LocalUserList;
+  UserList copyWith(void Function(UserList) updates) => super.copyWith((message) => updates(message as UserList)) as UserList;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static LocalUserList create() => LocalUserList._();
+  static UserList create() => UserList._();
   @$core.override
-  LocalUserList createEmptyInstance() => create();
-  static $pb.PbList<LocalUserList> createRepeated() => $pb.PbList<LocalUserList>();
+  UserList createEmptyInstance() => create();
+  static $pb.PbList<UserList> createRepeated() => $pb.PbList<UserList>();
   @$core.pragma('dart2js:noInline')
-  static LocalUserList getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<LocalUserList>(create);
-  static LocalUserList? _defaultInstance;
+  static UserList getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UserList>(create);
+  static UserList? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $pb.PbList<LocalUser> get list => $_getList(0);
+  $pb.PbList<User> get list => $_getList(0);
 }
 
 class Totp extends $pb.GeneratedMessage {
