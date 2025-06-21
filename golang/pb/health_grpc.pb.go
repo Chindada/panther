@@ -20,27 +20,27 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	BasicDataInterface_HealthChannel_FullMethodName = "/health.BasicDataInterface/HealthChannel"
+	HealthInterface_HealthChannel_FullMethodName = "/health.HealthInterface/HealthChannel"
 )
 
-// BasicDataInterfaceClient is the client API for BasicDataInterface service.
+// HealthInterfaceClient is the client API for HealthInterface service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type BasicDataInterfaceClient interface {
+type HealthInterfaceClient interface {
 	HealthChannel(ctx context.Context, opts ...grpc.CallOption) (grpc.BidiStreamingClient[emptypb.Empty, emptypb.Empty], error)
 }
 
-type basicDataInterfaceClient struct {
+type healthInterfaceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewBasicDataInterfaceClient(cc grpc.ClientConnInterface) BasicDataInterfaceClient {
-	return &basicDataInterfaceClient{cc}
+func NewHealthInterfaceClient(cc grpc.ClientConnInterface) HealthInterfaceClient {
+	return &healthInterfaceClient{cc}
 }
 
-func (c *basicDataInterfaceClient) HealthChannel(ctx context.Context, opts ...grpc.CallOption) (grpc.BidiStreamingClient[emptypb.Empty, emptypb.Empty], error) {
+func (c *healthInterfaceClient) HealthChannel(ctx context.Context, opts ...grpc.CallOption) (grpc.BidiStreamingClient[emptypb.Empty, emptypb.Empty], error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	stream, err := c.cc.NewStream(ctx, &BasicDataInterface_ServiceDesc.Streams[0], BasicDataInterface_HealthChannel_FullMethodName, cOpts...)
+	stream, err := c.cc.NewStream(ctx, &HealthInterface_ServiceDesc.Streams[0], HealthInterface_HealthChannel_FullMethodName, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -49,65 +49,65 @@ func (c *basicDataInterfaceClient) HealthChannel(ctx context.Context, opts ...gr
 }
 
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
-type BasicDataInterface_HealthChannelClient = grpc.BidiStreamingClient[emptypb.Empty, emptypb.Empty]
+type HealthInterface_HealthChannelClient = grpc.BidiStreamingClient[emptypb.Empty, emptypb.Empty]
 
-// BasicDataInterfaceServer is the server API for BasicDataInterface service.
-// All implementations must embed UnimplementedBasicDataInterfaceServer
+// HealthInterfaceServer is the server API for HealthInterface service.
+// All implementations must embed UnimplementedHealthInterfaceServer
 // for forward compatibility.
-type BasicDataInterfaceServer interface {
+type HealthInterfaceServer interface {
 	HealthChannel(grpc.BidiStreamingServer[emptypb.Empty, emptypb.Empty]) error
-	mustEmbedUnimplementedBasicDataInterfaceServer()
+	mustEmbedUnimplementedHealthInterfaceServer()
 }
 
-// UnimplementedBasicDataInterfaceServer must be embedded to have
+// UnimplementedHealthInterfaceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedBasicDataInterfaceServer struct{}
+type UnimplementedHealthInterfaceServer struct{}
 
-func (UnimplementedBasicDataInterfaceServer) HealthChannel(grpc.BidiStreamingServer[emptypb.Empty, emptypb.Empty]) error {
+func (UnimplementedHealthInterfaceServer) HealthChannel(grpc.BidiStreamingServer[emptypb.Empty, emptypb.Empty]) error {
 	return status.Errorf(codes.Unimplemented, "method HealthChannel not implemented")
 }
-func (UnimplementedBasicDataInterfaceServer) mustEmbedUnimplementedBasicDataInterfaceServer() {}
-func (UnimplementedBasicDataInterfaceServer) testEmbeddedByValue()                            {}
+func (UnimplementedHealthInterfaceServer) mustEmbedUnimplementedHealthInterfaceServer() {}
+func (UnimplementedHealthInterfaceServer) testEmbeddedByValue()                         {}
 
-// UnsafeBasicDataInterfaceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to BasicDataInterfaceServer will
+// UnsafeHealthInterfaceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to HealthInterfaceServer will
 // result in compilation errors.
-type UnsafeBasicDataInterfaceServer interface {
-	mustEmbedUnimplementedBasicDataInterfaceServer()
+type UnsafeHealthInterfaceServer interface {
+	mustEmbedUnimplementedHealthInterfaceServer()
 }
 
-func RegisterBasicDataInterfaceServer(s grpc.ServiceRegistrar, srv BasicDataInterfaceServer) {
-	// If the following call pancis, it indicates UnimplementedBasicDataInterfaceServer was
+func RegisterHealthInterfaceServer(s grpc.ServiceRegistrar, srv HealthInterfaceServer) {
+	// If the following call pancis, it indicates UnimplementedHealthInterfaceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&BasicDataInterface_ServiceDesc, srv)
+	s.RegisterService(&HealthInterface_ServiceDesc, srv)
 }
 
-func _BasicDataInterface_HealthChannel_Handler(srv interface{}, stream grpc.ServerStream) error {
-	return srv.(BasicDataInterfaceServer).HealthChannel(&grpc.GenericServerStream[emptypb.Empty, emptypb.Empty]{ServerStream: stream})
+func _HealthInterface_HealthChannel_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(HealthInterfaceServer).HealthChannel(&grpc.GenericServerStream[emptypb.Empty, emptypb.Empty]{ServerStream: stream})
 }
 
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
-type BasicDataInterface_HealthChannelServer = grpc.BidiStreamingServer[emptypb.Empty, emptypb.Empty]
+type HealthInterface_HealthChannelServer = grpc.BidiStreamingServer[emptypb.Empty, emptypb.Empty]
 
-// BasicDataInterface_ServiceDesc is the grpc.ServiceDesc for BasicDataInterface service.
+// HealthInterface_ServiceDesc is the grpc.ServiceDesc for HealthInterface service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var BasicDataInterface_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "health.BasicDataInterface",
-	HandlerType: (*BasicDataInterfaceServer)(nil),
+var HealthInterface_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "health.HealthInterface",
+	HandlerType: (*HealthInterfaceServer)(nil),
 	Methods:     []grpc.MethodDesc{},
 	Streams: []grpc.StreamDesc{
 		{
 			StreamName:    "HealthChannel",
-			Handler:       _BasicDataInterface_HealthChannel_Handler,
+			Handler:       _HealthInterface_HealthChannel_Handler,
 			ServerStreams: true,
 			ClientStreams: true,
 		},

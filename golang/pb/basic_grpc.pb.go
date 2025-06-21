@@ -20,177 +20,177 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	BasicDataInterface_GetAllStockDetail_FullMethodName  = "/basic.BasicDataInterface/GetAllStockDetail"
-	BasicDataInterface_GetAllFutureDetail_FullMethodName = "/basic.BasicDataInterface/GetAllFutureDetail"
-	BasicDataInterface_GetAllOptionDetail_FullMethodName = "/basic.BasicDataInterface/GetAllOptionDetail"
+	BasicInterface_GetAllStockDetail_FullMethodName  = "/basic.BasicInterface/GetAllStockDetail"
+	BasicInterface_GetAllFutureDetail_FullMethodName = "/basic.BasicInterface/GetAllFutureDetail"
+	BasicInterface_GetAllOptionDetail_FullMethodName = "/basic.BasicInterface/GetAllOptionDetail"
 )
 
-// BasicDataInterfaceClient is the client API for BasicDataInterface service.
+// BasicInterfaceClient is the client API for BasicInterface service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type BasicDataInterfaceClient interface {
+type BasicInterfaceClient interface {
 	GetAllStockDetail(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*StockDetailList, error)
 	GetAllFutureDetail(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*FutureDetailList, error)
 	GetAllOptionDetail(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*OptionDetailList, error)
 }
 
-type basicDataInterfaceClient struct {
+type basicInterfaceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewBasicDataInterfaceClient(cc grpc.ClientConnInterface) BasicDataInterfaceClient {
-	return &basicDataInterfaceClient{cc}
+func NewBasicInterfaceClient(cc grpc.ClientConnInterface) BasicInterfaceClient {
+	return &basicInterfaceClient{cc}
 }
 
-func (c *basicDataInterfaceClient) GetAllStockDetail(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*StockDetailList, error) {
+func (c *basicInterfaceClient) GetAllStockDetail(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*StockDetailList, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(StockDetailList)
-	err := c.cc.Invoke(ctx, BasicDataInterface_GetAllStockDetail_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, BasicInterface_GetAllStockDetail_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *basicDataInterfaceClient) GetAllFutureDetail(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*FutureDetailList, error) {
+func (c *basicInterfaceClient) GetAllFutureDetail(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*FutureDetailList, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(FutureDetailList)
-	err := c.cc.Invoke(ctx, BasicDataInterface_GetAllFutureDetail_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, BasicInterface_GetAllFutureDetail_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *basicDataInterfaceClient) GetAllOptionDetail(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*OptionDetailList, error) {
+func (c *basicInterfaceClient) GetAllOptionDetail(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*OptionDetailList, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(OptionDetailList)
-	err := c.cc.Invoke(ctx, BasicDataInterface_GetAllOptionDetail_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, BasicInterface_GetAllOptionDetail_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// BasicDataInterfaceServer is the server API for BasicDataInterface service.
-// All implementations must embed UnimplementedBasicDataInterfaceServer
+// BasicInterfaceServer is the server API for BasicInterface service.
+// All implementations must embed UnimplementedBasicInterfaceServer
 // for forward compatibility.
-type BasicDataInterfaceServer interface {
+type BasicInterfaceServer interface {
 	GetAllStockDetail(context.Context, *emptypb.Empty) (*StockDetailList, error)
 	GetAllFutureDetail(context.Context, *emptypb.Empty) (*FutureDetailList, error)
 	GetAllOptionDetail(context.Context, *emptypb.Empty) (*OptionDetailList, error)
-	mustEmbedUnimplementedBasicDataInterfaceServer()
+	mustEmbedUnimplementedBasicInterfaceServer()
 }
 
-// UnimplementedBasicDataInterfaceServer must be embedded to have
+// UnimplementedBasicInterfaceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedBasicDataInterfaceServer struct{}
+type UnimplementedBasicInterfaceServer struct{}
 
-func (UnimplementedBasicDataInterfaceServer) GetAllStockDetail(context.Context, *emptypb.Empty) (*StockDetailList, error) {
+func (UnimplementedBasicInterfaceServer) GetAllStockDetail(context.Context, *emptypb.Empty) (*StockDetailList, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllStockDetail not implemented")
 }
-func (UnimplementedBasicDataInterfaceServer) GetAllFutureDetail(context.Context, *emptypb.Empty) (*FutureDetailList, error) {
+func (UnimplementedBasicInterfaceServer) GetAllFutureDetail(context.Context, *emptypb.Empty) (*FutureDetailList, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllFutureDetail not implemented")
 }
-func (UnimplementedBasicDataInterfaceServer) GetAllOptionDetail(context.Context, *emptypb.Empty) (*OptionDetailList, error) {
+func (UnimplementedBasicInterfaceServer) GetAllOptionDetail(context.Context, *emptypb.Empty) (*OptionDetailList, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllOptionDetail not implemented")
 }
-func (UnimplementedBasicDataInterfaceServer) mustEmbedUnimplementedBasicDataInterfaceServer() {}
-func (UnimplementedBasicDataInterfaceServer) testEmbeddedByValue()                            {}
+func (UnimplementedBasicInterfaceServer) mustEmbedUnimplementedBasicInterfaceServer() {}
+func (UnimplementedBasicInterfaceServer) testEmbeddedByValue()                        {}
 
-// UnsafeBasicDataInterfaceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to BasicDataInterfaceServer will
+// UnsafeBasicInterfaceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to BasicInterfaceServer will
 // result in compilation errors.
-type UnsafeBasicDataInterfaceServer interface {
-	mustEmbedUnimplementedBasicDataInterfaceServer()
+type UnsafeBasicInterfaceServer interface {
+	mustEmbedUnimplementedBasicInterfaceServer()
 }
 
-func RegisterBasicDataInterfaceServer(s grpc.ServiceRegistrar, srv BasicDataInterfaceServer) {
-	// If the following call pancis, it indicates UnimplementedBasicDataInterfaceServer was
+func RegisterBasicInterfaceServer(s grpc.ServiceRegistrar, srv BasicInterfaceServer) {
+	// If the following call pancis, it indicates UnimplementedBasicInterfaceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&BasicDataInterface_ServiceDesc, srv)
+	s.RegisterService(&BasicInterface_ServiceDesc, srv)
 }
 
-func _BasicDataInterface_GetAllStockDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _BasicInterface_GetAllStockDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BasicDataInterfaceServer).GetAllStockDetail(ctx, in)
+		return srv.(BasicInterfaceServer).GetAllStockDetail(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BasicDataInterface_GetAllStockDetail_FullMethodName,
+		FullMethod: BasicInterface_GetAllStockDetail_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BasicDataInterfaceServer).GetAllStockDetail(ctx, req.(*emptypb.Empty))
+		return srv.(BasicInterfaceServer).GetAllStockDetail(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BasicDataInterface_GetAllFutureDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _BasicInterface_GetAllFutureDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BasicDataInterfaceServer).GetAllFutureDetail(ctx, in)
+		return srv.(BasicInterfaceServer).GetAllFutureDetail(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BasicDataInterface_GetAllFutureDetail_FullMethodName,
+		FullMethod: BasicInterface_GetAllFutureDetail_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BasicDataInterfaceServer).GetAllFutureDetail(ctx, req.(*emptypb.Empty))
+		return srv.(BasicInterfaceServer).GetAllFutureDetail(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BasicDataInterface_GetAllOptionDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _BasicInterface_GetAllOptionDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BasicDataInterfaceServer).GetAllOptionDetail(ctx, in)
+		return srv.(BasicInterfaceServer).GetAllOptionDetail(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BasicDataInterface_GetAllOptionDetail_FullMethodName,
+		FullMethod: BasicInterface_GetAllOptionDetail_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BasicDataInterfaceServer).GetAllOptionDetail(ctx, req.(*emptypb.Empty))
+		return srv.(BasicInterfaceServer).GetAllOptionDetail(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// BasicDataInterface_ServiceDesc is the grpc.ServiceDesc for BasicDataInterface service.
+// BasicInterface_ServiceDesc is the grpc.ServiceDesc for BasicInterface service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var BasicDataInterface_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "basic.BasicDataInterface",
-	HandlerType: (*BasicDataInterfaceServer)(nil),
+var BasicInterface_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "basic.BasicInterface",
+	HandlerType: (*BasicInterfaceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "GetAllStockDetail",
-			Handler:    _BasicDataInterface_GetAllStockDetail_Handler,
+			Handler:    _BasicInterface_GetAllStockDetail_Handler,
 		},
 		{
 			MethodName: "GetAllFutureDetail",
-			Handler:    _BasicDataInterface_GetAllFutureDetail_Handler,
+			Handler:    _BasicInterface_GetAllFutureDetail_Handler,
 		},
 		{
 			MethodName: "GetAllOptionDetail",
-			Handler:    _BasicDataInterface_GetAllOptionDetail_Handler,
+			Handler:    _BasicInterface_GetAllOptionDetail_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

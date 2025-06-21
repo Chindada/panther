@@ -25,7 +25,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13health/health.proto\x12\x06health\x1a\x1bgoogle/protobuf/empty.proto2[\n\x12\x42\x61sicDataInterface\x12\x45\n\rHealthChannel\x12\x16.google.protobuf.Empty\x1a\x16.google.protobuf.Empty\"\x00(\x01\x30\x01\x42\x06Z\x04./pbb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13health/health.proto\x12\x06health\x1a\x1bgoogle/protobuf/empty.proto2X\n\x0fHealthInterface\x12\x45\n\rHealthChannel\x12\x16.google.protobuf.Empty\x1a\x16.google.protobuf.Empty\"\x00(\x01\x30\x01\x42\x06Z\x04./pbb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -33,6 +33,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'health.health_pb2', _global
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z\004./pb'
-  _globals['_BASICDATAINTERFACE']._serialized_start=60
-  _globals['_BASICDATAINTERFACE']._serialized_end=151
+  _globals['_HEALTHINTERFACE']._serialized_start=60
+  _globals['_HEALTHINTERFACE']._serialized_end=148
 # @@protoc_insertion_point(module_scope)

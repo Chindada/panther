@@ -19,13 +19,13 @@ import '../google/protobuf/empty.pb.dart' as $0;
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
-class BasicDataInterfaceApi {
+class HealthInterfaceApi {
   final $pb.RpcClient _client;
 
-  BasicDataInterfaceApi(this._client);
+  HealthInterfaceApi(this._client);
 
   $async.Future<$0.Empty> healthChannel($pb.ClientContext? ctx, $0.Empty request) =>
-    _client.invoke<$0.Empty>(ctx, 'BasicDataInterface', 'HealthChannel', request, $0.Empty())
+    _client.invoke<$0.Empty>(ctx, 'HealthInterface', 'HealthChannel', request, $0.Empty())
   ;
 }
 

@@ -25,7 +25,7 @@ if _version_not_supported:
     )
 
 
-class BasicDataInterfaceStub(object):
+class HealthInterfaceStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -35,13 +35,13 @@ class BasicDataInterfaceStub(object):
             channel: A grpc.Channel.
         """
         self.HealthChannel = channel.stream_stream(
-                '/health.BasicDataInterface/HealthChannel',
+                '/health.HealthInterface/HealthChannel',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
 
 
-class BasicDataInterfaceServicer(object):
+class HealthInterfaceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def HealthChannel(self, request_iterator, context):
@@ -51,7 +51,7 @@ class BasicDataInterfaceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_BasicDataInterfaceServicer_to_server(servicer, server):
+def add_HealthInterfaceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'HealthChannel': grpc.stream_stream_rpc_method_handler(
                     servicer.HealthChannel,
@@ -60,13 +60,13 @@ def add_BasicDataInterfaceServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'health.BasicDataInterface', rpc_method_handlers)
+            'health.HealthInterface', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('health.BasicDataInterface', rpc_method_handlers)
+    server.add_registered_method_handlers('health.HealthInterface', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
-class BasicDataInterface(object):
+class HealthInterface(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -83,7 +83,7 @@ class BasicDataInterface(object):
         return grpc.experimental.stream_stream(
             request_iterator,
             target,
-            '/health.BasicDataInterface/HealthChannel',
+            '/health.HealthInterface/HealthChannel',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,

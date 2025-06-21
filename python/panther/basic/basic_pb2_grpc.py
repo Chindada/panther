@@ -28,7 +28,7 @@ if _version_not_supported:
     )
 
 
-class BasicDataInterfaceStub(object):
+class BasicInterfaceStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -38,23 +38,23 @@ class BasicDataInterfaceStub(object):
             channel: A grpc.Channel.
         """
         self.GetAllStockDetail = channel.unary_unary(
-                '/basic.BasicDataInterface/GetAllStockDetail',
+                '/basic.BasicInterface/GetAllStockDetail',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
                 response_deserializer=basic_dot_stock__pb2.StockDetailList.FromString,
                 _registered_method=True)
         self.GetAllFutureDetail = channel.unary_unary(
-                '/basic.BasicDataInterface/GetAllFutureDetail',
+                '/basic.BasicInterface/GetAllFutureDetail',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
                 response_deserializer=basic_dot_future__pb2.FutureDetailList.FromString,
                 _registered_method=True)
         self.GetAllOptionDetail = channel.unary_unary(
-                '/basic.BasicDataInterface/GetAllOptionDetail',
+                '/basic.BasicInterface/GetAllOptionDetail',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
                 response_deserializer=basic_dot_option__pb2.OptionDetailList.FromString,
                 _registered_method=True)
 
 
-class BasicDataInterfaceServicer(object):
+class BasicInterfaceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetAllStockDetail(self, request, context):
@@ -76,7 +76,7 @@ class BasicDataInterfaceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_BasicDataInterfaceServicer_to_server(servicer, server):
+def add_BasicInterfaceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'GetAllStockDetail': grpc.unary_unary_rpc_method_handler(
                     servicer.GetAllStockDetail,
@@ -95,13 +95,13 @@ def add_BasicDataInterfaceServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'basic.BasicDataInterface', rpc_method_handlers)
+            'basic.BasicInterface', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('basic.BasicDataInterface', rpc_method_handlers)
+    server.add_registered_method_handlers('basic.BasicInterface', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
-class BasicDataInterface(object):
+class BasicInterface(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -118,7 +118,7 @@ class BasicDataInterface(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/basic.BasicDataInterface/GetAllStockDetail',
+            '/basic.BasicInterface/GetAllStockDetail',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             basic_dot_stock__pb2.StockDetailList.FromString,
             options,
@@ -145,7 +145,7 @@ class BasicDataInterface(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/basic.BasicDataInterface/GetAllFutureDetail',
+            '/basic.BasicInterface/GetAllFutureDetail',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             basic_dot_future__pb2.FutureDetailList.FromString,
             options,
@@ -172,7 +172,7 @@ class BasicDataInterface(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/basic.BasicDataInterface/GetAllOptionDetail',
+            '/basic.BasicInterface/GetAllOptionDetail',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             basic_dot_option__pb2.OptionDetailList.FromString,
             options,

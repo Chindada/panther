@@ -20,7 +20,7 @@ import 'health.pbjson.dart';
 
 export 'health.pb.dart';
 
-abstract class BasicDataInterfaceServiceBase extends $pb.GeneratedService {
+abstract class HealthInterfaceServiceBase extends $pb.GeneratedService {
   $async.Future<$0.Empty> healthChannel($pb.ServerContext ctx, $0.Empty request);
 
   $pb.GeneratedMessage createRequest($core.String methodName) {
@@ -37,7 +37,7 @@ abstract class BasicDataInterfaceServiceBase extends $pb.GeneratedService {
     }
   }
 
-  $core.Map<$core.String, $core.dynamic> get $json => BasicDataInterfaceServiceBase$json;
-  $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> get $messageJson => BasicDataInterfaceServiceBase$messageJson;
+  $core.Map<$core.String, $core.dynamic> get $json => HealthInterfaceServiceBase$json;
+  $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> get $messageJson => HealthInterfaceServiceBase$messageJson;
 }
 

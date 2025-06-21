@@ -4,8 +4,8 @@
 import { Empty } from "../google/protobuf/empty";
 import { ServiceType } from "@protobuf-ts/runtime-rpc";
 /**
- * @generated ServiceType for protobuf service health.BasicDataInterface
+ * @generated ServiceType for protobuf service health.HealthInterface
  */
-export const BasicDataInterface = new ServiceType("health.BasicDataInterface", [
+export const HealthInterface = new ServiceType("health.HealthInterface", [
     { name: "HealthChannel", serverStreaming: true, clientStreaming: true, options: {}, I: Empty, O: Empty }
 ]);

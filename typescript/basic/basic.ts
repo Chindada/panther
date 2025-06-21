@@ -7,9 +7,9 @@ import { StockDetailList } from "./stock";
 import { Empty } from "../google/protobuf/empty";
 import { ServiceType } from "@protobuf-ts/runtime-rpc";
 /**
- * @generated ServiceType for protobuf service basic.BasicDataInterface
+ * @generated ServiceType for protobuf service basic.BasicInterface
  */
-export const BasicDataInterface = new ServiceType("basic.BasicDataInterface", [
+export const BasicInterface = new ServiceType("basic.BasicInterface", [
     { name: "GetAllStockDetail", options: {}, I: Empty, O: StockDetailList },
     { name: "GetAllFutureDetail", options: {}, I: Empty, O: FutureDetailList },
     { name: "GetAllOptionDetail", options: {}, I: Empty, O: OptionDetailList }

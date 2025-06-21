@@ -22,19 +22,19 @@ import 'stock.pb.dart' as $1;
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
-class BasicDataInterfaceApi {
+class BasicInterfaceApi {
   final $pb.RpcClient _client;
 
-  BasicDataInterfaceApi(this._client);
+  BasicInterfaceApi(this._client);
 
   $async.Future<$1.StockDetailList> getAllStockDetail($pb.ClientContext? ctx, $0.Empty request) =>
-    _client.invoke<$1.StockDetailList>(ctx, 'BasicDataInterface', 'GetAllStockDetail', request, $1.StockDetailList())
+    _client.invoke<$1.StockDetailList>(ctx, 'BasicInterface', 'GetAllStockDetail', request, $1.StockDetailList())
   ;
   $async.Future<$2.FutureDetailList> getAllFutureDetail($pb.ClientContext? ctx, $0.Empty request) =>
-    _client.invoke<$2.FutureDetailList>(ctx, 'BasicDataInterface', 'GetAllFutureDetail', request, $2.FutureDetailList())
+    _client.invoke<$2.FutureDetailList>(ctx, 'BasicInterface', 'GetAllFutureDetail', request, $2.FutureDetailList())
   ;
   $async.Future<$3.OptionDetailList> getAllOptionDetail($pb.ClientContext? ctx, $0.Empty request) =>
-    _client.invoke<$3.OptionDetailList>(ctx, 'BasicDataInterface', 'GetAllOptionDetail', request, $3.OptionDetailList())
+    _client.invoke<$3.OptionDetailList>(ctx, 'BasicInterface', 'GetAllOptionDetail', request, $3.OptionDetailList())
   ;
 }
 

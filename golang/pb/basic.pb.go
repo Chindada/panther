@@ -25,8 +25,8 @@ var File_basic_basic_proto protoreflect.FileDescriptor
 
 const file_basic_basic_proto_rawDesc = "" +
 	"\n" +
-	"\x11basic/basic.proto\x12\x05basic\x1a\x1bgoogle/protobuf/empty.proto\x1a\x11basic/stock.proto\x1a\x12basic/future.proto\x1a\x12basic/option.proto2\xed\x01\n" +
-	"\x12BasicDataInterface\x12E\n" +
+	"\x11basic/basic.proto\x12\x05basic\x1a\x1bgoogle/protobuf/empty.proto\x1a\x11basic/stock.proto\x1a\x12basic/future.proto\x1a\x12basic/option.proto2\xe9\x01\n" +
+	"\x0eBasicInterface\x12E\n" +
 	"\x11GetAllStockDetail\x12\x16.google.protobuf.Empty\x1a\x16.basic.StockDetailList\"\x00\x12G\n" +
 	"\x12GetAllFutureDetail\x12\x16.google.protobuf.Empty\x1a\x17.basic.FutureDetailList\"\x00\x12G\n" +
 	"\x12GetAllOptionDetail\x12\x16.google.protobuf.Empty\x1a\x17.basic.OptionDetailList\"\x00B\x06Z\x04./pbb\x06proto3"
@@ -38,12 +38,12 @@ var file_basic_basic_proto_goTypes = []any{
 	(*OptionDetailList)(nil), // 3: basic.OptionDetailList
 }
 var file_basic_basic_proto_depIdxs = []int32{
-	0, // 0: basic.BasicDataInterface.GetAllStockDetail:input_type -> google.protobuf.Empty
-	0, // 1: basic.BasicDataInterface.GetAllFutureDetail:input_type -> google.protobuf.Empty
-	0, // 2: basic.BasicDataInterface.GetAllOptionDetail:input_type -> google.protobuf.Empty
-	1, // 3: basic.BasicDataInterface.GetAllStockDetail:output_type -> basic.StockDetailList
-	2, // 4: basic.BasicDataInterface.GetAllFutureDetail:output_type -> basic.FutureDetailList
-	3, // 5: basic.BasicDataInterface.GetAllOptionDetail:output_type -> basic.OptionDetailList
+	0, // 0: basic.BasicInterface.GetAllStockDetail:input_type -> google.protobuf.Empty
+	0, // 1: basic.BasicInterface.GetAllFutureDetail:input_type -> google.protobuf.Empty
+	0, // 2: basic.BasicInterface.GetAllOptionDetail:input_type -> google.protobuf.Empty
+	1, // 3: basic.BasicInterface.GetAllStockDetail:output_type -> basic.StockDetailList
+	2, // 4: basic.BasicInterface.GetAllFutureDetail:output_type -> basic.FutureDetailList
+	3, // 5: basic.BasicInterface.GetAllOptionDetail:output_type -> basic.OptionDetailList
 	3, // [3:6] is the sub-list for method output_type
 	0, // [0:3] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name

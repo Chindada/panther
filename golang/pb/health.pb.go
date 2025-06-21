@@ -25,16 +25,16 @@ var File_health_health_proto protoreflect.FileDescriptor
 
 const file_health_health_proto_rawDesc = "" +
 	"\n" +
-	"\x13health/health.proto\x12\x06health\x1a\x1bgoogle/protobuf/empty.proto2[\n" +
-	"\x12BasicDataInterface\x12E\n" +
+	"\x13health/health.proto\x12\x06health\x1a\x1bgoogle/protobuf/empty.proto2X\n" +
+	"\x0fHealthInterface\x12E\n" +
 	"\rHealthChannel\x12\x16.google.protobuf.Empty\x1a\x16.google.protobuf.Empty\"\x00(\x010\x01B\x06Z\x04./pbb\x06proto3"
 
 var file_health_health_proto_goTypes = []any{
 	(*emptypb.Empty)(nil), // 0: google.protobuf.Empty
 }
 var file_health_health_proto_depIdxs = []int32{
-	0, // 0: health.BasicDataInterface.HealthChannel:input_type -> google.protobuf.Empty
-	0, // 1: health.BasicDataInterface.HealthChannel:output_type -> google.protobuf.Empty
+	0, // 0: health.HealthInterface.HealthChannel:input_type -> google.protobuf.Empty
+	0, // 1: health.HealthInterface.HealthChannel:output_type -> google.protobuf.Empty
 	1, // [1:2] is the sub-list for method output_type
 	0, // [0:1] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name

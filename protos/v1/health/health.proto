@@ -4,6 +4,6 @@ package health;
 
 import "google/protobuf/empty.proto";
 
-service BasicDataInterface {
+service HealthInterface {
     rpc HealthChannel(stream google.protobuf.Empty) returns (stream google.protobuf.Empty) {}
 }

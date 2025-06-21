@@ -23,7 +23,7 @@ import 'stock.pb.dart' as $1;
 
 export 'basic.pb.dart';
 
-abstract class BasicDataInterfaceServiceBase extends $pb.GeneratedService {
+abstract class BasicInterfaceServiceBase extends $pb.GeneratedService {
   $async.Future<$1.StockDetailList> getAllStockDetail($pb.ServerContext ctx, $0.Empty request);
   $async.Future<$2.FutureDetailList> getAllFutureDetail($pb.ServerContext ctx, $0.Empty request);
   $async.Future<$3.OptionDetailList> getAllOptionDetail($pb.ServerContext ctx, $0.Empty request);
@@ -46,7 +46,7 @@ abstract class BasicDataInterfaceServiceBase extends $pb.GeneratedService {
     }
   }
 
-  $core.Map<$core.String, $core.dynamic> get $json => BasicDataInterfaceServiceBase$json;
-  $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> get $messageJson => BasicDataInterfaceServiceBase$messageJson;
+  $core.Map<$core.String, $core.dynamic> get $json => BasicInterfaceServiceBase$json;
+  $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> get $messageJson => BasicInterfaceServiceBase$messageJson;
 }
 
