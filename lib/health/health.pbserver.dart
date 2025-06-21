@@ -1,6 +1,6 @@
 //
 //  Generated code. Do not modify.
-//  source: basic/basic.proto
+//  source: health/health.proto
 //
 // @dart = 3.3
 
@@ -16,32 +16,23 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../google/protobuf/empty.pb.dart' as $0;
-import 'basic.pbjson.dart';
-import 'future.pb.dart' as $2;
-import 'option.pb.dart' as $3;
-import 'stock.pb.dart' as $1;
+import 'health.pbjson.dart';
 
-export 'basic.pb.dart';
+export 'health.pb.dart';
 
 abstract class BasicDataInterfaceServiceBase extends $pb.GeneratedService {
-  $async.Future<$1.StockDetailList> getAllStockDetail($pb.ServerContext ctx, $0.Empty request);
-  $async.Future<$2.FutureDetailList> getAllFutureDetail($pb.ServerContext ctx, $0.Empty request);
-  $async.Future<$3.OptionDetailList> getAllOptionDetail($pb.ServerContext ctx, $0.Empty request);
+  $async.Future<$0.Empty> healthChannel($pb.ServerContext ctx, $0.Empty request);
 
   $pb.GeneratedMessage createRequest($core.String methodName) {
     switch (methodName) {
-      case 'GetAllStockDetail': return $0.Empty();
-      case 'GetAllFutureDetail': return $0.Empty();
-      case 'GetAllOptionDetail': return $0.Empty();
+      case 'HealthChannel': return $0.Empty();
       default: throw $core.ArgumentError('Unknown method: $methodName');
     }
   }
 
   $async.Future<$pb.GeneratedMessage> handleCall($pb.ServerContext ctx, $core.String methodName, $pb.GeneratedMessage request) {
     switch (methodName) {
-      case 'GetAllStockDetail': return getAllStockDetail(ctx, request as $0.Empty);
-      case 'GetAllFutureDetail': return getAllFutureDetail(ctx, request as $0.Empty);
-      case 'GetAllOptionDetail': return getAllOptionDetail(ctx, request as $0.Empty);
+      case 'HealthChannel': return healthChannel(ctx, request as $0.Empty);
       default: throw $core.ArgumentError('Unknown method: $methodName');
     }
   }

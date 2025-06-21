@@ -1,0 +1,9 @@
+syntax            = "proto3";
+option go_package = "./pb";
+package health;
+
+import "google/protobuf/empty.proto";
+
+service BasicDataInterface {
+    rpc HealthChannel(stream google.protobuf.Empty) returns (stream google.protobuf.Empty) {}
+}

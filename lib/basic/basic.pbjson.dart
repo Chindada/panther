@@ -22,7 +22,6 @@ import 'stock.pbjson.dart' as $1;
 const $core.Map<$core.String, $core.dynamic> BasicDataInterfaceServiceBase$json = {
   '1': 'BasicDataInterface',
   '2': [
-    {'1': 'HealthChannel', '2': '.google.protobuf.Empty', '3': '.google.protobuf.Empty', '4': {}, '5': true, '6': true},
     {'1': 'GetAllStockDetail', '2': '.google.protobuf.Empty', '3': '.basic.StockDetailList', '4': {}},
     {'1': 'GetAllFutureDetail', '2': '.google.protobuf.Empty', '3': '.basic.FutureDetailList', '4': {}},
     {'1': 'GetAllOptionDetail', '2': '.google.protobuf.Empty', '3': '.basic.OptionDetailList', '4': {}},
@@ -42,10 +41,9 @@ const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> BasicDataI
 
 /// Descriptor for `BasicDataInterface`. Decode as a `google.protobuf.ServiceDescriptorProto`.
 final $typed_data.Uint8List basicDataInterfaceServiceDescriptor = $convert.base64Decode(
-    'ChJCYXNpY0RhdGFJbnRlcmZhY2USRQoNSGVhbHRoQ2hhbm5lbBIWLmdvb2dsZS5wcm90b2J1Zi'
-    '5FbXB0eRoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAKAEwARJFChFHZXRBbGxTdG9ja0RldGFp'
-    'bBIWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRoWLmJhc2ljLlN0b2NrRGV0YWlsTGlzdCIAEkcKEk'
-    'dldEFsbEZ1dHVyZURldGFpbBIWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRoXLmJhc2ljLkZ1dHVy'
-    'ZURldGFpbExpc3QiABJHChJHZXRBbGxPcHRpb25EZXRhaWwSFi5nb29nbGUucHJvdG9idWYuRW'
-    '1wdHkaFy5iYXNpYy5PcHRpb25EZXRhaWxMaXN0IgA=');
+    'ChJCYXNpY0RhdGFJbnRlcmZhY2USRQoRR2V0QWxsU3RvY2tEZXRhaWwSFi5nb29nbGUucHJvdG'
+    '9idWYuRW1wdHkaFi5iYXNpYy5TdG9ja0RldGFpbExpc3QiABJHChJHZXRBbGxGdXR1cmVEZXRh'
+    'aWwSFi5nb29nbGUucHJvdG9idWYuRW1wdHkaFy5iYXNpYy5GdXR1cmVEZXRhaWxMaXN0IgASRw'
+    'oSR2V0QWxsT3B0aW9uRGV0YWlsEhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5GhcuYmFzaWMuT3B0'
+    'aW9uRGV0YWlsTGlzdCIA');
 

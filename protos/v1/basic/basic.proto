@@ -8,8 +8,6 @@ import "basic/future.proto";
 import "basic/option.proto";
 
 service BasicDataInterface {
-    rpc HealthChannel(stream google.protobuf.Empty) returns (stream google.protobuf.Empty) {}
-
     rpc GetAllStockDetail(google.protobuf.Empty) returns (basic.StockDetailList) {}
     rpc GetAllFutureDetail(google.protobuf.Empty) returns (basic.FutureDetailList) {}
     rpc GetAllOptionDetail(google.protobuf.Empty) returns (basic.OptionDetailList) {}

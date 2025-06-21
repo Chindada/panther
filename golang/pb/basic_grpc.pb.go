@@ -20,7 +20,6 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	BasicDataInterface_HealthChannel_FullMethodName      = "/basic.BasicDataInterface/HealthChannel"
 	BasicDataInterface_GetAllStockDetail_FullMethodName  = "/basic.BasicDataInterface/GetAllStockDetail"
 	BasicDataInterface_GetAllFutureDetail_FullMethodName = "/basic.BasicDataInterface/GetAllFutureDetail"
 	BasicDataInterface_GetAllOptionDetail_FullMethodName = "/basic.BasicDataInterface/GetAllOptionDetail"
@@ -30,7 +29,6 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type BasicDataInterfaceClient interface {
-	HealthChannel(ctx context.Context, opts ...grpc.CallOption) (grpc.BidiStreamingClient[emptypb.Empty, emptypb.Empty], error)
 	GetAllStockDetail(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*StockDetailList, error)
 	GetAllFutureDetail(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*FutureDetailList, error)
 	GetAllOptionDetail(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*OptionDetailList, error)
@@ -43,19 +41,6 @@ type basicDataInterfaceClient struct {
 func NewBasicDataInterfaceClient(cc grpc.ClientConnInterface) BasicDataInterfaceClient {
 	return &basicDataInterfaceClient{cc}
 }
-
-func (c *basicDataInterfaceClient) HealthChannel(ctx context.Context, opts ...grpc.CallOption) (grpc.BidiStreamingClient[emptypb.Empty, emptypb.Empty], error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	stream, err := c.cc.NewStream(ctx, &BasicDataInterface_ServiceDesc.Streams[0], BasicDataInterface_HealthChannel_FullMethodName, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	x := &grpc.GenericClientStream[emptypb.Empty, emptypb.Empty]{ClientStream: stream}
-	return x, nil
-}
-
-// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
-type BasicDataInterface_HealthChannelClient = grpc.BidiStreamingClient[emptypb.Empty, emptypb.Empty]
 
 func (c *basicDataInterfaceClient) GetAllStockDetail(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*StockDetailList, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
@@ -91,7 +76,6 @@ func (c *basicDataInterfaceClient) GetAllOptionDetail(ctx context.Context, in *e
 // All implementations must embed UnimplementedBasicDataInterfaceServer
 // for forward compatibility.
 type BasicDataInterfaceServer interface {
-	HealthChannel(grpc.BidiStreamingServer[emptypb.Empty, emptypb.Empty]) error
 	GetAllStockDetail(context.Context, *emptypb.Empty) (*StockDetailList, error)
 	GetAllFutureDetail(context.Context, *emptypb.Empty) (*FutureDetailList, error)
 	GetAllOptionDetail(context.Context, *emptypb.Empty) (*OptionDetailList, error)
@@ -105,9 +89,6 @@ type BasicDataInterfaceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedBasicDataInterfaceServer struct{}
 
-func (UnimplementedBasicDataInterfaceServer) HealthChannel(grpc.BidiStreamingServer[emptypb.Empty, emptypb.Empty]) error {
-	return status.Errorf(codes.Unimplemented, "method HealthChannel not implemented")
-}
 func (UnimplementedBasicDataInterfaceServer) GetAllStockDetail(context.Context, *emptypb.Empty) (*StockDetailList, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllStockDetail not implemented")
 }
@@ -137,13 +118,6 @@ func RegisterBasicDataInterfaceServer(s grpc.ServiceRegistrar, srv BasicDataInte
 	}
 	s.RegisterService(&BasicDataInterface_ServiceDesc, srv)
 }
-
-func _BasicDataInterface_HealthChannel_Handler(srv interface{}, stream grpc.ServerStream) error {
-	return srv.(BasicDataInterfaceServer).HealthChannel(&grpc.GenericServerStream[emptypb.Empty, emptypb.Empty]{ServerStream: stream})
-}
-
-// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
-type BasicDataInterface_HealthChannelServer = grpc.BidiStreamingServer[emptypb.Empty, emptypb.Empty]
 
 func _BasicDataInterface_GetAllStockDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(emptypb.Empty)
@@ -219,13 +193,6 @@ var BasicDataInterface_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _BasicDataInterface_GetAllOptionDetail_Handler,
 		},
 	},
-	Streams: []grpc.StreamDesc{
-		{
-			StreamName:    "HealthChannel",
-			Handler:       _BasicDataInterface_HealthChannel_Handler,
-			ServerStreams: true,
-			ClientStreams: true,
-		},
-	},
+	Streams:  []grpc.StreamDesc{},
 	Metadata: "basic/basic.proto",
 }
