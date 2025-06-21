@@ -88,6 +88,11 @@ jobs:
     needs:
       - build
     steps:
+      - name: set lower case owner name
+        run: |
+          echo "IMAGE_NAME_BASE=ghcr.io/${OWNER,,}/${{ github.event.repository.name }}" >>$GITHUB_ENV
+        env:
+          OWNER: ${{ github.repository_owner }}
       - name: Download digests
         uses: actions/download-artifact@v4
         with:
