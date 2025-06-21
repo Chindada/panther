@@ -26,7 +26,6 @@ jobs:
         platform:
           - linux/amd64
           - linux/arm64
-          - linux/arm/v7
     outputs:
       BUILD_DATE: ${{ steps.prepare.outputs.BUILD_DATE }}
     steps:
